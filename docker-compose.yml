@@ -4,3 +4,11 @@ services:
     image: tubes-1:latest
     ports:
       - 8008:80
+    volumes:
+      - .:/var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - UPLOAD_LIMIT=10M
+
