@@ -13,7 +13,6 @@
 <body>
     <div class="register">
         <div class="left-register">
-        
         </div>
         <div class="right-register">
             <div class="right-register2">
