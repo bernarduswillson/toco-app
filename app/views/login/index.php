@@ -12,7 +12,6 @@
 <body>
     <div class="login">
         <div class="left-login">
-        
         </div>
         <div class="right-login">
             <div class="right-login2">

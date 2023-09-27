@@ -8,7 +8,9 @@
 .left-register {
     width: 50%;
     align-items: center;
-    background-color: #D7D7D7;
+    background-image: url("../img/tuco-artwork.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .right-register {
