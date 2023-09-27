@@ -38,7 +38,7 @@
                     </a>
                 </div>
                 <h3 class="login-desc1">
-                    <a class="login-desc1-click">
+                    <a class="login-desc1-click" href="/?register">
                         Don't have an account yet? Register here
                     </a>
                 </h3>

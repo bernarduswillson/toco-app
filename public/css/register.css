@@ -1,17 +1,17 @@
-.login {
+.register {
     display: flex;
     position: relative;
     height: 100vh;
     overflow-x: hidden;
 }
 
-.left-login {
+.left-register {
     width: 50%;
     align-items: center;
     background-color: #D7D7D7;
 }
 
-.right-login {
+.right-register {
     width: 50%;
     display: flex;
     align-items: center;
@@ -19,16 +19,16 @@
     background-color: #FFFFFF;
 }
 
-.right-login2 {
+.right-register2 {
     width: 55%;
 }
 
-.login-image {
+.register-image {
     justify-content: center;
     width: 100%;
 }
 
-.login-header {
+.register-header {
     font-size: 30px;
     font-weight: 700;
     text-align: center;
@@ -36,16 +36,16 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
-.login-username {
+.register-email {
     color: #006CDB;
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-.login-username-input {
+.register-email-input {
     border: none;
     border-bottom: 2px solid #000;
     outline: none;
@@ -55,23 +55,49 @@
     transition: width 0.3s ease-in-out;
 }
 
-.login-username-input:focus {
+.register-email-input:focus {
     border-bottom: 2px solid #006CDB;
 }
 
-.login-username-input:focus {
+.register-email-input:focus {
     border-bottom: 2px solid #006CDB;
     width: 105%;
 }
 
-.login-password {
+.register-username {
+    margin-top: 40px;
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.register-username-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-username-input:focus {
+    border-bottom: 2px solid #006CDB;
+}
+
+.register-username-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.register-password {
     color: #006CDB;
     font-size: 18px;
     margin-bottom: 5px;
     margin-top: 40px;
 }
 
-.login-password-input {
+.register-password-input {
     border: none;
     border-bottom: 2px solid #000;
     outline: none;
@@ -81,7 +107,29 @@
     transition: width 0.3s ease-in-out;
 }
 
-.login-password-input:focus {
+.register-password-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.register-confirm {
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+.register-confirm-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-confirm-input:focus {
     border-bottom: 2px solid #006CDB;
     width: 105%;
 }
@@ -92,8 +140,8 @@
     width: 100%;
 }
 
-.login-button {
-    margin-top: 90px;
+.register-button {
+    margin-top: 70px;
     margin-bottom: 40px;
     background: linear-gradient(45deg, #006CDB, #8535D4);
     color: #FFFFFF;
@@ -107,21 +155,21 @@
     /* gamau transition backgroundnya */
 }
 
-.login-button:hover {
+.register-button:hover {
     transform: translateY(-4px);
     opacity: 0.6;
 }
 
-.login-button:active {
+.register-button:active {
     transform: translateY(6px);
 }
 
-.login-desc1 {
+.register-desc1 {
     display: flex;
     justify-content: center;
 }
 
-.login-desc1-click {
+.register-desc1-click {
     cursor: pointer;
     font-weight: 400;
     text-decoration: underline;
@@ -132,21 +180,21 @@
     transition: all 0.3s ease 0s;
 }
 
-.login-desc1-click:hover {
+.register-desc1-click:hover {
     transform: translateY(-2px);
 }
 
-.login-desc1-click:active {
+.register-desc1-click:active {
     transform: translateY(4px);
 }
 
-.login-desc2 {
+.register-desc2 {
     margin-top: 5px;
     display: flex;
     justify-content: center;
 }
 
-.login-desc2-click {
+.register-desc2-click {
     cursor: pointer;
     font-weight: 400;
     text-decoration: underline;
@@ -157,21 +205,21 @@
     transition: all 0.3s ease 0s;
 }
 
-.login-desc2-click:hover {
+.register-desc2-click:hover {
     transform: translateY(-2px);
 }
 
-.login-desc2-click:active {
+.register-desc2-click:active {
     transform: translateY(4px);
 }
 
 @media (max-width: 1000px) {
 
-    .left-login {
+    .left-register {
         display: none;
     }
 
-    .right-login {
+    .right-register {
         width: 100vw;
     }
 }
