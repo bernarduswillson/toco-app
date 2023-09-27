@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/css/register.css">
     <link rel="stylesheet" href="../../../public/css/global.css">
+    <script src="../../../public/js/register.js"></script>
 </head>
 <body>
     <div class="register">
@@ -24,23 +25,27 @@
                     <h2 class="register-email">
                         Email
                     </h2>
-                    <input type="text" class="register-email-input" placeholder="Your email">
+                    <input type="email" name="email" id="email" class="register-email-input" placeholder="Your email" onchange="checkEmail()" required>
+                    <p id="email-error"></p>
                     <h2 class="register-username">
                         Username
                     </h2>
-                    <input type="text" class="register-username-input" placeholder="Your username">
+                    <input type="text" name="username" id="username"class="register-username-input" placeholder="Your username" onchange="checkUsername()" required>
+                    <p id="username-error"></p>
                     <h2 class="register-password">
                         Password
                     </h2>
-                    <input type="text" class="register-password-input" placeholder="Your password">
+                    <input type="password" name="password" id="password"class="register-password-input" placeholder="Your password" onchange="checkPassword()" required>
+                    <p id="password-error"></p>
                     <h2 class="register-confirm">
                         Confirm Password
                     </h2>
-                    <input type="text" class="register-confirm-input" placeholder="Confirm your password">
+                    <input type="password" name="confirm-password" id="confirm-password"class="register-confirm-input" placeholder="Confirm your password" onchange="checkPassword()">
+                    <p id="confirm-password-error"></p>
                 </div>
                 <div class="button-container">
                     <a href="/?dashboard">
-                        <button class="register-button">
+                        <button type="submit" class="register-button" id="register-button" disabled>
                             Register
                         </button>
                     </a>

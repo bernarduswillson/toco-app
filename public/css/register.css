@@ -213,6 +213,11 @@
     transform: translateY(4px);
 }
 
+#username-error, #email-error, #password-error, #confirm-password-error {
+  color: red;
+  font-size: 14px;
+}
+
 @media (max-width: 1000px) {
 
     .left-register {
