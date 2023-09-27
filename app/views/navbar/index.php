@@ -10,8 +10,8 @@
 </head>
 <body>
     <nav>
-        <div class="navbar">
-            <a class="logo" href="">
+        <div class="leftnav">
+            <a class="logonav" href="">
                 <img src="../../../public/img/logo.svg" alt="Logo" height="50px">
             </a>
             <ul class="nav-links">
@@ -20,7 +20,7 @@
                 <li><a href="#">Bootcamp</a></li>
             </ul>
         </div>
-        <div class="right">
+        <div class="rightnav">
             <button class="login">
                 Login
             </button>
@@ -31,5 +31,6 @@
             </div>
         </div>
     </nav>
+    <script src="../../../public/js/navbar.js"></script>
 </body>
 </html>

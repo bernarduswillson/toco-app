@@ -1,12 +1,11 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  text-transform: none;
 }
 
 body, ul {
@@ -16,23 +15,26 @@ body, ul {
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
 }
 
-.logo {
+.logonav {
     margin: 10px 50px;
     cursor: pointer;
     opacity: 1;
 }
 
-.logo:hover {
+.logonav:hover {
     margin: 10px 50px;
     cursor: pointer;
     opacity: 0.8;
 }
 
-.navbar {
+.leftnav {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -40,8 +42,10 @@ nav {
     padding: 10px 20px;
 }
 
-.right {
+.rightnav {
     margin-right: 50px;
+    position: absolute;
+    right: 0;
 }
 
 .login {
@@ -50,12 +54,10 @@ nav {
     padding: 8px 35px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
     border: 0.5px solid #006CDB;
     transition: all 0.3s ease 0s;
-    /* gamau transition backgroundnya */
 }
 
 .login:hover {
@@ -85,7 +87,7 @@ li a {
     position: relative;
 }
 
-a::before {
+li a::before {
     content: '';
     position: absolute;
     width: 0;
@@ -112,13 +114,18 @@ a:hover::before {
 
 @media (max-width: 1000px) {
 
-    .navbar {
+    .leftnav {
         justify-content: space-between;
     }
 
     .menu-toggle {
         display: block;
         cursor: pointer;
+        opacity: 1;
+    }
+
+    .menu-toggle:hover {
+        opacity: 0.5;
     }
 
     .nav-links {
