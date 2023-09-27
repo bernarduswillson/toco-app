@@ -6,17 +6,17 @@
     overflow-x: hidden;
 }
 
-.lefthome {
+.left-home {
     margin-left: 7%;
 }
 
-.header1 {
+.home-header1 {
     color: #006CDB;
     font-size: 30px;
     font-weight: 400;
 }
 
-.header2 {
+.home-header2 {
     background: linear-gradient(45deg, #006CDB, #8535D4);
     font-size: 70px;
     font-weight: 700;
@@ -27,18 +27,18 @@
     padding-bottom: 10px;
 }
 
-.righthome {
+.right-home {
     position: absolute;
     right: 7%;
     margin-top: 50px;
     z-index: -1;
 }
 
-.imagehome {
+.home-image {
     height: 60vh;
 }
 
-.getstarted {
+.get-started {
     margin-top: 40px;
     background: linear-gradient(45deg, #006CDB, #F37021);
     color: #FFFFFF;
@@ -47,24 +47,27 @@
     font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
-    border: 0.5px solid #006CDB;
+    border: none;
+    opacity: 1;
     transition: all 0.3s ease 0s;
-    /* gamau transition backgroundnya */
 }
 
-.getstarted:hover {
-    background: #FFFFFF;
-    color: #006CDB;
-    border: 0.5px solid #006CDB;
+.get-started:hover {
+    transform: translateY(-4px);
+    opacity: 0.6;
+}
+
+.get-started:active {
+    transform: translateY(6px);
 }
 
 @media (max-width: 700px) {
 
-    .righthome {
+    .right-home {
         right: -180px;
     }
 
-    .header2 {
+    .home-header2 {
         background: linear-gradient(45deg, #006CDB, #8535D4);
         font-size: 60px;
         font-weight: 700;
