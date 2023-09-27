@@ -9,7 +9,7 @@ class App {
     {
       // Redirect to 'Home'
       $url = $this->parse_url();
-      if ($url[0] != 'register') {
+      if ($url[0] == '') {
         $this->controller = 'Home';
       }
       
