@@ -12,7 +12,7 @@
 <body>
     <nav>
         <div class="left-nav">
-            <a class="nav-logo" href="">
+            <a class="nav-logo" href="/">
                 <img src="../../../public/img/logo.svg" alt="Logo" height="50px">
             </a>
             <ul class="nav-links">

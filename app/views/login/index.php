@@ -30,7 +30,7 @@
                     <input type="text" class="login-password-input" placeholder="Your password">
                 </div>
                 <div class="button-container">
-                    <a href="/?dashboard">
+                    <a href="/?learn">
                         <button class="login-button">
                             Login
                         </button>
