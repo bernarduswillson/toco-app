@@ -54,3 +54,15 @@
     justify-content: center;
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .error-header {
+        font-size: 26vw;
+    }
+
+    .error-desc {
+        margin: 0 40px;
+        font-size: 5vw;
+        line-height: normal;
+    }
+}
