@@ -43,7 +43,7 @@
                     <p id="confirm-password-error"></p>
                 </div>
                 <div class="button-container">
-                    <a href="/?dashboard">
+                    <a href="/?learn">
                         <button type="submit" class="register-button" id="register-button" disabled>
                             Register
                         </button>
