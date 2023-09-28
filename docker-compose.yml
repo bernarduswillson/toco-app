@@ -12,3 +12,9 @@ services:
     environment:
       - UPLOAD_LIMIT=10M
 
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bewe
+      POSTGRES_DB: toco
