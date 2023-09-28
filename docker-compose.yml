@@ -18,3 +18,5 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: bewe
       POSTGRES_DB: toco
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
