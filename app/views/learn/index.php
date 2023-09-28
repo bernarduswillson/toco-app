@@ -16,16 +16,16 @@
                 I want to learn ...
             </h1>
             <div class="learn-container">
-                <a href="/?preview">
-                    <div class="learn-card">
+                <div class="learn-card">
+                    <a href="/?preview">
                         <div>
                             <img class="learn-card-image" src="../../../public/img/uk-flag.svg" alt="English" height="130px">
                             <h2 class="learn-card-header">
                                 English
                             </h2>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <div class="learn-card">
                     <a href="/?preview">
                         <div>
