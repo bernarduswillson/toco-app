@@ -11,12 +11,16 @@ services:
       dockerfile: Dockerfile
     environment:
       - UPLOAD_LIMIT=10M
+      - DB_HOST=postgresql
 
-  db:
+  postgresql:
     image: postgres:latest
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: bewe
       POSTGRES_DB: toco
     volumes:
       - "./db:/docker-entrypoint-initdb.d"
+    restart: always
