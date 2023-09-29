@@ -44,11 +44,9 @@
                         <p id="confirm-password-error"></p>
                     </div>
                     <div class="button-container">
-                        <a href="/?dashboard">
-                            <button type="submit" class="register-button" id="register-button" disabled>
-                                Register
-                            </button>
-                        </a>
+                        <button type="submit" class="register-button" id="register-button" disabled>
+                            Register
+                        </button>
                     </div>
                 </form>
                 <h3 class="register-desc1">
