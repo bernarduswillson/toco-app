@@ -25,26 +25,26 @@ const validateEmail = (email) => {
     }
     else {
         // nanti hapus aja
-        document.getElementById("username").style.borderColor = "green";
-        document.getElementById('username-error').innerHTML = "";
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.open('POST', '../../api/auth/register.php', true);
-    //   xhr.onload = function() {
-    //     if (this.status == 200) {
-    //       let response = JSON.parse(this.responseText);
-    //       if (response.status == "success") {
-    //         document.getElementById("username").style.borderColor = "green";
-    //         document.getElementById('username-error').innerHTML = "";
-    //       }
-    //       else{
-    //         document.getElementById("username").style.borderColor = "red";
-    //         document.getElementById('username-error').innerHTML = response.message;
-    //       }
-    //     }
+        // document.getElementById("username").style.borderColor = "green";
+        // document.getElementById('username-error').innerHTML = "";
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '../../api/auth/register.php', true);
+      xhr.onload = function() {
+        if (this.status == 200) {
+          let response = JSON.parse(this.responseText);
+          if (response.status == "success") {
+            document.getElementById("username").style.borderColor = "green";
+            document.getElementById('username-error').innerHTML = "";
+          }
+          else{
+            document.getElementById("username").style.borderColor = "red";
+            document.getElementById('username-error').innerHTML = response.message;
+          }
+        }
         checkAll();
-    //   }
+      }
   
-    //   xhr.send(JSON.stringify({username: username}));
+      xhr.send(JSON.stringify({username: username}));
     }
     checkAll();
   }
@@ -60,27 +60,27 @@ const validateEmail = (email) => {
     }
     else {
         // nanti hapus aja
-        document.getElementById("email").style.borderColor = "green";
-        document.getElementById('email-error').innerHTML = "";
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.open('POST', '../../api/auth/register.php', true);
-    //   xhr.onload = function() {
-    //     if (this.status == 200) {
-    //       console.log(this.responseText);
-    //       let response = JSON.parse(this.responseText);
-    //       if (response.status == "success") {
-    //         document.getElementById("email").style.borderColor = "green";
-    //         document.getElementById('email-error').innerHTML = "";
-    //       }
-    //       else{
-    //         document.getElementById("email").style.borderColor = "red";
-    //         document.getElementById('email-error').innerHTML = response.message;
-    //       }
-    //     }
+        // document.getElementById("email").style.borderColor = "green";
+        // document.getElementById('email-error').innerHTML = "";
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '../../api/auth/register.php', true);
+      xhr.onload = function() {
+        if (this.status == 200) {
+          console.log(this.responseText);
+          let response = JSON.parse(this.responseText);
+          if (response.status == "success") {
+            document.getElementById("email").style.borderColor = "green";
+            document.getElementById('email-error').innerHTML = "";
+          }
+          else{
+            document.getElementById("email").style.borderColor = "red";
+            document.getElementById('email-error').innerHTML = response.message;
+          }
+        }
         checkAll();
-    //   }
+      }
   
-    //   xhr.send(JSON.stringify({email: email}));
+      xhr.send(JSON.stringify({email: email}));
     }
     checkAll();
   }
