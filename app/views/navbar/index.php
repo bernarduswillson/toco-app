@@ -11,8 +11,8 @@
 
             <ul class="nav-menu">
                 <li><a href="/?learn" class="text-sm text-black">Learn</a></li>
-                <li><a href="/?learn" class="text-sm text-black">Articles</a></li>
-                <li><a href="/?learn" class="text-sm text-black">Bootcamp</a></li>
+                <li><a href="/#" class="text-sm text-black">Articles</a></li>
+                <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             </ul>
         </div>
 
@@ -34,8 +34,8 @@
     <div class="dropdown-menu">
         <ul>
             <li><a href="/?learn" class="text-sm text-black">Learn</a></li>
-            <li><a href="/?" class="text-sm text-black">Articles</a></li>
-            <li><a href="/?" class="text-sm text-black">Bootcamp</a></li>
+            <li><a href="/#" class="text-sm text-black">Articles</a></li>
+            <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             <li><a href="/?login" class="login-btn text-sm primary-button font-reg">Login</a></li>
         </ul>
     </div>

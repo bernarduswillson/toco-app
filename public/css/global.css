@@ -6,6 +6,7 @@
 :root {
   --white: #fff;
   --black: #000;
+  --grey: #999;
   --orange: #F37021;
   --blue: #006CDB;
   --blue-purple-gradient: linear-gradient(45deg, #006CDB, #8535D4);
@@ -20,6 +21,10 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .container {
@@ -50,8 +55,16 @@
   font-weight: 700;
 }
 
+.text-white {
+  color: var(--white);
+}
+
 .text-black {
   color: var(--black);
+}
+
+.text-grey {
+  color: var(--grey);
 }
 
 .text-blue {

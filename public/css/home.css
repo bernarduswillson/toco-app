@@ -5,6 +5,7 @@
     height: fit-content;
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 .home .home-container {
@@ -20,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 36px 0;
+    margin: 72px 0;
 }
 
 .home .home-container .hero-container .left-home {
