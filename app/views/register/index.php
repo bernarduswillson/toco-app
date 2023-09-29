@@ -47,7 +47,7 @@
                         <button type="submit" class="register-button" id="register-button" disabled>
                             Register
                         </button>
-                    </a>
+                    <!-- </a> -->
                 </div>
                 <h3 class="register-desc1">
                     <a href="/?login" class="register-desc1-click">

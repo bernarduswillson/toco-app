@@ -1,80 +1,90 @@
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
+
 .home {
+    width: 100vw;
+    height: fit-content;
     display: flex;
-    position: relative;
-    height: 100vh;
+    justify-content: center;
+}
+
+.home .home-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Hero */
+
+.home .home-container .hero-container {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
     align-items: center;
-    overflow-x: hidden;
+    justify-content: space-between;
+    margin: 36px 0;
 }
 
-.left-home {
-    margin-left: 7%;
+.home .home-container .hero-container .left-home {
+    display: flex;
+    flex-direction: column;
 }
 
-.home-header1 {
-    color: #006CDB;
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.home-header2 {
-    background: linear-gradient(45deg, #006CDB, #8535D4);
-    font-size: 70px;
-    font-weight: 700;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    line-height: 75px;
-    padding-bottom: 10px;
-}
-
-.right-home {
-    position: absolute;
-    right: 7%;
-    margin-top: 50px;
-    z-index: -1;
-}
-
-.home-image {
-    height: 60vh;
-}
-
-.get-started {
-    margin-top: 40px;
-    background: linear-gradient(45deg, #006CDB, #F37021);
-    color: #FFFFFF;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-size: 16px;
+.home .home-container .hero-container .left-home .get-started-btn {
+    margin-top: 30px;
     letter-spacing: 1px;
-    cursor: pointer;
-    border: none;
-    opacity: 1;
     transition: all 0.3s ease 0s;
 }
 
-.get-started:hover {
+.home .home-container .hero-container .left-home .get-started-btn:hover {
     transform: translateY(-4px);
     opacity: 0.6;
 }
 
-.get-started:active {
+.home .home-container .hero-container .left-home .get-started-btn:active {
     transform: translateY(6px);
 }
 
-@media (max-width: 700px) {
+.home .home-container .hero-container .right-home img {
+    height: 330px;
+    margin-left: -60px;
+}
 
-    .right-home {
-        right: -180px;
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+
+    /* Hero */
+
+    .home .home-container .hero-container {
+        margin: 72px 0;
+        width: 85%;
     }
 
-    .home-header2 {
-        background: linear-gradient(45deg, #006CDB, #8535D4);
-        font-size: 60px;
-        font-weight: 700;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        line-height: 65px;
-        padding-bottom: 10px;
+    .home .home-container .hero-container .right-home img {
+        height: 360px;
+    }
+
+    .home .home-container .hero-container .left-home {
+        gap: 10px;
+    }
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+
+    /* Hero */
+
+    .home .home-container .hero-container .right-home img {
+        height: 420px;
+    }
+}
+
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
+@media (min-width: 1440px) {
+    /* Hero */
+
+    .home .home-container .hero-container .right-home img {
+        height: 620px;
     }
 }

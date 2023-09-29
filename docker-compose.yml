@@ -12,3 +12,11 @@ services:
     environment:
       - UPLOAD_LIMIT=10M
 
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sma/ma10-11-12
+      POSTGRES_DB: toco
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"

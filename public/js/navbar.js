@@ -1,6 +1,8 @@
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+const hamburger = document.querySelector("#hamburger");
+const dropDownMenu = document.querySelector(".dropdown-menu");
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+hamburger.addEventListener('click', () => {
+    console.log("toggle");
+    dropDownMenu.classList.toggle("open");
+    hamburger.classList.toggle("open");
 });
