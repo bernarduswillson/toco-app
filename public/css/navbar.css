@@ -68,6 +68,17 @@ nav .nav-container .right-nav #hamburger.open #bar-3 {
     transform: rotate(-45deg) translateX(7px) translateY(-7px);
 }
 
+/* Logged */
+
+nav .nav-container .right-nav #logged {
+    display: none;
+}
+
+nav .nav-container .right-nav #logged #profile-picture {
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
 /* Login Button */
 
 nav .nav-container .right-nav .login-btn {
@@ -158,6 +169,15 @@ nav .dropdown-menu ul li a:active {
         display: none;
     }
 
+    /* Logged */
+
+    nav .nav-container .right-nav #logged {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
     /* Login button */
 
     nav .nav-container .right-nav .login-btn {
@@ -177,6 +197,10 @@ nav .dropdown-menu ul li a:active {
     /* Dropdown */
 
     nav .dropdown-menu {
+        display: none;
+    }
+
+    nav .dropdown-menu.open {
         display: none;
     }
 }
