@@ -1,39 +1,43 @@
 <?php
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/navbar.css">
-    <link rel="stylesheet" href="../../../public/css/global.css">
-</head>
-<body>
-    <nav>
+<nav>
+    <div class="container nav-container">
+        
         <div class="left-nav">
-            <a class="nav-logo" href="">
-                <img src="../../../public/img/logo.svg" alt="Logo" height="50px">
+            <a href="/">
+                <img id="nav-logo" src="/public/icons/logo.svg" alt="Toco logo" draggable="false">
             </a>
-            <ul class="nav-links">
-                <li><a href="/?">Learn</a></li>
-                <li><a href="/?">Articles</a></li>
-                <li><a href="/?">Bootcamp</a></li>
+
+            <ul class="nav-menu">
+                <li><a href="/?learn" class="text-sm text-black">Learn</a></li>
+                <li><a href="/#" class="text-sm text-black">Articles</a></li>
+                <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             </ul>
         </div>
+
         <div class="right-nav">
+            <div id="hamburger">
+                <div id="bar-1"></div>
+                <div id="bar-2"></div>
+                <div id="bar-3"></div>
+            </div>
+
             <a href="/?login">
-                <button class="nav-login">
+                <button class="login-btn text-sm primary-button font-reg">
                     Login
                 </button>
             </a>
-            <div class="nav-menu-toggle">
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
-            </div>
         </div>
-    </nav>
-    <script src="../../../public/js/navbar.js"></script>
-</body>
-</html>
+
+    </div>
+    <div class="dropdown-menu">
+        <ul>
+            <li><a href="/?learn" class="text-sm text-black">Learn</a></li>
+            <li><a href="/#" class="text-sm text-black">Articles</a></li>
+            <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
+            <li><a href="/?login" class="login-btn text-sm primary-button font-reg">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<script src="/public/js/navbar.js"></script>
