@@ -10,7 +10,8 @@
 
 .home .home-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Hero */
@@ -22,6 +23,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 72px 0;
+    margin-bottom: 200px;
 }
 
 .home .home-container .hero-container .left-home {
@@ -49,6 +51,90 @@
     margin-left: -60px;
 }
 
+/* About */
+
+.home .home-container .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+.home .home-container .about-container #about-logo {
+    width: 70px;
+}
+
+.home .home-container .about-container p {
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.home .home-container .about-container #about-image {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Features */
+
+.home .home-container .feature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 160px;
+}
+
+.home .home-container .feature-container h2 {
+    margin-bottom: 60px;
+}
+
+.home .home-container .feature-container .feature-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card p {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card img {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* Banner */
+
+.home .home-container .banner-container {
+    margin-bottom: 120px;
+    background-image: url("/public/images/banner-image.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 84px 0;
+    width: 100%;
+}
+
+.home .home-container .banner-container h2 {
+    text-align: center;
+}
+
 /* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
 
 @media (min-width: 768px) {
@@ -56,8 +142,9 @@
     /* Hero */
 
     .home .home-container .hero-container {
-        margin: 72px 0;
         width: 85%;
+        margin: 72px 0;
+        margin-bottom: 200px;
     }
 
     .home .home-container .hero-container .right-home img {
@@ -66,6 +153,52 @@
 
     .home .home-container .hero-container .left-home {
         gap: 10px;
+    }
+
+    /* About */
+
+    .home .home-container .about-container p {
+        width: 70%;
+        margin-bottom: 40px;
+    }
+
+    .home .home-container .about-container #about-image {
+        width: 70%;
+    }
+
+    /* Features */
+
+    .home .home-container .feature-container h2 {
+        margin-bottom: 120px;
+    }
+
+    .home .home-container .feature-container .feature-card-container {
+        align-items: flex-start;
+        gap: 120px;
+        width: 80%;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card {
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card.left-card {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card p {
+        text-align: left;
+        width: 400px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 300px;
+        margin-left: -25%;
+        mask-image:-webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+        -webkit-mask-image:-webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     }
 }
 
@@ -78,14 +211,57 @@
     .home .home-container .hero-container .right-home img {
         height: 420px;
     }
+
+    /* Features */
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 420px;
+    }
+
+    /* Banner */
+
+    .home .home-container .banner-container {
+        padding: 160px 0;
+    }
 }
 
 /* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
 
 @media (min-width: 1440px) {
+
     /* Hero */
 
     .home .home-container .hero-container .right-home img {
         height: 620px;
     }
+
+    /* Features */
+
+    .home .home-container .feature-container {
+        margin-bottom: 300px;
+    }
+
+    .home .home-container .feature-container h2 {
+        margin-bottom: 180px;
+    }
+
+    .home .home-container .feature-container .feature-card-container {
+        gap: 180px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card p {
+        width: 600px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 460px;
+    }
+
+    /* Banner */
+
+    .home .home-container .banner-container {
+        margin-bottom: 300px;
+        padding: 240px 0;
+    }
+
 }
