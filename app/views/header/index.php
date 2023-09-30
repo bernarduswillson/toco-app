@@ -14,5 +14,7 @@
     <link rel="stylesheet" href="/public/css/footer.css">
     <link rel="stylesheet" href="/public/css/home.css">
     <link rel="stylesheet" href="/public/css/error.css">
+    <link rel="stylesheet" href="/public/css/login.css">
+    <link rel="stylesheet" href="/public/css/register.css">
   </head>
   <body>

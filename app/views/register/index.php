@@ -1,16 +1,6 @@
 <?php
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/register.css">
-    <link rel="stylesheet" href="../../../public/css/global.css">
-    <script src="../../../public/js/register.js"></script>
-</head>
-<body>
     <div class="register">
         <div class="left-register">
         </div>
