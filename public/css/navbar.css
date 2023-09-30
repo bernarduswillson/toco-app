@@ -8,8 +8,8 @@ nav {
     height: fit-content;
     padding: 10px 0;
 
-    position: relative;
-    z-index: 0;
+    position: absolute;
+    z-index: 20;
 }
 
 nav .nav-container {

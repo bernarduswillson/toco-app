@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 100px;
-    flex-wrap: wrap; /* Allow flex items to wrap to a new row */
+    flex-wrap: wrap;
 }
 
 .learn-card {
@@ -63,6 +63,11 @@
 }
 
 @media (max-width: 767px) {
+    .learn {
+        height: auto;
+        overflow: hidden;
+    }
+
     .learn-container {
         flex-direction: column;
         align-items: center;

@@ -15,7 +15,7 @@
         </div>
         <div class="right-login">
             <div class="right-login2">
-                <img class="login-image" src="../../../public/img/logo.svg" alt="Logo" height="50px">
+                <img class="login-image" src="../../../public/icons/logo.svg" alt="Logo" height="50px">
                 <h1 class="login-header">
                     Login
                 </h1>

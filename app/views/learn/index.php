@@ -19,7 +19,7 @@
                 <div class="learn-card">
                     <a href="/?preview">
                         <div>
-                            <img class="learn-card-image" src="../../../public/img/uk-flag.svg" alt="English" height="130px">
+                            <img class="learn-card-image" src="../../../public/icons/uk-flag.svg" alt="English" height="130px">
                             <h2 class="learn-card-header">
                                 English
                             </h2>
@@ -29,7 +29,7 @@
                 <div class="learn-card">
                     <a href="/?preview">
                         <div>
-                            <img class="learn-card-image" src="../../../public/img/id-flag.svg" alt="Indonesian" height="130px">
+                            <img class="learn-card-image" src="../../../public/icons/id-flag.svg" alt="Indonesian" height="130px">
                             <h2 class="learn-card-header">
                                 Indonesian
                             </h2>
@@ -39,7 +39,7 @@
                 <div class="learn-card">
                     <a href="/?preview">
                         <div>
-                            <img class="learn-card-image" src="../../../public/img/fr-flag.svg" alt="French" height="130px">
+                            <img class="learn-card-image" src="../../../public/icons/fr-flag.svg" alt="French" height="130px">
                             <h2 class="learn-card-header">
                                 French
                             </h2>
@@ -49,7 +49,7 @@
                 <div class="learn-card">
                     <a href="/?preview">
                         <div>
-                            <img class="learn-card-image" src="../../../public/img/gr-flag.svg" alt="Germany" height="130px">
+                            <img class="learn-card-image" src="../../../public/icons/gr-flag.svg" alt="Germany" height="130px">
                             <h2 class="learn-card-header">
                                 Germany
                             </h2>

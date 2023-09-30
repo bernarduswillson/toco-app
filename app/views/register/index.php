@@ -16,7 +16,7 @@
         </div>
         <div class="right-register">
             <div class="right-register2">
-                <img class="register-image" src="../../../public/img/logo.svg" alt="Logo" height="50px">
+                <img class="register-image" src="../../../public/icons/logo.svg" alt="Logo" height="50px">
                 <h1 class="register-header">
                     Register
                 </h1>
