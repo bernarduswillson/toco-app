@@ -6,7 +6,7 @@
         
         <div class="left-nav">
             <a href="/">
-                <img id="nav-logo" src="/public/icons/logo.svg" alt="Toco logo">
+                <img id="nav-logo" src="/public/icons/logo.svg" alt="Toco logo" draggable="false">
             </a>
 
             <ul class="nav-menu">

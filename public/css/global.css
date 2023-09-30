@@ -32,6 +32,10 @@ body {
   max-width: 1600px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* === TYPOGRAPHY CONFIG === */
 
 .text-sm {
