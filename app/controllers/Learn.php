@@ -3,7 +3,7 @@
 class Learn extends Controller {
   public function index() {
     if (!$this->isLoggedIn()) {
-        header('Location: /?login');
+        header('Location: /login');
         exit();
     }
 

@@ -39,15 +39,19 @@ class App {
     }
   
     public function parse_url()
-    {
-      if (isset($_SERVER['REQUEST_URI'])) {
-        $url = rtrim($_SERVER['REQUEST_URI'], '/');
-        $url = ltrim($url, 'public/');
-        $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url = ltrim($url, '?');
-        $url = explode('/', $url);
-        return $url;
+  {
+    if (isset($_SERVER['REQUEST_URI'])) {
+      if ($_SERVER['REQUEST_URI'] == '/') {
+        return [''];
       }
+      $url = $_SERVER['REQUEST_URI'];
+      $url = preg_replace('#^/public/#', '/', $url);
+      $url = rtrim($url, '/');
+      $url = explode('/', $url);
+      $url = array_values(array_filter($url));
+
+      return $url;
     }
+  }
   }
   

@@ -17,15 +17,15 @@ if (isset($_POST['username'])) {
 
   if ($result == null) {
     $_SESSION['error'] = "Invalid username or password";
-    header('location: ../../?login');
+    header('location: ../../login');
   } else {
     if (password_verify($password, $result['password'])) {
       $_SESSION['username'] = $username;
       $_SESSION['is_admin'] = $result['is_admin'] ? 1 : 0;
-      header('Location: ../../?learn');
+      header('Location: ../../learn');
     } else {
       $_SESSION['error'] = "Invalid username or password";
-      header('location: ../../?login');
+      header('location: ../../login');
     }
   }
 }

@@ -40,10 +40,10 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
   $rows = $user_model->register(array('username' => $username, 'password' => $password, 'email' => $email));
 
   if ($rows) {
-    header('Location: ../../?login');
+    header('Location: ../../login');
     echo json_encode(array('status' => 'success', 'message' => 'User created'));
   } else {
     $_SESSION['error'] = "Something went wrong";
-    header('Location: ../../?register');
+    header('Location: ../../register');
   }
 }

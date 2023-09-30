@@ -40,7 +40,7 @@
                     </div>
                 </form>
                 <h3 class="register-desc1">
-                    <a href="/?login" class="register-desc1-click">
+                    <a href="/login" class="register-desc1-click">
                         Already have an account? Login here
                     </a>
                 </h3>

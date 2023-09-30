@@ -15,7 +15,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
                         <h1 class="text-xl font-bold text-blue-purple-gradient">
                             Your Path to <br> Multilingual Excellence
                         </h1>                        
-                        <a class="distinct-button get-started-btn font-reg text-sm" href="<?php echo $username ? '/?learn' : '/?login'; ?>">
+                        <a class="distinct-button get-started-btn font-reg text-sm" href="<?php echo $username ? '/learn' : '/login'; ?>">
                             Get Started
                         </a>
                     </div>

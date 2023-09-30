@@ -17,7 +17,7 @@
             </h1>
             <div class="learn-container">
                 <div class="learn-card">
-                    <a href="/?preview">
+                    <a href="/preview">
                         <div>
                             <img class="learn-card-image" src="../../../public/icons/uk-flag.svg" alt="English" height="130px">
                             <h2 class="learn-card-header">
@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div class="learn-card">
-                    <a href="/?preview">
+                    <a href="/preview">
                         <div>
                             <img class="learn-card-image" src="../../../public/icons/id-flag.svg" alt="Indonesian" height="130px">
                             <h2 class="learn-card-header">
@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <div class="learn-card">
-                    <a href="/?preview">
+                    <a href="/preview">
                         <div>
                             <img class="learn-card-image" src="../../../public/icons/fr-flag.svg" alt="French" height="130px">
                             <h2 class="learn-card-header">
@@ -47,7 +47,7 @@
                     </a>
                 </div>
                 <div class="learn-card">
-                    <a href="/?preview">
+                    <a href="?preview">
                         <div>
                             <img class="learn-card-image" src="../../../public/icons/gr-flag.svg" alt="Germany" height="130px">
                             <h2 class="learn-card-header">

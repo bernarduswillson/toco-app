@@ -12,7 +12,7 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
             </a>
 
             <ul class="nav-menu">
-                <li><a href="<?php echo $username ? '/?learn' : '/?login'; ?>" class="text-sm text-black">Learn</a></li>
+                <li><a href="<?php echo $username ? '/learn' : '/login'; ?>" class="text-sm text-black">Learn</a></li>
                 <li><a href="/#" class="text-sm text-black">Articles</a></li>
                 <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             </ul>
@@ -32,12 +32,12 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
                         <span class="text-sm"><?php echo $username; ?>'s learning</span>
                     <?php endif; ?>
                     <div>
-                        <a href="/?profile">
+                        <a href="/profile">
                             <img id="profile-picture" src="/public/icons/profile.webp" alt="Profile picture" height="40px" draggable="false">
                         </a>
                     </div>
                 <?php else : ?>
-                    <a href="/?login">
+                    <a href="/login">
                         <button class="login-btn text-sm primary-button font-reg">
                             Login
                         </button>
@@ -49,19 +49,19 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
     </div>
     <div class="dropdown-menu">
         <ul>
-            <li><a href="<?php echo $username ? '/?learn' : '/?login'; ?>" class="text-sm text-black">Learn</a></li>
+            <li><a href="<?php echo $username ? '/learn' : '/login'; ?>" class="text-sm text-black">Learn</a></li>
             <li><a href="/#" class="text-sm text-black">Articles</a></li>
             <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             <?php if ($username) : ?>
-                <li><a href="/?logout" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
+                <li><a href="/logout" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
                 <?php if ($is_admin) : ?>
-                    <li><a href="/?cms" class="text-sm text-black">CMS</a></li>
+                    <li><a href="/cms" class="text-sm text-black">CMS</a></li>
                 <?php else : ?>
-                    <li><a href="/?profile" class="text-sm text-black">Profile</a></li>
+                    <li><a href="/profile" class="text-sm text-black">Profile</a></li>
                 <?php endif; ?>
                 <li><a href="../../../api/auth/logout.php" class="text-sm text-black">Logout</a></li>
             <?php else : ?>
-                <li><a href="/?login" class="login-btn text-sm primary-button font-reg">Login</a></li>
+                <li><a href="/login" class="login-btn text-sm primary-button font-reg">Login</a></li>
             <?php endif; ?>
         </ul>
     </div>
