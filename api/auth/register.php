@@ -41,6 +41,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 
   if ($rows) {
     header('Location: ../../?login');
+    echo json_encode(array('status' => 'success', 'message' => 'User created'));
   } else {
     $_SESSION['error'] = "Something went wrong";
     header('Location: ../../?register');

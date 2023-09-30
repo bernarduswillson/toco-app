@@ -167,6 +167,12 @@
     transform: translateY(4px);
 }
 
+.login-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 1000px) {
 
     .left-login {
