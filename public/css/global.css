@@ -75,6 +75,10 @@ body {
   color: var(--blue);
 }
 
+.text-orange {
+  color: var(--orange);
+}
+
 .text-blue-purple-gradient {
   background: var(--blue-purple-gradient);
   background-clip: text;

@@ -1,30 +1,18 @@
 <?php
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/error.css">
-    <link rel="stylesheet" href="../../../public/css/global.css">
-</head>
-<body>
     <div class="error">
-        <div>
-            <h1 class="error-header">
+        <div class="content container">
+            <h1 class="font-reg text-orange">
                 404
             </h1>
-            <h2 class="error-desc">
+            <div class="divider"></div>
+            <p class="font-bold text-blue-purple-gradient text-md">
                 A Temporary Language Barrier. <br> We'll Break It Together.
-            </h2>
-            <div class="button-container">
-                <a href="/">
-                    <button class="error-button">
-                        Go to homepage
-                    </button>
-                </a>
-            </div>
+            </p>
+            <a href="/" class="distinct-button go-back-btn">
+                Go to homepage
+            </a>
         </div>
     </div>
 </body>
