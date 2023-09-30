@@ -7,7 +7,7 @@ class Learn extends Controller {
         exit();
     }
 
-    $data["pageTitle"] = "Toco | The best site to learn languages";
+    $data["pageTitle"] = "Toco | Your journey starts here!";
 
     $this->view('header/index', $data);
     $this->view('navbar/index');
