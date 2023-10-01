@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $profile_pic = $_POST['new-profile-pic'];
 
-    $user_model->updateProfile($username, $email, $profile_pic);
+    $user_model->updateProfile($_SESSION['user_id'], $username, $email, $profile_pic);
 
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;

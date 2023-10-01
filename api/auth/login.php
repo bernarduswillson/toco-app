@@ -20,6 +20,7 @@ if (isset($_POST['username'])) {
     header('location: ../../login');
   } else {
     if (password_verify($password, $result['password'])) {
+      $_SESSION['user_id'] = $result['user_id'];
       $_SESSION['username'] = $username;
       $_SESSION['email'] = $result['email'];
       $_SESSION['is_admin'] = $result['is_admin'] ? 1 : 0;
