@@ -16,19 +16,19 @@
 
       <div class="entity-card">
         <span class="font-bold text-md">Language</span>
-        <span class="font-reg text-sm"><?= $data["numOfLanguage"] ?> Entities</span>
+        <span class="font-reg text-sm"><?= $data["languageCount"] ?> Records</span>
       </div>
       <div class="entity-card">
         <span class="font-bold text-md">Modules</span>
-        <span class="font-reg text-sm"><?= $data["numOfModules"] ?> Entities</span>
+        <span class="font-reg text-sm"><?= $data["moduleCount"] ?> Records</span>
       </div>
       <div class="entity-card">
         <span class="font-bold text-md">Videos</span>
-        <span class="font-reg text-sm"><?= $data["numOfVideos"] ?> Entities</span>
+        <span class="font-reg text-sm"><?= $data["videoCount"] ?> Records</span>
       </div>
       <div class="entity-card">
         <span class="font-bold text-md">Users</span>
-        <span class="font-reg text-sm"><?= $data["numOfUsers"] ?> Entities</span>
+        <span class="font-reg text-sm"><?= $data["userCount"] ?> Records</span>
       </div>
     </div>
 

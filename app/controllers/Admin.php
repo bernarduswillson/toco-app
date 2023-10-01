@@ -7,19 +7,19 @@ class Admin extends Controller {
   }
 
   public function dashboard() {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username']))) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || $_SESSION['is_admin']==false) {
       header('Location: /login');
+      exit();
     }
 
     $data["pageTitle"] = "Admin dashboard";
     $data["username"] = $_SESSION['username'];
+    $data["languageCount"] = $this->model("LanguageModel")->getLanguageCount();
+    $data["moduleCount"] = $this->model("ModuleModel")->getModuleCount();
     // ini masih hardcode
-    // $data["numOfLanguage"] = $this->model('LanguageModel')->getLanguageCount();
-    $data["numOfLanguage"] = 4;
-    $data["numOfModules"] = 12; 
-    $data["numOfVideos"] = 60; 
-    $data["numOfUsers"] = 3; 
+    $data["videoCount"] = 60; 
     //
+    $data["userCount"] = $this->model("UserModel")->getUserCount();; 
 
     $this->view('header/index', $data);
     $this->view('navbar/index');
@@ -28,8 +28,9 @@ class Admin extends Controller {
   }
 
   public function manage($languageName = null, $moduleName = null) {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username']))) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || $_SESSION['is_admin']=false) {
       header('Location: /login');
+      exit();
     }
 
     if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
