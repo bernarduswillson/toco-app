@@ -42,6 +42,10 @@ textarea:focus, input:focus{
 
 /* === TYPOGRAPHY CONFIG === */
 
+.text-xs {
+  font-size: 15px;
+}
+
 .text-sm {
   font-size: 18px;
 }

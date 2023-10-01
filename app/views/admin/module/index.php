@@ -35,7 +35,7 @@
         </a>
       </div>
 
-      <a href="">
+      <a href="/admin/create/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] ?>">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Video
