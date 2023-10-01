@@ -16,10 +16,8 @@ class Admin extends Controller {
     $data["username"] = $_SESSION['username'];
     $data["languageCount"] = $this->model("LanguageModel")->getLanguageCount();
     $data["moduleCount"] = $this->model("ModuleModel")->getModuleCount();
-    // ini masih hardcode
-    $data["videoCount"] = 60; 
-    //
-    $data["userCount"] = $this->model("UserModel")->getUserCount();; 
+    $data["videoCount"] = $this->model("VideoModel")->getVideoCount();
+    $data["userCount"] = $this->model("UserModel")->getUserCount();
 
     $this->view('header/index', $data);
     $this->view('navbar/index');
@@ -33,16 +31,18 @@ class Admin extends Controller {
       exit();
     }
 
+    // Manage Videos
     if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
       $data["pageTitle"] = "Manage " . $moduleName;
-      $data["language"] = ["1", "English"];
-      $data["module"] = ["1", "Numbers", "Vocabulary"];
-      $data["videos"] = [
-        ["1", "1 to 10"],
-        ["2", "11 to 19"],
-        ["3", "Tens"],
-        ["4", "Hundreds and Thousands"]
-      ];
+      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
+      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName);
+      $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["module"]["module_id"]);
+      // $data["videos"] = [
+      //   ["1", "1 to 10"],
+      //   ["2", "11 to 19"],
+      //   ["3", "Tens"],
+      //   ["4", "Hundreds and Thousands"]
+      // ];
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -50,15 +50,12 @@ class Admin extends Controller {
       $this->view('footer/index');
     }
     
+    // Manage Modules
     else if (isset($languageName) && !empty($languageName)) {
       $data["pageTitle"] = "Manage " . $languageName;
-      $data["language"] = ["1", "English"];
-      $data["modules"] = [
-        ["1", "Numbers", "Vocabulary"],
-        ["2", "Colors", "Vocabulary"],
-        ["3", "Animals", "Vocabulary"],
-        ["4", "Present Tense", "Grammar"]
-      ];
+
+      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
+      $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageId($data["language"]["language_id"]);
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -66,16 +63,10 @@ class Admin extends Controller {
       $this->view('footer/index');
     }
     
+    // Manage Languages
     else {
       $data["pageTitle"] = "Admin manage";
-      // ini masih hardcode
-      $data["languages"] = [
-        ["1", "English"],
-        ["2", "Indonesian"],
-        ["3", "French"],
-        ["4", "Germany"],
-      ];
-      //
+      $data["languages"] = $this->model("LanguageModel")->getAllLanguage();
   
       $this->view('header/index', $data);
       $this->view('navbar/index');

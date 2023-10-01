@@ -50,3 +50,33 @@ INSERT INTO modules (module_name, language_id, category, difficulty, module_orde
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Colors', 1, 'Vocabulary', 'Easy', 2);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Animals', 1, 'Vocabulary', 'Medium', 1);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Present Tense', 1, 'Grammar', 'Hard', 1);
+
+DROP TABLE IF EXISTS videos;
+CREATE TABLE videos (
+  video_id SERIAL PRIMARY KEY,
+  video_name VARCHAR(256) NOT NULL,
+  video_url VARCHAR(256) NOT NULL,
+  module_id INTEGER NOT NULL,
+  video_desc TEXT NOT NULL,
+  FOREIGN KEY (module_id) REFERENCES modules (module_id)
+);
+
+INSERT INTO videos (video_name, video_url, module_id, video_desc) VALUES ('Numbers', 'https://www.youtube.com/embed/dk4LRnbYnss?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn numbers in English');
+INSERT INTO videos (video_name, video_url, module_id, video_desc) VALUES ('Colors', 'https://www.youtube.com/embed/2V9c7bQlq0A?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn colors in English');
+INSERT INTO videos (video_name, video_url, module_id, video_desc) VALUES ('Animals', 'https://www.youtube.com/embed/0A8J1a0YJtg?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn animals in English');
+INSERT INTO videos (video_name, video_url, module_id, video_desc) VALUES ('Present Tense', 'https://www.youtube.com/embed/6yS5q2sH1wA?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn present tense in English');
+
+DROP TABLE IF EXISTS videos_result;
+CREATE TABLE videos_result (
+  video_result_id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  video_id INTEGER NOT NULL,
+  is_finished BOOLEAN NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (video_id) REFERENCES videos (video_id)
+);
+
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 1, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 2, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 3, false);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 4, true);
