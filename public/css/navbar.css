@@ -7,9 +7,7 @@ nav {
     width: 100vw;
     height: fit-content;
     padding: 10px 0;
-
-    position: absolute;
-    z-index: 20;
+    background-color: var(--white);
 }
 
 nav .nav-container {
@@ -97,6 +95,7 @@ nav .dropdown-menu {
     top:77px;
     right: 0;
     bottom: 0;
+    z-index: 2;
 }
 
 nav .dropdown-menu.open {

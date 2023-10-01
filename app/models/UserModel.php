@@ -7,7 +7,7 @@ class UserModel
 
   public function __construct()
   {
-    $this->db = new Database;
+    $this->db = new Database();
   }
 
   public function getUserByEmail($email)
@@ -50,6 +50,12 @@ class UserModel
     $this->db->bind('profile_pic', $profile_pic);
     $this->db->bind('user_id', $user_id);
     $this->db->execute();
+    return $this->db->rowCount();
+  }
+
+  public function getNumOfUsers()
+  {
+    $this->db->query('SELECT * FROM users');
     return $this->db->rowCount();
   }
 }

@@ -10,4 +10,9 @@ class Controller {
       die('View does not exist');
     }
   }
+
+  public function model($model) {
+    require_once 'app/models/' . $model . '.php';
+    return new $model;
+  }
 }
