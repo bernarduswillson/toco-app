@@ -119,6 +119,22 @@
   cursor: pointer;
 }
 
+/* Breadcrumb */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  width: 100%;
+  height: fit-content;
+}
+
+.breadcrumb a {
+  width: fit-content;
+  margin-bottom: 0;
+}
+
 /* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
 
 @media (min-width: 768px) {

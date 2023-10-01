@@ -17,9 +17,23 @@
     </div>
 
     <div class="list-container">
-      <a href="/admin/dashboard" class="text-orange font-reg text-sm breadcrumb">
-        Dashboard > Manage > <?= $data["language"][1] ?>
-      </a>
+      <div class="breadcrumb">
+        <a href="/admin/dashboard" class="text-orange font-reg text-sm">
+          Dashboard
+        </a>
+        <span class="text-orange font-reg text-sm">&gt;</span>
+        <a href="/admin/manage" class="text-orange font-reg text-sm">
+          Manage
+        </a>
+        <span class="text-orange font-reg text-sm">&gt;</span>
+        <a href="/admin/manage/<?= $data["language"][1] ?>" class="text-orange font-reg text-sm">
+          <?= $data["language"][1] ?>
+        </a>
+        <span class="text-orange font-reg text-sm">&gt;</span>
+        <a href="/admin/manage/<?= $data["language"][1] . "/" . $data["module"][1] ?>" class="text-orange font-reg text-sm">
+          <?= $data["module"][1] ?>
+        </a>
+      </div>
 
       <a href="">
         <div class="admin-card add-card">

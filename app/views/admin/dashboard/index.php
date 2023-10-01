@@ -8,9 +8,11 @@
     </h1>
 
     <div class="list-container">
-      <a href="/admin/dashboard" class="text-orange font-reg text-sm breadcrumb">
-        Dashboard
-      </a>
+      <div class="breadcrumb">
+        <a href="/admin/dashboard" class="text-orange font-reg text-sm breadcrumb">
+          Dashboard
+        </a>
+      </div>
 
       <div class="entity-card">
         <span class="font-bold text-md">Language</span>
