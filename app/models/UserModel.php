@@ -53,9 +53,10 @@ class UserModel
     return $this->db->rowCount();
   }
 
-  public function getNumOfUsers()
+  public function getUserCount()
   {
-    $this->db->query('SELECT * FROM users');
-    return $this->db->rowCount();
+    $this->db->query('SELECT COUNT(*) FROM users');
+    $temp = $this->db->single(); 
+    return intval($temp["count"]);
   }
 }

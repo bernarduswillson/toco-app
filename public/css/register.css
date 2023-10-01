@@ -218,6 +218,7 @@
 #username-error, #email-error, #password-error, #confirm-password-error {
   color: red;
   font-size: 14px;
+  position: absolute;
 }
 
 @media (max-width: 1000px) {

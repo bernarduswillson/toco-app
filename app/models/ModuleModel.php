@@ -1,8 +1,8 @@
 <?php
 
-class LanguageModel
+class ModuleModel
 {
-  private $table = 'languages';
+  private $table = 'modules';
   private $db;
 
   public function __construct()
@@ -10,7 +10,7 @@ class LanguageModel
     $this->db = new Database();
   }
 
-  public function getLanguageCount()
+  public function getModuleCount()
   {
     $this->db->query('SELECT COUNT(*) FROM ' . $this->table);
     $temp = $this->db->single(); 
