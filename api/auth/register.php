@@ -3,9 +3,9 @@
 require_once '../../config/config.php';
 require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
-require_once '../../app/models/User.php';
-require_once '../../app/models/Progress.php';
-require_once '../../app/models/Language.php';
+require_once '../../app/models/UserModel.php';
+require_once '../../app/models/ProgressModel.php';
+require_once '../../app/models/LanguageModel.php';
 
 $user_model = new UserModel();
 $progress_model = new ProgressModel();
