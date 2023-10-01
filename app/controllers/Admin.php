@@ -7,7 +7,7 @@ class Admin extends Controller {
   }
 
   public function dashboard() {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || $_SESSION['is_admin']==false) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
     }
@@ -26,7 +26,7 @@ class Admin extends Controller {
   }
 
   public function manage($languageName = null, $moduleName = null) {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || $_SESSION['is_admin']=false) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
     }
@@ -37,12 +37,6 @@ class Admin extends Controller {
       $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
       $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName);
       $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["module"]["module_id"]);
-      // $data["videos"] = [
-      //   ["1", "1 to 10"],
-      //   ["2", "11 to 19"],
-      //   ["3", "Tens"],
-      //   ["4", "Hundreds and Thousands"]
-      // ];
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -72,6 +66,46 @@ class Admin extends Controller {
       $this->view('navbar/index');
       $this->view('admin/manage/index', $data);
       $this->view('footer/index');
+    }
+  }
+
+  public function create($languageName = null, $moduleName = null) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
+      header('Location: /login');
+      exit();
+    }
+
+    // Create Video
+    if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
+      $data["pageTitle"] = "Add New Module";
+      $data["languageName"] = $languageName;
+      $data["moduleName"] = $moduleName;
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/create/video/index", $data);
+      $this->view("footer/index");
+    }
+
+    // Create Module
+    else if (isset($languageName) && !empty($languageName)) {
+      $data["pageTitle"] = "Add New Module";
+      $data["languageName"] = $languageName;
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/create/module/index", $data);
+      $this->view("footer/index");
+    } 
+    
+    // Create Language
+    else {
+      $data["pageTitle"] = "Add New Language";
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/create/language/index", $data);
+      $this->view("footer/index");
     }
   }
 }

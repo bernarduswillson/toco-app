@@ -27,7 +27,7 @@
         </a>
       </div>
 
-      <a href=""> <!-- Ini belum di setup -->
+      <a href="/admin/create">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Language
