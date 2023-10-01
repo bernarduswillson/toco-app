@@ -1,7 +1,7 @@
 .profile {
     display: flex;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     justify-content: center;
     overflow-x: hidden;
@@ -13,24 +13,30 @@
 }
 
 .profile-header {
+    text-align: center;
     margin-top: 120px;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
 }
 
 .profile-image {
+    justify-content: center;
     border-radius: 50%;
     border: 2px solid gray;
 }
 
 .top-profile {
-    display: flex;
+    display: block;
     align-items: center;
+    margin-bottom: 80px;
 }
 
 .modify-image {
+    margin-left: 0;
     display: flex;
     flex-direction: column;
+    gap: 15px;
     align-items: center;
+    margin-top: 40px;
 }
 
 /* #upload-input {
@@ -58,6 +64,7 @@
 }
 
 .profile-form label {
+    margin-top: 20px;
     display: block;
 }
 
@@ -68,8 +75,10 @@
 }
 
 .btn-container {
+    margin-top: 30px;
     display: flex;
     justify-content: end;
+    margin-bottom: 80px;
 }
 
 .btn-container .logout-btn {
@@ -78,6 +87,7 @@
     border: 2px solid var(--orange);
     padding: 5px 25px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .btn-container .logout-btn a {
@@ -92,4 +102,27 @@
     border: 2px solid var(--orange);
     padding: 5px 25px;
     cursor: pointer;
+}
+
+#username-error,
+#email-error {
+    position: absolute;
+    color: red;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .profile-header {
+        text-align: left;
+    }
+
+    .top-profile {
+        display: flex;
+    }
+
+    .modify-image {
+        margin-left: 70px;
+        margin-top: 0;
+    }
+
 }
