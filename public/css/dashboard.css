@@ -7,29 +7,7 @@
   margin: 30px 0;
 }
 
-.dashboard .dashboard-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.dashboard .dashboard-container h1 {
-  text-align: center;
-}
-
-.dashboard .dashboard-container .list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-}
-
-.dashboard .dashboard-container .list-container a {
-  margin-bottom: 10px;
-}
-
-.dashboard .dashboard-container .list-container .entity-card {
+.dashboard .admin-list-content-container .list-container .entity-card {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -42,22 +20,22 @@
   transition: all 0.15s ease-in-out;
 }
 
-.dashboard .dashboard-container .list-container .entity-card:hover {
+.dashboard .admin-list-content-container .list-container .entity-card:hover {
   background-color: var(--orange);
   color: var(--white);
 }
 
-.dashboard .dashboard-container .primary-button {
+.dashboard .admin-list-content-container .primary-button {
   margin-bottom: 50px;
   transition: all 0.15s ease-in-out;
 }
 
-.dashboard .dashboard-container .primary-button:hover {
+.dashboard .admin-list-content-container .primary-button:hover {
   transform: translateY(-4px);
   opacity: 0.6;
 }
 
-.dashboard .dashboard-container .primary-button:active {
+.dashboard .admin-list-content-container .primary-button:active {
   transform: translateY(6px);
 }
 
@@ -66,13 +44,5 @@
 @media (min-width: 768px) {
   .dashboard {
     margin: 80px 0;
-  }
-}
-
-/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
-
-@media (min-width: 1440px) {
-  .dashboard .dashboard-container {
-    gap: 90px;
   }
 }

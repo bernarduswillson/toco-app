@@ -1,0 +1,152 @@
+/* === ADMIN GLOBAL CONFIG === */
+
+.admin-container {
+  width: 95%;
+  max-width: 800px;
+}
+
+.admin-list-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.admin-list-content-container h1 {
+  text-align: center;
+}
+
+.admin-list-content-container .list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.admin-list-content-container .list-container .breadcrumb {
+  margin-bottom: 10px;
+}
+
+/* === SEARCH BAR === */
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  border: 2px solid var(--grey);
+  border-radius: 50px;
+  padding: 8px 16px;
+}
+
+.search-bar input {
+  border: none;
+  width: 100%;
+}
+
+.search-bar button {
+  border: none;
+  background-color: transparent;
+}
+
+/* === CARD === */
+
+.admin-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 10px 20px;
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  color: var(--orange);
+}
+
+.admin-card span {
+  display: block;
+}
+
+.admin-card .button-container {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.admin-card .button-container .secondary-card-button {
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  padding: 2px 10px;
+  border-radius: 8px;
+  color: var(--orange);
+  height: fit-content;
+  cursor: pointer;
+}
+
+.admin-card .button-container .secondary-card-button:hover {
+  color: var(--white);
+  background-color: var(--orange);
+}
+
+.admin-card .button-container .primary-card-button {
+  background-color: var(--orange);
+  border: 2px solid var(--orange);
+  padding: 2px 10px;
+  border-radius: 8px;
+  color: var(--white);
+  height: fit-content;
+  cursor: pointer;
+}
+
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+
+  /* === SEARCH BAR === */
+
+  .search-bar form {
+    padding: 8px 28px;
+  }
+
+  /* === CARD === */
+  
+  .admin-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .admin-card span {
+    display: inline;
+  }
+
+  .admin-card .button-container {
+    width: fit-content; 
+    align-items: center;
+  }
+
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+}
+
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
+@media (min-width: 1440px) {
+
+  /* === ADMIN GLOBAL CONFIG === */
+
+  .dashboard .admin-list-content-container {
+    gap: 90px;
+  }
+}
