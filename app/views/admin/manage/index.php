@@ -21,7 +21,7 @@
         Dashboard > Manage
       </a>
 
-      <a href="/admin/create">
+      <a href="">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Language
@@ -38,7 +38,7 @@
           <a href="/admin/language/<?= $language[1] ?>" class="primary-card-button">
             Modules
           </a>
-          <a href="/admin/<?= $language[1] ?>/edit" class="primary-card-button">
+          <a href="" class="primary-card-button">
             Edit
           </a>
         </div>
