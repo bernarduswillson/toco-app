@@ -4,8 +4,12 @@ require_once '../../config/config.php';
 require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/User.php';
+require_once '../../app/models/Progress.php';
+require_once '../../app/models/Language.php';
 
 $user_model = new UserModel();
+$progress_model = new ProgressModel();
+$language_model = new LanguageModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
@@ -38,10 +42,16 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
   $password = $_POST['password'];
   $email = $_POST['email'];
   $rows = $user_model->register(array('username' => $username, 'password' => $password, 'email' => $email));
+  $language_rows = $language_model->getLanguageCount();
+  $language_rows = intval($language_rows['count']);
+  for ($i = 1; $i <= $language_rows; $i++) {
+    $progress_rows = $progress_model->initialize(array('user_id' => $rows, 'language_id' => $i));
+  }
 
-  if ($rows) {
+  if ($rows && $language_rows && $progress_rows) {
     header('Location: ../../login');
     echo json_encode(array('status' => 'success', 'message' => 'User created'));
+
   } else {
     $_SESSION['error'] = "Something went wrong";
     header('Location: ../../register');
