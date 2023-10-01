@@ -17,11 +17,17 @@
     </div>
 
     <div class="list-container">
-      <a href="/admin/dashboard" class="text-orange font-reg text-sm breadcrumb">
-        Dashboard > Manage
-      </a>
+      <div class="breadcrumb">
+        <a href="/admin/dashboard" class="text-orange font-reg text-sm">
+          Dashboard
+        </a>
+        <span class="text-orange font-reg text-sm">&gt;</span>
+        <a href="/admin/manage" class="text-orange font-reg text-sm">
+          Manage
+        </a>
+      </div>
 
-      <a href="">
+      <a href=""> <!-- Ini belum di setup -->
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Language
@@ -35,7 +41,7 @@
           <a href="/learn/<?= $language[1] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="/admin/language/<?= $language[1] ?>" class="primary-card-button">
+          <a href="/admin/manage/<?= $language[1] ?>" class="primary-card-button">
             Modules
           </a>
           <a href="" class="primary-card-button">
