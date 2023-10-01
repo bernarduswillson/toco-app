@@ -23,6 +23,7 @@ if (isset($_POST['username'])) {
       $_SESSION['username'] = $username;
       $_SESSION['email'] = $result['email'];
       $_SESSION['is_admin'] = $result['is_admin'] ? 1 : 0;
+      $_SESSION['profile_pic'] = $result['profile_pic'];
       header('Location: ../../learn');
     } else {
       $_SESSION['error'] = "Invalid username or password";

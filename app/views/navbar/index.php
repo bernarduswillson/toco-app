@@ -1,6 +1,7 @@
 <?php
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
+$profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/public/icons/profile.webp';
 ?>
 
 <nav>
@@ -33,7 +34,7 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
                     <?php endif; ?>
                     <div>
                         <a href="/profile">
-                            <img id="profile-picture" src="/public/icons/profile.webp" alt="Profile picture" height="40px" draggable="false">
+                            <img id="profile-picture" src="<?php echo $profile_pic; ?>" alt="Profile picture" height="40px" width="40px" draggable="false">
                         </a>
                     </div>
                 <?php else : ?>

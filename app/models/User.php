@@ -38,4 +38,15 @@ class UserModel {
     $this->db->execute();
     return $this->db->rowCount();
   }
+
+  public function updateProfile($username, $email, $profile_pic)
+  {
+    $query = "UPDATE users SET username = :username, email = :email, profile_pic = :profile_pic WHERE username = :username";
+    $this->db->query($query);
+    $this->db->bind('username', $username);
+    $this->db->bind('email', $email);
+    $this->db->bind('profile_pic', $profile_pic);
+    $this->db->execute();
+    return $this->db->rowCount();
+  }
 }
