@@ -4,7 +4,7 @@
 <div class="manage">
   <div class="admin-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      <?= $data["language"][1] ?> Modules
+      <?= $data["module"][1] ?> Videos
     </h1>
 
     <div class="search-bar">
@@ -18,25 +18,22 @@
 
     <div class="list-container">
       <a href="/admin/dashboard" class="text-orange font-reg text-sm breadcrumb">
-        Dashboard > Manage
+        Dashboard > Manage > <?= $data["language"][1] ?>
       </a>
 
       <a href="">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
-            + Add new Module
+            + Add new Video
           </span>
         </div>
       </a>
-      <?php foreach( $data["modules"] as $module ): ?>
+      <?php foreach( $data["videos"] as $video ): ?>
       <div class="admin-card">
-        <span class="font-bold text-md"><?= $module[2] . " - " . $module[1] ?></span>
+        <span class="font-bold text-md"><?= $video[1] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $data["language"][1] . "/" . $module[1] ?>" class="secondary-card-button">
+          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"][1] . "/" . $video[1] ?>" class="secondary-card-button">
             Page
-          </a>
-          <a href="/admin/module/<?= $data["language"][1] . "/" . $module[1] ?>" class="primary-card-button">
-            Videos
           </a>
           <a href="" class="primary-card-button">
             Edit
