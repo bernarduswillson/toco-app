@@ -49,4 +49,4 @@ CREATE TABLE modules (
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Numbers', 1, 'Vocabulary', 'Easy', 1);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Colors', 1, 'Vocabulary', 'Easy', 2);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Animals', 1, 'Vocabulary', 'Medium', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Present Tense', 1, 'Grammar', 'Easy', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Present Tense', 1, 'Grammar', 'Hard', 1);

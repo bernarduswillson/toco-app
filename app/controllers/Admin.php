@@ -32,7 +32,7 @@ class Admin extends Controller {
       header('Location: /login');
     }
 
-    $data["pageTitle"] = "Admin dashboard";
+    $data["pageTitle"] = "Admin manage";
     // ini masih hardcode
     $data["languages"] = [
       ["1", "English"],
@@ -45,6 +45,26 @@ class Admin extends Controller {
     $this->view('header/index', $data);
     $this->view('navbar/index');
     $this->view('admin/manage/index', $data);
+    $this->view('footer/index');
+  }
+
+  public function language($languageName) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username']))) {
+      header('Location: /login');
+    }
+
+    $data["pageTitle"] = "Manage " . $languageName;
+    $data["language"] = ["1", "English"];
+    $data["modules"] = [
+      ["1", "Numbers", "Vocabulary"],
+      ["2", "Colors", "Vocabulary"],
+      ["3", "Animals", "Vocabulary"],
+      ["4", "Present Tense", "Grammar"]
+    ];
+
+    $this->view('header/index', $data);
+    $this->view('navbar/index');
+    $this->view('admin/language/index', $data);
     $this->view('footer/index');
   }
 }
