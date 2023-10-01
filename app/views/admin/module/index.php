@@ -49,7 +49,7 @@
           <a href="/learn/<?= $data["language"][1] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="" class="primary-card-button">
+          <a href="/admin/edit/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="primary-card-button">
             Edit
           </a>
         </div>

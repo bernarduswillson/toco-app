@@ -48,7 +48,7 @@
           <a href="/admin/manage/<?= $data["language"]["language_name"] . "/" . $module["module_name"] ?>" class="primary-card-button">
             Videos
           </a>
-          <a href="" class="primary-card-button">
+          <a href="/admin/edit/<?= $data["language"]["language_name"] . "/" . $module["module_name"] ?>" class="primary-card-button">
             Edit
           </a>
         </div>

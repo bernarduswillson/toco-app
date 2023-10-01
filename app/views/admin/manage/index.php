@@ -44,7 +44,7 @@
           <a href="/admin/manage/<?= $language["language_name"] ?>" class="primary-card-button">
             Modules
           </a>
-          <a href="" class="primary-card-button">
+          <a href="/admin/edit/<?= $language["language_name"]?>" class="primary-card-button">
             Edit
           </a>
         </div>
