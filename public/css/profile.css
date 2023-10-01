@@ -1,0 +1,95 @@
+.profile {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.profile .profile-container {
+    width: 50%;
+    justify-content: left;
+}
+
+.profile-header {
+    margin-top: 120px;
+    padding-bottom: 10px;
+}
+
+.profile-image {
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+
+.top-profile {
+    display: flex;
+    align-items: center;
+}
+
+.modify-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* #upload-input {
+    display: none;
+} */
+
+.modify-image .change-btn {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.modify-image .delete-btn {
+    background-color: var(--white);
+    color: var(--blue);
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.profile-form label {
+    display: block;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-container .logout-btn {
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    padding: 5px 25px;
+    cursor: pointer;
+}
+
+.btn-container .logout-btn a {
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.btn-container .save-btn {
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    padding: 5px 25px;
+    cursor: pointer;
+}

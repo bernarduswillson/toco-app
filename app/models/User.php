@@ -1,6 +1,7 @@
 <?php
 
-class UserModel {
+class UserModel
+{
   private $table = 'users';
   private $db;
 
@@ -23,7 +24,8 @@ class UserModel {
     return $this->db->single();
   }
 
-  public function getAllUser(){
+  public function getAllUser()
+  {
     $this->db->query('SELECT * FROM users');
     return $this->db->resultSet();
   }
@@ -35,6 +37,18 @@ class UserModel {
     $this->db->bind('username', $data['username']);
     $this->db->bind('email', $data['email']);
     $this->db->bind('password', password_hash($data['password'], PASSWORD_DEFAULT));
+    $this->db->execute();
+    return $this->db->rowCount();
+  }
+
+  public function updateProfile($user_id, $username, $email, $profile_pic)
+  {
+    $query = "UPDATE users SET username = :username, email = :email, profile_pic = :profile_pic WHERE user_id = :user_id";
+    $this->db->query($query);
+    $this->db->bind('username', $username);
+    $this->db->bind('email', $email);
+    $this->db->bind('profile_pic', $profile_pic);
+    $this->db->bind('user_id', $user_id);
     $this->db->execute();
     return $this->db->rowCount();
   }
