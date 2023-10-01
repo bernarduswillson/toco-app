@@ -19,5 +19,6 @@
     <link rel="stylesheet" href="/public/css/register.css">
     <link rel="stylesheet" href="/public/css/learn.css">
     <link rel="stylesheet" href="/public/css/profile.css">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
   </head>
   <body>

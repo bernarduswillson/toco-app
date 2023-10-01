@@ -32,6 +32,11 @@ body {
   max-width: 1600px;
 }
 
+.admin-container {
+  width: 95%;
+  max-width: 600px;
+}
+
 .hidden {
   display: none;
 }

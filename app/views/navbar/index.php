@@ -56,7 +56,7 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
             <?php if ($username) : ?>
                 <li><a href="/logout" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
                 <?php if ($is_admin) : ?>
-                    <li><a href="/cms" class="text-sm text-black">CMS</a></li>
+                    <li><a href="/admin/dashboard" class="text-sm text-black">CMS</a></li>
                 <?php else : ?>
                     <li><a href="/profile" class="text-sm text-black">Profile</a></li>
                 <?php endif; ?>

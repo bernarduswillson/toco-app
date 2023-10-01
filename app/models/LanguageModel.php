@@ -1,5 +1,7 @@
 <?php
 
+// require_once "../core/Database.php";
+
 class LanguageModel
 {
   private $table = 'languages';
@@ -7,7 +9,7 @@ class LanguageModel
 
   public function __construct()
   {
-    $this->db = new Database;
+    $this->db = new Database();
   }
 
   public function getLanguageCount()
