@@ -35,7 +35,7 @@ class Admin extends Controller {
     if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
       $data["pageTitle"] = "Manage " . $moduleName;
       $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
-      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName);
+      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName, $languageName);
       $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["module"]["module_id"]);
 
       $this->view('header/index', $data);
@@ -105,6 +105,52 @@ class Admin extends Controller {
       $this->view("header/index", $data);
       $this->view("navbar/index");
       $this->view("admin/create/language/index", $data);
+      $this->view("footer/index");
+    }
+  }
+
+  public function edit($languageName = null, $moduleName = null, $videoName = null) {
+    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
+      header('Location: /login');
+      exit();
+    }
+
+    // Edit Video
+    if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName) && isset($videoName) && !empty($videoName)) {
+      $data["pageTitle"] = "Add New Module";
+      $data["languageName"] = $languageName;
+      $data["moduleName"] = $moduleName;
+      $data["videoName"] = $videoName;
+      $data["video"] = $this->model("VideoModel")->getVideoByName($videoName, $moduleName, $languageName);
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/edit/video/index", $data);
+      $this->view("footer/index");
+    }
+
+    // Edit Module
+    else if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
+      $data["pageTitle"] = "Add New Module";
+      $data["languageName"] = $languageName;
+      $data["moduleName"] = $moduleName;
+      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName, $languageName);
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/edit/module/index", $data);
+      $this->view("footer/index");
+    } 
+    
+    // Edit Language
+    else if (isset($languageName) && !empty($languageName)) {
+      $data["pageTitle"] = "Add New Language";
+      $data["languageName"] = $languageName;
+      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
+  
+      $this->view("header/index", $data);
+      $this->view("navbar/index");
+      $this->view("admin/edit/language/index", $data);
       $this->view("footer/index");
     }
   }

@@ -23,9 +23,10 @@ class ModuleModel
     return $this->db->resultSet();
   }
 
-  public function getModuleByName($module_name) {
-    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE module_name = :module_name');
+  public function getModuleByName($module_name, $language_name) {
+    $this->db->query('SELECT * FROM ' . $this->table . ' m INNER JOIN languages l ON m.language_id = l.language_id WHERE module_name = :module_name AND l.language_name = :language_name');
     $this->db->bind('module_name', $module_name);
+    $this->db->bind('language_name', $language_name);
     return $this->db->single();
   }
 }

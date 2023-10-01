@@ -115,6 +115,29 @@
   cursor: pointer;
 }
 
+.primary-red-button,
+.secondary-red-button:hover {
+  background-color: var(--red);
+  border: 2px solid var(--red);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--white);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
+.secondary-red-button {
+  background-color: var(--white);
+  border: 2px solid var(--red);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--red);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
 /* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
 
 @media (min-width: 768px) {
