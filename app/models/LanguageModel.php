@@ -25,4 +25,10 @@ class LanguageModel
     $this->db->bind('language_name', $languageName);
     return $this->db->single();
   }
+
+  public function getLanguageById($languageId) {
+    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_id = :language_id');
+    $this->db->bind('language_id', $languageId);
+    return $this->db->single();
+  }
 }

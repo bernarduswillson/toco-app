@@ -38,13 +38,13 @@
       <div class="admin-card">
         <span class="font-bold text-md"><?= $language["language_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $language["language_name"] ?>" class="secondary-card-button">
+          <a href="/learn/<?= $language["language_id"] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="/admin/manage/<?= $language["language_name"] ?>" class="primary-card-button">
+          <a href="/admin/manage/<?= $language["language_id"] ?>" class="primary-card-button">
             Modules
           </a>
-          <a href="/admin/edit/<?= $language["language_name"]?>" class="primary-card-button">
+          <a href="/admin/edit/<?= $language["language_id"]?>" class="primary-card-button">
             Edit
           </a>
         </div>

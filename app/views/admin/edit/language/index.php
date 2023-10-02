@@ -4,7 +4,7 @@
 <div class="create">
   <div class="admin-container input-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      Edit <?= $data["languageName"] ?>
+      Edit <?= $data["language"]["language_name"] ?>
     </h1>
 
     <form action="">
