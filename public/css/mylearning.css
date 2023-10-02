@@ -1,0 +1,93 @@
+.mylearning {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.mylearning .mylearning-container {
+    width: 80%;
+    justify-content: left;
+}
+
+.mylearning-header {
+    text-align: left;
+    margin-top: 120px;
+    padding-bottom: 50px;
+}
+
+.overall-header,
+.progress-header {
+    color: var(--orange);
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+.overall-card {
+    width: 100%;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    color: var(--white);
+    transition: all 0.15s ease-in-out;
+}
+.progress-card {
+    width: 100%;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    color: var(--orange);
+    transition: all 0.15s ease-in-out;
+}
+
+.overall-modules,
+.progress-modules {
+    margin-right: 0;
+}
+
+.overall-languages,
+.overall-modules,
+.overall-videos,
+.progress-languages,
+.progress-modules,
+.progress-videos {
+    text-align: center;
+    align-items: center;
+}
+
+.right-card {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+
+    .overall-card,
+    .progress-card {
+        display: flex;
+    }
+
+    .right-card {
+        display: block;
+    }
+
+    .overall-modules,
+    .progress-modules {
+        margin-right: 20px;
+    }
+
+    #trophy-logo {
+        margin-left: 10px;
+    }
+}
