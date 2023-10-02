@@ -19,13 +19,15 @@
 
       <div class="text-input-container">
         <label for="languageName" class="text-reg text-black text-xs">Language name</label>
-        <input type="text" name="languageName" placeholder="Language name" class="font-reg text-black text-sm" autocomplete="false">
+        <input id="language-input" type="text" name="languageName" placeholder="Language name" class="font-reg text-black text-sm" autocomplete="false">
       </div>
 
       <div class="bottom-button-container">
         <a href="/admin/manage" class="secondary-orange-button font-reg text-sm">Back</a>
-        <button type="submit" class="primary-orange-button font-reg text-sm">Create</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm disable">Create</button>
       </div>
     </form>
   </div>
 </div>
+
+<script src="/public/js/create-language.js"></script>

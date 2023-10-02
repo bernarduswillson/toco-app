@@ -14,6 +14,30 @@
   --blue-orange-gradient: linear-gradient(45deg, #006CDB, #F37021);
 }
 
+/* === SCROLLBAR === */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f58e51;
+  border-radius: 20px;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
 /* === GLOBAL CONFIG === */
 
 * {
