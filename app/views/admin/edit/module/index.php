@@ -10,9 +10,9 @@
     <form action="">
       <div class="text-input-container">
         <label for="moduleName" class="text-reg text-black text-xs">Module name</label>
-        <input type="text" name="moduleName" placeholder="Module name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["module_name"] ?>">
+        <input id="module-input" type="text" name="moduleName" placeholder="Module name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["module_name"] ?>">
         <label for="category" class="text-reg text-black text-xs">Category</label>
-        <input type="text" name="category" placeholder="Category" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["category"] ?>">
+        <input id="category-input" type="text" name="category" placeholder="Category" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["category"] ?>">
         <!-- Ini belum di setup -->
         <label for="difficulty" class="text-reg text-black text-xs">Difficulty</label>
         <select name="difficulty" class="font-reg text-black text-sm">
@@ -22,14 +22,16 @@
         </select>
         <!--  -->
         <label for="order" class="text-reg text-black text-xs">Order</label>
-        <input type="number" name="order" placeholder="Module order" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["module_order"] ?>">
+        <input id="order-input" type="number" name="order" placeholder="Module order" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["module_order"] ?>">
       </div>
 
       <div class="bottom-button-container">
         <a href="/admin/manage/<?= $data["module"]["language_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-red-button font-reg text-sm">Delete</button>
-        <button type="submit" class="primary-orange-button font-reg text-sm">Save</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>
     </form>
   </div>
 </div>
+
+<script src="/public/js/create-module.js"></script>
