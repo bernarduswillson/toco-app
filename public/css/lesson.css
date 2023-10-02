@@ -1,0 +1,247 @@
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
+
+.lesson {
+  width: 100%;
+  padding-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px;
+} 
+
+.lesson .lesson-container {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.lesson .lesson-container h1 {
+  text-align: center;
+}
+
+/* === SEARCH BAR === */
+
+.lesson .lesson-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.lesson .lesson-container form .search-bar {
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  border: 1px solid var(--grey);
+  border-radius: 50px;
+  padding: 8px 16px;
+}
+
+.lesson .lesson-container form .search-bar input {
+  border: none;
+  width: 100%;
+}
+
+.lesson .lesson-container form .search-bar button {
+  border: none;
+  background-color: transparent;
+}
+
+.lesson .lesson-container form .filter-sort {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* === FILTER === */
+
+.lesson .lesson-container form .filter-sort select {
+  padding: 10px 14px;
+  border: 1px solid var(--grey);
+  border-radius: 50px;
+}
+
+/* === SORT === */
+
+.lesson .lesson-container form .filter-sort .sort-container {
+  padding: 10px 14px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid var(--grey);
+  color: var(--black);
+}
+
+.lesson .lesson-container form .filter-sort .sort-container.active {
+  background-color: var(--orange);
+  border: 1px solid var(--orange);
+  color: var(--white);
+}
+
+.lesson .lesson-container form .filter-sort .sort-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* === MODULE CARD === */
+
+.lesson .lesson-container .card-container {
+  display: flex;
+  max-width: 600px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.lesson .lesson-container .card-container .module-card {
+  border: 2px solid var(--orange);
+  padding: 10px 16px 16px 16px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.lesson .lesson-container .card-container .module-card.active {
+  background-color: var(--orange);
+}
+
+.lesson .lesson-container .card-container .module-card .module-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lesson .lesson-container .card-container .module-card .module-head .content {
+  display: flex;
+  flex-direction: column;
+  gap: -5px;
+}
+
+.lesson .lesson-container .card-container .module-card .module-head .content h2 {
+  color: var(--orange);
+}
+
+.lesson .lesson-container .card-container .module-card .module-head .content span {
+  color: var(--grey);
+}
+
+.lesson .lesson-container .card-container .module-card.active .module-head .content h2,
+.lesson .lesson-container .card-container .module-card.active .module-head .content span {
+  color: var(--white);
+}
+
+.lesson .lesson-container .card-container .module-card .module-head .check-icon {
+  display: inline;
+}
+
+.lesson .lesson-container .card-container .module-card .module-head .white-check-icon {
+  display: none;
+}
+
+.lesson .lesson-container .card-container .module-card.active .module-head .check-icon {
+  display: none;
+}
+
+.lesson .lesson-container .card-container .module-card.active .module-head .white-check-icon {
+  display: inline;
+}
+
+/* === VIDEO CARD === */
+
+.lesson .lesson-container .card-container .module-card .video-card-container {
+  display: none;
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+  cursor: default;
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card {
+  padding: 10px 16px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--white);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card .content {
+  display: flex;
+  flex-direction: column;
+  gap: -5px;
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card .content h3 {
+  color: var(--orange);
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card .content span {
+  color: var(--grey);
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card .watch-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--orange);
+  background-color: var(--white);
+  border-radius: 50px;
+  color: var(--orange);
+}
+
+.lesson .lesson-container .card-container .module-card.active .video-card-container .video-card .watch-btn:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+  
+  .lesson {
+    padding-top: 180px;
+    padding-bottom: 120px;
+  }
+
+  .lesson .lesson-container {
+    gap: 90px;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .lesson .lesson-container form .search-bar {
+    max-width: 800px;
+  }
+
+  .lesson .lesson-container .card-container {
+    max-width: 1000px;
+  }
+  
+}
