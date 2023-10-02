@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/x-icon" href="/public/icons/logo.ico">
     <title><?= $data["pageTitle"] ?></title>
-    <meta name="description" content="">
+    <meta name="description" content="Start Your Language Adventure with Toco Today!">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/public/css/global.css">
     <link rel="stylesheet" href="/public/css/admin-global.css">
