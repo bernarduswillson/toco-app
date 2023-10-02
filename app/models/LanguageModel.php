@@ -16,8 +16,6 @@ class LanguageModel
     $temp = $this->db->single(); 
     return intval($temp["count"]);
   }
-<<<<<<< Updated upstream
-=======
 
   public function getLanguageByName($languageName) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_name = :language_name');
@@ -46,5 +44,4 @@ class LanguageModel
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
->>>>>>> Stashed changes
 }

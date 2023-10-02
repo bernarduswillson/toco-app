@@ -16,8 +16,6 @@ class ModuleModel
     $temp = $this->db->single(); 
     return intval($temp["count"]);
   }
-<<<<<<< Updated upstream
-=======
 
   public function getModulesByLanguageId($language_id) {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE language_id = :language_id");
@@ -48,5 +46,4 @@ class ModuleModel
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
->>>>>>> Stashed changes
 }
