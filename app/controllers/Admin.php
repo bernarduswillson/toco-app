@@ -25,18 +25,18 @@ class Admin extends Controller {
     $this->view('footer/index');
   }
 
-  public function manage($languageName = null, $moduleName = null) {
+  public function manage($languageId = null, $moduleId = null) {
     if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
     }
 
     // Manage Videos
-    if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
-      $data["pageTitle"] = "Manage " . $moduleName;
-      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
-      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName, $languageName);
-      $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["module"]["module_id"]);
+    if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
+      $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
+      $data["module"] = $this->model("ModuleModel")->getModuleById($moduleId);
+      $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($moduleId);
+      $data["pageTitle"] = "Manage " . $data["module"]["module_name"];
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -45,11 +45,10 @@ class Admin extends Controller {
     }
     
     // Manage Modules
-    else if (isset($languageName) && !empty($languageName)) {
-      $data["pageTitle"] = "Manage " . $languageName;
-
-      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
+    else if (isset($languageId) && !empty($languageId)) {
+      $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
       $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageId($data["language"]["language_id"]);
+      $data["pageTitle"] = "Manage " . $data["language"]["language_name"];
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -69,17 +68,17 @@ class Admin extends Controller {
     }
   }
 
-  public function create($languageName = null, $moduleName = null) {
+  public function create($languageId = null, $moduleId = null) {
     if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
     }
 
     // Create Video
-    if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
+    if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
       $data["pageTitle"] = "Add New Module";
-      $data["languageName"] = $languageName;
-      $data["moduleName"] = $moduleName;
+      $data["languageId"] = $languageId;
+      $data["moduleId"] = $moduleId;
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
@@ -88,9 +87,9 @@ class Admin extends Controller {
     }
 
     // Create Module
-    else if (isset($languageName) && !empty($languageName)) {
+    else if (isset($languageId) && !empty($languageId)) {
       $data["pageTitle"] = "Add New Module";
-      $data["languageName"] = $languageName;
+      $data["languageId"] = $languageId;
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
@@ -109,19 +108,17 @@ class Admin extends Controller {
     }
   }
 
-  public function edit($languageName = null, $moduleName = null, $videoName = null) {
+  public function edit($languageId = null, $moduleId = null, $videoId = null) {
     if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
     }
 
     // Edit Video
-    if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName) && isset($videoName) && !empty($videoName)) {
+    if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {
       $data["pageTitle"] = "Add New Module";
-      $data["languageName"] = $languageName;
-      $data["moduleName"] = $moduleName;
-      $data["videoName"] = $videoName;
-      $data["video"] = $this->model("VideoModel")->getVideoByName($videoName, $moduleName, $languageName);
+      $data["languageId"] = $languageId;
+      $data["video"] = $this->model("VideoModel")->getVideoById($videoId);
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
@@ -130,11 +127,9 @@ class Admin extends Controller {
     }
 
     // Edit Module
-    else if (isset($languageName) && !empty($languageName) && isset($moduleName) && !empty($moduleName)) {
+    else if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
       $data["pageTitle"] = "Add New Module";
-      $data["languageName"] = $languageName;
-      $data["moduleName"] = $moduleName;
-      $data["module"] = $this->model("ModuleModel")->getModuleByName($moduleName, $languageName);
+      $data["module"] = $this->model("ModuleModel")->getModuleById($moduleId);
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
@@ -143,10 +138,9 @@ class Admin extends Controller {
     } 
     
     // Edit Language
-    else if (isset($languageName) && !empty($languageName)) {
+    else if (isset($languageId) && !empty($languageId)) {
       $data["pageTitle"] = "Add New Language";
-      $data["languageName"] = $languageName;
-      $data["language"] = $this->model("LanguageModel")->getLanguageByName($languageName);
+      $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
   
       $this->view("header/index", $data);
       $this->view("navbar/index");

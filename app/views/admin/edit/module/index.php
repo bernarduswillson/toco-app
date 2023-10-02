@@ -4,7 +4,7 @@
 <div class="create">
   <div class="admin-container input-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      Edit <?= $data["moduleName"] ?>
+      Edit <?= $data["module"]["module_name"] ?>
     </h1>
 
     <form action="">
@@ -26,7 +26,7 @@
       </div>
 
       <div class="bottom-button-container">
-        <a href="/admin/manage/<?= $data["languageName"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
+        <a href="/admin/manage/<?= $data["module"]["language_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-red-button font-reg text-sm">Delete</button>
         <button type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>

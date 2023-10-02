@@ -20,7 +20,7 @@
       </div>
 
       <div class="bottom-button-container">
-        <a href="/admin/manage/<?= $data["languageName"] . "/" . $data["moduleName"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
+        <a href="/admin/manage/<?= $data["languageId"] . "/" . $data["moduleId"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-orange-button font-reg text-sm">Create</button>
       </div>
     </form>

@@ -4,7 +4,7 @@
 <div class="create">
   <div class="admin-container input-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      Edit <?= $data["videoName"] ?>
+      Edit <?= $data["video"]["video_name"] ?>
     </h1>
 
     <form action="">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="bottom-button-container">
-        <a href="/admin/manage/<?= $data["languageName"] . "/" . $data["moduleName"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
+        <a href="/admin/manage/<?= $data["languageId"] . "/" . $data["video"]["video_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-red-button font-reg text-sm">Delete</button>
         <button type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>

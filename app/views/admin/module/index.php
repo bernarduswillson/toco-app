@@ -26,16 +26,16 @@
           Manage
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
-        <a href="/admin/manage/<?= $data["language"]["language_name"] ?>" class="text-orange font-reg text-sm">
+        <a href="/admin/manage/<?= $data["language"]["language_id"] ?>" class="text-orange font-reg text-sm">
           <?= $data["language"]["language_name"] ?>
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
-        <a href="/admin/manage/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] ?>" class="text-orange font-reg text-sm">
+        <a href="/admin/manage/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] ?>" class="text-orange font-reg text-sm">
           <?= $data["module"]["module_name"] ?>
         </a>
       </div>
 
-      <a href="/admin/create/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] ?>">
+      <a href="/admin/create/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] ?>">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Video
@@ -46,10 +46,10 @@
       <div class="admin-card">
         <span class="font-bold text-md"><?= $video["video_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="secondary-card-button">
+          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="/admin/edit/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="primary-card-button">
+          <a href="/admin/edit/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="primary-card-button">
             Edit
           </a>
         </div>
