@@ -9,9 +9,11 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (email, password, username, is_admin) VALUES ('admin@gmail.com', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'admin', true);
-INSERT INTO users (email, password, username, is_admin) VALUES ('ditraamadia@gmail.com', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'ditra', true);
-INSERT INTO users (email, password, username, is_admin) VALUES ('bew@gmail.com', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'bew', false);
+INSERT INTO users (email, password, username, is_admin) VALUES ('13521019@std.stei.itb.ac.id', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'adminditra', true);
 INSERT INTO users (email, password, username, is_admin) VALUES ('ditrarizqaamadia@gmail.com', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'ditramadia', false);
+INSERT INTO users (email, password, username, is_admin) VALUES ('bew@gmail.com', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'bew', false);
+INSERT INTO users (email, password, username, is_admin) VALUES ('13521021@std.stei.itb.ac.id', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'adminbewe', true);
+INSERT INTO users (email, password, username, is_admin) VALUES ('13521022@std.stei.itb.ac.id', '$2y$10$6WLbNG5Xq5fEFffZZLqfLOzJicMYintxlAejxObxsijNMR99GDtu2', 'adminradit', true);
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE languages (
@@ -34,7 +36,7 @@ CREATE TABLE progress (
   FOREIGN KEY (language_id) REFERENCES languages (language_id)
 );
 
-INSERT INTO progress (user_id, language_id) VALUES (1, 1);
+INSERT INTO progress (user_id, language_id) VALUES (3, 1);
 
 DROP TABLE IF EXISTS modules;
 CREATE TABLE modules (
@@ -47,10 +49,21 @@ CREATE TABLE modules (
   FOREIGN KEY (language_id) REFERENCES languages (language_id)
 );
 
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Numbers', 1, 'Vocabulary', 'Beginner', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Colors', 1, 'Vocabulary', 'Beginner', 2);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Animals', 1, 'Vocabulary', 'Intermediate', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Present Tense', 1, 'Grammar', 'Advanced', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 1, 'Vocabulary', 'Beginner', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 1, 'Phrases', 'Beginner', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Refer to food', 1, 'Vocabulary', 'Beginner', 3);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Where you are form', 1, 'Grammar', 'Beginner', 4);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk about your hobbies', 1, 'Conversation', 'Beginner', 5);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Introduce yourself', 1, 'Conversation', 'Beginner', 6);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Describe possessions', 1, 'Phrases', 'Beginner', 7);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Form questions', 1, 'Grammar', 'Intermediate', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Express a problem', 1, 'Grammar', 'Intermediate', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk on the phone', 1, 'Conversation', 'Intermediate', 3);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Check into a hotel', 1, 'Conversation', 'Intermediate', 4);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk about daily life', 1, 'Conversation', 'Intermediate', 5);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 6);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 2);
 
 DROP TABLE IF EXISTS modules_result;
 CREATE TABLE modules_result (
@@ -62,10 +75,7 @@ CREATE TABLE modules_result (
   FOREIGN KEY (module_id) REFERENCES modules (module_id)
 );
 
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (1, 1, true);
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (1, 2, true);
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (1, 3, true);
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (1, 4, true);
+INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (3, 1, true);
 
 DROP TABLE IF EXISTS videos;
 CREATE TABLE videos (
@@ -78,10 +88,12 @@ CREATE TABLE videos (
   FOREIGN KEY (module_id) REFERENCES modules (module_id)
 );
 
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Numbers', 'https://www.youtube.com/embed/dk4LRnbYnss?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn numbers in English', 1);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Colors', 'https://www.youtube.com/embed/2V9c7bQlq0A?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn colors in English', 2);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Animals', 'https://www.youtube.com/embed/0A8J1a0YJtg?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn animals in English', 3);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Present Tense', 'https://www.youtube.com/embed/6yS5q2sH1wA?si=7Aazf_HQ92Rf6UwJ', 1, 'Learn present tense in English', 4);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count from 1 to 20', 'https://www.youtube.com/embed/D0Ajq682yrA?si=snxdHX-WHAfRuLye', 1, 'Count from 1 to 10', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count  to 100', 'https://www.youtube.com/embed/D4eJ5kg28nU?si=k3QH0cCYyg9RClb-', 1, 'Count to 100', 2);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Big numbers', 'https://www.youtube.com/embed/ioldoJQYKyQ?si=0Eyexy_89R0AwY6K', 1, 'Big numbers', 3);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Learn pronouns', 'https://www.youtube.com/embed/h_GnSOIfWf4?si=73H6TWULcdq9pySO', 2, 'Learn pronouns', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('100 most popular names', 'https://www.youtube.com/embed/pH3rDBCtZHo?si=zjCMS4zfooyC362W', 2, '100 most popular names', 2);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', 'https://www.youtube.com/embed/ZlO8Si2OkKk?si=ELyvLDNyxrqOAQVS', 2, 'Greet someone!', 3);
 
 DROP TABLE IF EXISTS videos_result;
 CREATE TABLE videos_result (
@@ -93,6 +105,8 @@ CREATE TABLE videos_result (
   FOREIGN KEY (video_id) REFERENCES videos (video_id)
 );
 
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 1, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 2, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (1, 3, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 1, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 2, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 3, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 4, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 5, true);
