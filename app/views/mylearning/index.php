@@ -12,15 +12,15 @@
             </h2>
             <div class="overall-card">
                 <div class="overall-languages font-bold text-md">
-                    4 Languages
+                    <?= $data["userLanguageCount"] ?> Languages
                     <img id="trophy-logo" src="/public/icons/trophy.svg" alt="Trophy" draggable="false" height="20px">
                 </div>
                 <div class="right-card font-reg text-sm">
                     <span class="overall-modules">
-                        12 Modules
+                        <?= $data["userModuleCount"] ?> Modules
                     </span>
                     <span class="overall-videos">
-                        48 Videos
+                        <?= $data["userVideoCount"] ?> Videos
                     </span>
                 </div>
             </div>
@@ -29,20 +29,21 @@
             <h2 class="progress-header">
                 Progress
             </h2>
-            <div class="progress-card">
-                <div class="progress-languages font-bold text-md">
-                    English
+            <?php foreach ($data["userLanguage"] as $index => $language): ?>
+                <div class="progress-card">
+                    <div class="progress-languages font-bold text-md">
+                        <?= $language['language_name'] ?>
+                    </div>
+                    <div class="right-card font-reg text-sm">
+                        <span class="progress-modules">
+                            <?= $data["userModuleCountEachLanguage"][$index]['total_modules'] ?> Modules
+                        </span>
+                        <span class="progress-videos">
+                            <?= $data["userVideoCountEachLanguage"][$index]['total_videos'] ?> Videos
+                        </span>
+                    </div>
                 </div>
-                <div class="right-card font-reg text-sm">
-                    <span class="progress-modules">
-                        12 Modules
-                    </span>
-                    <span class="progress-videos">
-                        48 Videos
-                    </span>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
-<script src="/public/js/mylearning.js"></script>
