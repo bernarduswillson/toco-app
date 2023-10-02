@@ -22,10 +22,10 @@ CREATE TABLE languages (
   language_flag VARCHAR(256) NOT NULL
 );
 
-INSERT INTO languages (language_name, language_flag) VALUES ('English', '');
-INSERT INTO languages (language_name, language_flag) VALUES ('Indonesian', '');
-INSERT INTO languages (language_name, language_flag) VALUES ('French', '');
-INSERT INTO languages (language_name, language_flag) VALUES ('Germany', '');
+INSERT INTO languages (language_name, language_flag) VALUES ('English', '/public/icons/uk-flag.svg');
+INSERT INTO languages (language_name, language_flag) VALUES ('Indonesian', '/public/icons/id-flag.svg');
+INSERT INTO languages (language_name, language_flag) VALUES ('French', '/public/icons/fr-flag.svg');
+INSERT INTO languages (language_name, language_flag) VALUES ('Germany', '/public/icons/gr-flag.svg');
 
 DROP TABLE IF EXISTS progress;
 CREATE TABLE progress (

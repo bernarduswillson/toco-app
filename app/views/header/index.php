@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/public/css/login.css">
     <link rel="stylesheet" href="/public/css/register.css">
     <link rel="stylesheet" href="/public/css/learn.css">
+    <link rel="stylesheet" href="/public/css/lesson.css">
     <link rel="stylesheet" href="/public/css/profile.css">
     <link rel="stylesheet" href="/public/css/dashboard.css">
     <link rel="stylesheet" href="/public/css/manage.css">

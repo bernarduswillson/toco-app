@@ -16,46 +16,18 @@
                 I want to learn ...
             </h1>
             <div class="learn-container">
+                <?php foreach ($data["languages"] as $language): ?>
                 <div class="learn-card">
-                    <a href="/preview">
+                    <a href="/learn/lesson/<?= $language["language_id"] ?>">
                         <div>
-                            <img class="learn-card-image" src="../../../public/icons/uk-flag.svg" alt="English" height="130px">
+                            <img class="learn-card-image" src="<?= $language["language_flag"] ?>" alt="English" height="130px">
                             <h2 class="learn-card-header">
-                                English
+                                <?= $language["language_name"] ?>
                             </h2>
                         </div>
                     </a>
                 </div>
-                <div class="learn-card">
-                    <a href="/preview">
-                        <div>
-                            <img class="learn-card-image" src="../../../public/icons/id-flag.svg" alt="Indonesian" height="130px">
-                            <h2 class="learn-card-header">
-                                Indonesian
-                            </h2>
-                        </div>
-                    </a>
-                </div>
-                <div class="learn-card">
-                    <a href="/preview">
-                        <div>
-                            <img class="learn-card-image" src="../../../public/icons/fr-flag.svg" alt="French" height="130px">
-                            <h2 class="learn-card-header">
-                                French
-                            </h2>
-                        </div>
-                    </a>
-                </div>
-                <div class="learn-card">
-                    <a href="?preview">
-                        <div>
-                            <img class="learn-card-image" src="../../../public/icons/gr-flag.svg" alt="Germany" height="130px">
-                            <h2 class="learn-card-header">
-                                Germany
-                            </h2>
-                        </div>
-                    </a>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
     </div>
