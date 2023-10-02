@@ -4,7 +4,7 @@
 <div class="manage">
   <div class="admin-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      <?= $data["module"][1] ?> Videos
+      <?= $data["module"]["module_name"] ?> Videos
     </h1>
 
     <div class="search-bar">
@@ -26,16 +26,16 @@
           Manage
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
-        <a href="/admin/manage/<?= $data["language"][1] ?>" class="text-orange font-reg text-sm">
-          <?= $data["language"][1] ?>
+        <a href="/admin/manage/<?= $data["language"]["language_name"] ?>" class="text-orange font-reg text-sm">
+          <?= $data["language"]["language_name"] ?>
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
-        <a href="/admin/manage/<?= $data["language"][1] . "/" . $data["module"][1] ?>" class="text-orange font-reg text-sm">
-          <?= $data["module"][1] ?>
+        <a href="/admin/manage/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] ?>" class="text-orange font-reg text-sm">
+          <?= $data["module"]["module_name"] ?>
         </a>
       </div>
 
-      <a href="">
+      <a href="/admin/create/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] ?>">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Video
@@ -44,12 +44,12 @@
       </a>
       <?php foreach( $data["videos"] as $video ): ?>
       <div class="admin-card">
-        <span class="font-bold text-md"><?= $video[1] ?></span>
+        <span class="font-bold text-md"><?= $video["video_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"][1] . "/" . $video[1] ?>" class="secondary-card-button">
+          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="" class="primary-card-button">
+          <a href="/admin/edit/<?= $data["language"]["language_name"] . "/" . $data["module"]["module_name"] . "/" . $video["video_name"] ?>" class="primary-card-button">
             Edit
           </a>
         </div>

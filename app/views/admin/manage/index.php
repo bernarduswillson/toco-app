@@ -27,7 +27,7 @@
         </a>
       </div>
 
-      <a href=""> <!-- Ini belum di setup -->
+      <a href="/admin/create">
         <div class="admin-card add-card">
           <span class="text-md font-bold">
             + Add new Language
@@ -36,15 +36,15 @@
       </a>
       <?php foreach( $data["languages"] as $language ): ?>
       <div class="admin-card">
-        <span class="font-bold text-md"><?= $language[1] ?></span>
+        <span class="font-bold text-md"><?= $language["language_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $language[1] ?>" class="secondary-card-button">
+          <a href="/learn/<?= $language["language_name"] ?>" class="secondary-card-button">
             Page
           </a>
-          <a href="/admin/manage/<?= $language[1] ?>" class="primary-card-button">
+          <a href="/admin/manage/<?= $language["language_name"] ?>" class="primary-card-button">
             Modules
           </a>
-          <a href="" class="primary-card-button">
+          <a href="/admin/edit/<?= $language["language_name"]?>" class="primary-card-button">
             Edit
           </a>
         </div>

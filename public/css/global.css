@@ -9,6 +9,7 @@
   --grey: #999;
   --orange: #F37021;
   --blue: #006CDB;
+  --red: #FF4A4A;
   --blue-purple-gradient: linear-gradient(45deg, #006CDB, #8535D4);
   --blue-orange-gradient: linear-gradient(45deg, #006CDB, #F37021);
 }
@@ -41,6 +42,10 @@ textarea:focus, input:focus{
 }
 
 /* === TYPOGRAPHY CONFIG === */
+
+.text-xs {
+  font-size: 15px;
+}
 
 .text-sm {
   font-size: 18px;
@@ -81,6 +86,10 @@ textarea:focus, input:focus{
 
 .text-orange {
   color: var(--orange);
+}
+
+.text-red {
+  color: var(--red);
 }
 
 .text-blue-purple-gradient {
