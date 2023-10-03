@@ -28,9 +28,9 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
             <div id="logged">
                 <?php if ($username) : ?>
                     <?php if ($is_admin) : ?>
-                        <span class="text-sm"><?php echo $username; ?>'s CMS</span>
+                        <a href="/admin"><span class="text-sm logged-text"><?php echo $username; ?>'s CMS</span></a>
                     <?php else : ?>
-                        <span class="text-sm"><?php echo $username; ?>'s learning</span>
+                        <a href="/mylearning"><span class="text-sm logged-text"><?php echo $username; ?>'s learning</span></a>
                     <?php endif; ?>
                     <div>
                         <a href="/profile">
@@ -54,7 +54,7 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
             <li><a href="/#" class="text-sm text-black">Articles</a></li>
             <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             <?php if ($username) : ?>
-                <li><a href="/logout" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
+                <li><a href="/mylearning" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
                 <?php if ($is_admin) : ?>
                     <li><a href="/admin/dashboard" class="text-sm text-black">CMS</a></li>
                 <?php else : ?>

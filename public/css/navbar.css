@@ -39,6 +39,7 @@ nav .nav-container .left-nav .nav-menu {
 nav .nav-container .right-nav #hamburger {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 nav .nav-container .right-nav #hamburger div {
@@ -50,11 +51,11 @@ nav .nav-container .right-nav #hamburger div {
 }
 
 /* Hamburger animation */
-/* nav .nav-container .right-nav #hamburger.open #bar-1,
+nav .nav-container .right-nav #hamburger.open #bar-1,
 nav .nav-container .right-nav #hamburger.open #bar-2,
 nav .nav-container .right-nav #hamburger.open #bar-3 {
     transition: all 0.25s ease-in-out;
-} */
+}
 
 nav .nav-container .right-nav #hamburger.open #bar-1 {
     transform: rotate(45deg) translateX(7px) translateY(7px);
@@ -77,6 +78,25 @@ nav .nav-container .right-nav #logged {
 nav .nav-container .right-nav #logged #profile-picture {
     margin-left: 20px;
     border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+}
+
+nav .nav-container .right-nav #logged #profile-picture:hover {
+    transform: scale(1.1);
+}
+
+nav .nav-container .right-nav #logged #profile-picture:active {
+    transform: scale(1);
+}
+
+nav .nav-container .right-nav #logged a:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+nav .nav-container .right-nav #logged a:active {
+    transform: scale(1);
 }
 
 /* Login Button */
@@ -88,10 +108,11 @@ nav .nav-container .right-nav .login-btn {
 /* Dropdown */
 
 nav .dropdown-menu {
-    display: none;
-    width: 100%;
+    /* display: none; */
+    width: 0;
     height: fit-content;
     background-color: var(--white);
+    transition: all 0.3s ease 0s;
 
     position: absolute;
     top:77px;
@@ -101,6 +122,7 @@ nav .dropdown-menu {
 
 nav .dropdown-menu.open {
     display: block;
+    width: 100%;
 }
 
 nav .dropdown-menu ul {
@@ -117,6 +139,11 @@ nav .dropdown-menu ul li a.login-btn {
     width: inherit;
     margin: 10px 12px;
     text-align: center;
+}
+
+nav .dropdown-menu ul li a:hover {
+    background: var(--blue-purple-gradient);
+    color: var(--white);
 }
 
 nav .dropdown-menu ul li a:active {
