@@ -73,13 +73,11 @@ CREATE TABLE modules_result (
   module_result_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   module_id INTEGER NOT NULL,
-  is_finished BOOLEAN NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (module_id) REFERENCES modules (module_id)
 );
 
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (3, 1, true);
-INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (3, 17, true);
+INSERT INTO modules_result (user_id, module_id) VALUES (3, 1);
 
 DROP TABLE IF EXISTS videos;
 CREATE TABLE videos (
@@ -105,15 +103,13 @@ CREATE TABLE videos_result (
   video_result_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   video_id INTEGER NOT NULL,
-  is_finished BOOLEAN NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (user_id),
   FOREIGN KEY (video_id) REFERENCES videos (video_id)
 );
 
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 1, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 2, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 3, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 4, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 5, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 6, true);
-INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 7, false);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 1);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 2);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 3);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 4);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 5);
+INSERT INTO videos_result (user_id, video_id) VALUES (3, 6);

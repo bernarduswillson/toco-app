@@ -36,10 +36,12 @@
                     </div>
                     <div class="right-card font-reg text-sm">
                         <span class="progress-modules">
-                            <?= $data["userModuleCountEachLanguage"][$index]['total_modules'] ?> Modules
+                            <?= isset($data["userModuleCountEachLanguage"][$index]['total_modules']) ? $data["userModuleCountEachLanguage"][$index]['total_modules'] : 0 ?>
+                            Modules
                         </span>
                         <span class="progress-videos">
-                            <?= $data["userVideoCountEachLanguage"][$index]['total_videos'] ?> Videos
+                            <?= isset($data["userVideoCountEachLanguage"][$index]['total_videos']) ? $data["userVideoCountEachLanguage"][$index]['total_videos'] : 0 ?>
+                            Videos
                         </span>
                     </div>
                 </div>

@@ -40,7 +40,7 @@ class ModuleModel
 
   public function getUserModuleCount($user_id)
   {
-    $query = "SELECT COUNT(*) FROM modules_result WHERE user_id = :user_id AND is_finished = true";
+    $query = "SELECT COUNT(*) FROM modules_result WHERE user_id = :user_id";
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
     $temp = $this->db->single();
@@ -49,23 +49,24 @@ class ModuleModel
 
   public function getUserModuleCountEachLanguage($user_id)
   {
-    $query = "
-        SELECT
-            l.language_name,
-            COUNT(CASE WHEN mr.is_finished = true THEN 1 ELSE NULL END) AS total_modules
-        FROM
-            modules_result mr
-        INNER JOIN
-            modules m ON mr.module_id = m.module_id
-        INNER JOIN
-            languages l ON m.language_id = l.language_id
-        WHERE
-            user_id = :user_id
-        GROUP BY
-            l.language_name";
-
-    $this->db->query($query);
-    $this->db->bind('user_id', $user_id);
-    return $this->db->resultSet();
+      $query = "
+          SELECT
+              l.language_name,
+              COUNT(*) AS total_modules
+          FROM
+              modules_result mr
+          INNER JOIN
+              modules m ON mr.module_id = m.module_id
+          INNER JOIN
+              languages l ON m.language_id = l.language_id
+          WHERE
+              user_id = :user_id
+          GROUP BY
+              l.language_name";
+  
+      $this->db->query($query);
+      $this->db->bind('user_id', $user_id);
+      return $this->db->resultSet();
   }
+  
 }

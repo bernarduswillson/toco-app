@@ -48,7 +48,7 @@ class VideoModel
 
   public function getUserVideoCount($user_id)
   {
-    $query = "SELECT COUNT(*) FROM videos_result WHERE user_id = :user_id AND is_finished = true";
+    $query = "SELECT COUNT(*) FROM videos_result WHERE user_id = :user_id";
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
     $temp = $this->db->single();
@@ -60,7 +60,7 @@ class VideoModel
     $query = "
         SELECT
             l.language_name,
-            COUNT(CASE WHEN vr.is_finished = true THEN 1 ELSE NULL END) AS total_videos
+            COUNT(*) AS total_videos
         FROM
             videos_result vr
         INNER JOIN
