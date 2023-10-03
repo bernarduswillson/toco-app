@@ -37,6 +37,7 @@ CREATE TABLE progress (
 );
 
 INSERT INTO progress (user_id, language_id) VALUES (3, 1);
+INSERT INTO progress (user_id, language_id) VALUES (3, 2);
 
 DROP TABLE IF EXISTS modules;
 CREATE TABLE modules (
@@ -64,6 +65,8 @@ INSERT INTO modules (module_name, language_id, category, difficulty, module_orde
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 6);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 1);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 2);
 
 DROP TABLE IF EXISTS modules_result;
 CREATE TABLE modules_result (
@@ -76,6 +79,7 @@ CREATE TABLE modules_result (
 );
 
 INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (3, 1, true);
+INSERT INTO modules_result (user_id, module_id, is_finished) VALUES (3, 17, true);
 
 DROP TABLE IF EXISTS videos;
 CREATE TABLE videos (
@@ -94,6 +98,7 @@ INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) V
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Learn pronouns', 'https://www.youtube.com/embed/h_GnSOIfWf4?si=73H6TWULcdq9pySO', 2, 'Learn pronouns', 1);
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('100 most popular names', 'https://www.youtube.com/embed/pH3rDBCtZHo?si=zjCMS4zfooyC362W', 2, '100 most popular names', 2);
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', 'https://www.youtube.com/embed/ZlO8Si2OkKk?si=ELyvLDNyxrqOAQVS', 2, 'Greet someone!', 3);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', 'https://www.youtube.com/embed/ZlO8Si2OkKk?si=ELyvLDNyxrqOAQVS', 17, 'Greet someone!', 1);
 
 DROP TABLE IF EXISTS videos_result;
 CREATE TABLE videos_result (
@@ -110,3 +115,5 @@ INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 2, true);
 INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 3, true);
 INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 4, true);
 INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 5, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 6, true);
+INSERT INTO videos_result (user_id, video_id, is_finished) VALUES (3, 7, false);
