@@ -17,19 +17,27 @@
             </h1>
             <div class="learn-container">
                 <?php foreach ($data["languages"] as $language): ?>
-                <div class="learn-card">
-                    <a href="/learn/lesson/<?= $language["language_id"] ?>">
-                        <div>
-                            <img class="learn-card-image" src="<?= $language["language_flag"] ?>" alt="English" height="130px">
-                            <h2 class="learn-card-header">
-                                <?= $language["language_name"] ?>
-                            </h2>
-                        </div>
-                    </a>
-                </div>
+                    <div class="learn-card" onclick="submitForm(<?= $language["language_id"] ?>)">
+                        <form id="form_<?= $language["language_id"] ?>" action="../../../api/auth/progress.php" method="post">
+                            <input type="hidden" name="language_id" value="<?= $language["language_id"] ?>">
+                            <div>
+                                <img class="learn-card-image" src="<?= $language["language_flag"] ?>" alt="<?= $language["language_name"] ?>" height="130px">
+                                <h2 class="learn-card-header">
+                                    <?= $language["language_name"] ?>
+                                </h2>
+                            </div>
+                        </form>
+                    </div>
                 <?php endforeach ?>
             </div>
         </div>
     </div>
+
+    <script>
+        function submitForm(languageId) {
+            const form = document.getElementById(`form_${languageId}`);
+            form.submit();
+        }
+    </script>
 </body>
 </html>

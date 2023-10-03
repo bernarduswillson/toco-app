@@ -42,11 +42,6 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
   $password = $_POST['password'];
   $email = $_POST['email'];
   $rows = $user_model->register(array('username' => $username, 'password' => $password, 'email' => $email));
-  $language_rows = $language_model->getLanguageCount();
-  echo $language_rows;
-  for ($i = 1; $i <= $language_rows; $i++) {
-    $progress_rows = $progress_model->initialize(array('user_id' => $rows, 'language_id' => $i));
-  }
 
   if ($rows && $language_rows && $progress_rows) {
     header('Location: ../../login');
