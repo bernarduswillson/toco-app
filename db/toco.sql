@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS languages;
 CREATE TABLE languages (
   language_id SERIAL PRIMARY KEY,
   language_name VARCHAR(256) NOT NULL,
-  language_flag VARCHAR(256) NOT NULL
+  language_flag VARCHAR(256)
 );
 
 INSERT INTO languages (language_name, language_flag) VALUES ('English', '/public/icons/uk-flag.svg');

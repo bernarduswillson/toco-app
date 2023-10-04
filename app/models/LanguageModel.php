@@ -53,4 +53,13 @@ class LanguageModel
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
+
+  public function addLanguage($languageName, $languageImage)
+  {
+    $query = "INSERT INTO " . $this->table . " (language_name, language_flag) VALUES (:languageName, :languageImage)";
+    $this->db->query($query);
+    $this->db->bind('languageName', $languageName);
+    $this->db->bind('languageImage', $languageImage);
+    return $this->db->execute();
+  }
 }
