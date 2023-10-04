@@ -7,7 +7,11 @@
       Edit <?= $data["video"]["video_name"] ?>
     </h1>
 
-    <form action="">
+    <form action="../../../../../api/admin/editVideo.php" method="post">
+      <input type="hidden" name="module_id" value="<?= $data['video']['module_id'] ?>">
+      <input type="hidden" name="video_id" value="<?= $data["video"]["video_id"] ?>">
+      <input type="hidden" name="video_order" value="<?= $data["video"]["video_order"] ?>">
+      <input type="hidden" name="language_id" value="<?= $data["languageId"] ?>">
       <div class="text-input-container">
         <label for="videoName" class="text-reg text-black text-xs">Video name</label>
         <input id="name-input" type="text" name="videoName" placeholder="Video name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["video"]["video_name"] ?>">
@@ -20,8 +24,8 @@
       </div>
 
       <div class="bottom-button-container">
-        <a href="/admin/manage/<?= $data["languageId"] . "/" . $data["video"]["video_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
-        <button type="submit" class="primary-red-button font-reg text-sm">Delete</button>
+        <a href="/admin/manage/<?= $data["languageId"] . "/" . $data['video']['module_id'] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
+        <button type="submit" class="primary-red-button font-reg text-sm" name="delete">Delete</button>
         <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>
     </form>

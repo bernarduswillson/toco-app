@@ -149,3 +149,67 @@ BEFORE UPDATE ON modules
 FOR EACH ROW EXECUTE FUNCTION adjust_module_order_after_update();
 
 
+CREATE OR REPLACE FUNCTION adjust_module_order_after_delete()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE modules 
+    SET module_order = module_order - 1 
+    WHERE language_id = OLD.language_id AND module_order > OLD.module_order;
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_delete_trigger
+AFTER DELETE ON modules
+FOR EACH ROW EXECUTE FUNCTION adjust_module_order_after_delete();
+
+
+CREATE OR REPLACE FUNCTION adjust_video_order_after_insert()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE videos 
+    SET video_order = video_order + 1 
+    WHERE module_id = NEW.module_id AND video_order >= NEW.video_order;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_insert_trigger
+BEFORE INSERT ON videos
+FOR EACH ROW EXECUTE FUNCTION adjust_video_order_after_insert();
+
+
+CREATE OR REPLACE FUNCTION adjust_video_order_after_update()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.video_order < OLD.video_order THEN
+        UPDATE videos 
+        SET video_order = video_order + 1 
+        WHERE module_id = NEW.module_id AND video_order >= NEW.video_order AND video_order < OLD.video_order;
+    -- ELSIF NEW.video_order > OLD.video_order THEN
+    --     UPDATE videos 
+    --     SET video_order = video_order - 1 
+    --     WHERE module_id = NEW.module_id AND video_order <= NEW.video_order AND video_order > OLD.video_order;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_update_trigger
+BEFORE UPDATE ON videos
+FOR EACH ROW EXECUTE FUNCTION adjust_video_order_after_update();
+
+
+CREATE OR REPLACE FUNCTION adjust_video_order_after_delete()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE videos 
+    SET video_order = video_order - 1 
+    WHERE module_id = OLD.module_id AND video_order > OLD.video_order;
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_delete_trigger
+AFTER DELETE ON videos
+FOR EACH ROW EXECUTE FUNCTION adjust_video_order_after_delete();
