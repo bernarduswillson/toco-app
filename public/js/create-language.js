@@ -16,9 +16,9 @@ document.getElementById('upload-input').addEventListener('change', function (eve
   const reader = new FileReader();
 
   reader.onload = function (e) {
-      const languagePicture = document.getElementById('language-image');
-      languagePicture.src = e.target.result;
-      saveImageToRepository(file);
+    const languagePicture = document.getElementById('language-image');
+    languagePicture.src = e.target.result;
+    saveImageToRepository(file);
   };
 
   reader.readAsDataURL(file);
@@ -39,16 +39,16 @@ function saveImageToRepository(imageFile) {
   formData.append('image', imageFile);
 
   fetch('../../api/admin/languageImage.php', {
-      method: 'POST',
-      body: formData
+    method: 'POST',
+    body: formData
   })
-      .then(response => response.text())
-      .then(data => {
-          console.log('New file path:', data);
-          const newLanguagePicInput = document.getElementById('new-language-pic');
-          newLanguagePicInput.value = data;
-          const languagePicture = document.getElementById('language-picture');
-          languagePicture.src = data;
-      })
-      .catch(error => console.error('Error:', error));
+    .then(response => response.text())
+    .then(data => {
+      console.log('New file path:', data);
+      const newLanguagePicInput = document.getElementById('new-language-pic');
+      newLanguagePicInput.value = data;
+      const languagePicture = document.getElementById('language-picture');
+      languagePicture.src = data;
+    })
+    .catch(error => console.error('Error:', error));
 }

@@ -88,4 +88,12 @@ class LanguageModel
     $this->db->bind('languageImage', $languageImage);
     return $this->db->execute();
   }
+
+  public function deleteLanguage($language_id)
+  {
+    $query = "DELETE FROM " . $this->table . " WHERE language_id = :language_id";
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    return $this->db->execute();
+  }
 }
