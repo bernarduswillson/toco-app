@@ -132,4 +132,24 @@ class VideoModel
     $this->db->bind('module_id', $data['module_id']);
     $this->db->execute();
   }
+
+  public function editVideo($data)
+  {
+    $query = "UPDATE " . $this->table . " SET video_name = :video_name, video_desc = :description, video_url = :video_url, video_order = :video_order WHERE video_id = :video_id";
+    $this->db->query($query);
+    $this->db->bind('video_name', $data['video_name']);
+    $this->db->bind('description', $data['description']);
+    $this->db->bind('video_url', $data['video_url']);
+    $this->db->bind('video_order', $data['video_order']);
+    $this->db->bind('video_id', $data['video_id']);
+    $this->db->execute();
+  }
+
+  public function deleteVideo($video_id)
+  {
+    $query = "DELETE FROM " . $this->table . " WHERE video_id = :video_id";
+    $this->db->query($query);
+    $this->db->bind('video_id', $video_id);
+    $this->db->execute();
+  }
 }
