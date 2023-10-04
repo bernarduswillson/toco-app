@@ -78,4 +78,9 @@ class VideoModel
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
+  public function getVideoUrlByID ($video_id) {
+    $this->db->query("SELECT video_url FROM " . $this->table . " WHERE video_id = :video_id");
+    $this->db->bind('video_id', $video_id);
+    return $this->db->single();
+  }
 }
