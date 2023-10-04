@@ -1,27 +1,34 @@
 <?php
+$language_pic = $data["language"]["language_flag"];
 ?>
 
 <div class="create">
   <div class="admin-container input-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      Edit <?= $data["language"]["language_name"] ?>
+      Edit
+      <?= $data["language"]["language_name"] ?>
     </h1>
 
-    <form action="">
+    <form action="../../../../../api/admin/editLanguage.php" method="post">
+      <input type="hidden" id="language-id" name="language-id" value="<?= $data["language"]["language_id"] ?>">
       <div class="language-picture-container">
-        <!-- Belum di setup -->
-        <img src="/public/icons/profile.webp" alt="Language flag image">
-         <!--  -->
+        <img id="language-image" class="language-image" src="<?php echo $language_pic; ?>" alt="Language flag image"
+          draggable="false" height="150px" width="150px">
+        <input type="hidden" id="new-language-pic" name="new-language-pic" value="<?php echo $language_pic; ?>">
 
         <div class="button-container">
-          <button class="font-reg text-sm primary-blue-button">Change picture</button>
-          <button class="font-reg text-sm secondary-blue-button">Delete picture</button>
+          <button class="font-reg text-sm primary-blue-button">
+            <input type="file" id="upload-input" accept="image/*">
+            Change picture
+          </button>
+          <button class="font-reg text-sm secondary-blue-button" id="delete-btn">Delete picture</button>
         </div>
       </div>
 
       <div class="text-input-container">
         <label for="languageName" class="text-reg text-black text-xs">Language name</label>
-        <input id="language-input" type="text" name="languageName" placeholder="Language name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["language"]["language_name"] ?>">
+        <input id="language-input" type="text" name="languageName" placeholder="Language name"
+          class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["language"]["language_name"] ?>">
       </div>
 
       <div class="bottom-button-container">
