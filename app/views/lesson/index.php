@@ -102,9 +102,19 @@
         <?php if (intval($data["curr_page"]) > 1): ?>
           <button onclick="prevPage()" class="text-sm">&lt;</button>
         <?php endif; ?>
-        <?php for($i = 1; $i <= $data["total_page"]; $i++): ?>
-          <button onclick="goToPage(<?= $i ?>)" class="text-sm <?php echo $data["curr_page"] == $i ? 'active' : '' ?>"><?= $i ?></button>
+        <button onclick="goToPage(1)" class="text-sm <?php echo $data["curr_page"] == 1 ? 'active' : '' ?>">1</button>
+        <?php if (intval($data["curr_page"]) - 3 > 1): ?>
+          <button disabled class="text-sm">...</button>
+        <?php endif; ?>
+        <?php for($i = 2; $i < $data["total_page"]; $i++): ?>
+          <?php if ($i == 1 || $i == $data["total_page"] || $i == $data["curr_page"] || ($i <= $data["curr_page"] + 2 && $i >= $data["curr_page"] - 2)): ?>
+            <button onclick="goToPage(<?= $i ?>)" class="text-sm <?php echo $data["curr_page"] == $i ? 'active' : '' ?>"><?= $i ?></button>
+          <?php endif; ?>
         <?php endfor; ?>
+        <?php if (intval($data["curr_page"]) + 3 < $data["total_page"]): ?>
+          <button disabled class="text-sm">...</button>
+        <?php endif; ?>
+          <button onclick="goToPage(<?= $data["total_page"] ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
         <?php if (intval($data["curr_page"]) < intval($data["total_page"])): ?>
           <button onclick="nextPage()" class="text-sm">&gt;</button>
         <?php endif; ?>
