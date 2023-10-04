@@ -34,9 +34,9 @@ class Learn extends Controller {
     else if (isset($languageId) && !empty($languageId)) {
       $data["pageTitle"] = "Keep learning!";
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
-      $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageId($languageId);
+      $data["modules"] = $this->model("ModuleModel")->getUserModulesByLanguageId($languageId, $_SESSION["user_id"]);
       for ($i = 0; $i < count($data["modules"]); $i++) {
-        $data["modules"][$i]["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["modules"][$i]["module_id"]);
+        $data["modules"][$i]["videos"] = $this->model("VideoModel")->getUserVideosByModuleId($data["modules"][$i]["module_id"], $_SESSION["user_id"]);
       }
 
       $this->view('header/index', $data);

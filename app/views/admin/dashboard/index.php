@@ -4,7 +4,7 @@
 <div class="dashboard">
   <div class="admin-container admin-list-content-container">
     <h1 class="text-blue-purple-gradient font-bold text-xl">
-      Hello Admin <?= $data["username"] ?>
+      Hello Admin
     </h1>
 
     <div class="list-container">
