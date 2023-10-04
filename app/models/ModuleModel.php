@@ -106,13 +106,34 @@ class ModuleModel
   
   public function addModule($data)
   {
-    $query = "INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES (:module_name, :language_id, :category, :difficulty, :module_order)";
+    $query = "INSERT INTO " . $this->table . " (module_name, language_id, category, difficulty, module_order) VALUES (:module_name, :language_id, :category, :difficulty, :module_order)";
     $this->db->query($query);
     $this->db->bind('module_name', $data['module_name']);
     $this->db->bind('language_id', $data['language_id']);
     $this->db->bind('category', $data['category']);
     $this->db->bind('difficulty', $data['difficulty']);
     $this->db->bind('module_order', $data['module_order']);
+    $this->db->execute();
+  }
+
+  public function editModule($data)
+  {
+    $query = "UPDATE " . $this->table . " SET module_name = :module_name, language_id = :language_id, category = :category, difficulty = :difficulty, module_order = :module_order WHERE module_id = :module_id";
+    $this->db->query($query);
+    $this->db->bind('module_id', $data['module_id']);
+    $this->db->bind('module_name', $data['module_name']);
+    $this->db->bind('language_id', $data['language_id']);
+    $this->db->bind('category', $data['category']);
+    $this->db->bind('difficulty', $data['difficulty']);
+    $this->db->bind('module_order', $data['module_order']);
+    $this->db->execute();
+  }
+
+  public function deleteModule($module_id)
+  {
+    $query = "DELETE FROM " . $this->table . " WHERE module_id = :module_id";
+    $this->db->query($query);
+    $this->db->bind('module_id', $module_id);
     $this->db->execute();
   }
 }

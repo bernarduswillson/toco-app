@@ -7,7 +7,10 @@
       Edit <?= $data["module"]["module_name"] ?>
     </h1>
 
-    <form action="">
+    <form action="../../../../../api/admin/editModule.php" method="post">
+      <input type="hidden" name="language_id" value="<?= $data["module"]["language_id"] ?>">
+      <input type="hidden" name="module_id" value="<?= $data["module"]["module_id"] ?>">
+      <input type="hidden" name="module_order" value="<?= $data["module"]["module_order"] ?>">
       <div class="text-input-container">
         <label for="moduleName" class="text-reg text-black text-xs">Module name</label>
         <input id="module-input" type="text" name="moduleName" placeholder="Module name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["module"]["module_name"] ?>">
@@ -16,9 +19,9 @@
         <!-- Ini belum di setup -->
         <label for="difficulty" class="text-reg text-black text-xs">Difficulty</label>
         <select name="difficulty" class="font-reg text-black text-sm">
-          <option value="beginner" selected>Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="Beginner" selected>Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
         <!--  -->
         <label for="order" class="text-reg text-black text-xs">Order</label>
@@ -27,7 +30,7 @@
 
       <div class="bottom-button-container">
         <a href="/admin/manage/<?= $data["module"]["language_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
-        <button type="submit" class="primary-red-button font-reg text-sm">Delete</button>
+        <button type="submit" class="primary-red-button font-reg text-sm" name="delete">Delete</button>
         <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>
     </form>
