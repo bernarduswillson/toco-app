@@ -120,4 +120,16 @@ class VideoModel
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
+
+  public function addVideo($data)
+  {
+    $query = "INSERT INTO " . $this->table . " (video_name, video_desc, video_url, video_order, module_id) VALUES (:video_name, :description, :video_url, :video_order, :module_id)";
+    $this->db->query($query);
+    $this->db->bind('video_name', $data['video_name']);
+    $this->db->bind('description', $data['description']);
+    $this->db->bind('video_url', $data['video_url']);
+    $this->db->bind('video_order', $data['video_order']);
+    $this->db->bind('module_id', $data['module_id']);
+    $this->db->execute();
+  }
 }
