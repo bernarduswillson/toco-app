@@ -66,6 +66,56 @@ class ModuleModel
     return $this->db->resultSet();
   }
 
+  public function getUserModulesByLanguageIdFiltered($language_id, $user_id, $find, $difficulty, $sort)
+  {
+    $query = "
+    SELECT m.module_id, m.module_name, m.language_id, m.category, m.difficulty, m.module_order,
+      CASE
+          WHEN mr.module_result_id IS NOT NULL THEN TRUE
+          ELSE FALSE
+      END AS is_finished
+      FROM (
+        SELECT *
+        FROM modules 
+        WHERE language_id = :language_id "; 
+    
+    // Search
+    $find = '%' . $find . '%';
+    if (!empty($find)) {
+      $query .= "AND (module_name ILIKE :find OR category ILIKE :find OR difficulty ILIKE :find)";
+    }
+
+    // Filter
+    if (!empty($difficulty)) {
+      $query .= " AND difficulty = :difficulty";
+    }
+
+    $query .= " ) AS m
+      LEFT JOIN (
+        SELECT *
+        FROM modules_result
+        WHERE user_id = :user_id
+      ) AS mr ON m.module_id = mr.module_id ";
+
+    // Sort
+    if (!empty($sort)) {
+      $query .= "ORDER BY m.module_name, m.module_order ASC;";
+    } else {
+      $query .= "ORDER BY m.module_order ASC;";
+    }
+
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    if (!empty($find)) {
+      $this->db->bind('find', $find);
+    }
+    if (!empty($difficulty)) {
+      $this->db->bind('difficulty', $difficulty);
+    }
+    $this->db->bind('user_id', $user_id);
+    return $this->db->resultSet();
+  }
+
   public function getModuleById($module_id)
   {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE module_id = :module_id");

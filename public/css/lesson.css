@@ -10,11 +10,18 @@
 } 
 
 .lesson .lesson-container {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
+}
+
+.lesson .lesson-container #search-filter-sort-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
 }
 
 .lesson .lesson-container h1 {
@@ -23,7 +30,7 @@
 
 /* === SEARCH BAR === */
 
-.lesson .lesson-container form {
+.lesson .lesson-container .input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +38,7 @@
   width: 100%;
 }
 
-.lesson .lesson-container form .search-bar {
+.lesson .lesson-container .input-container .search-bar {
   width: 100%;
   max-width: 600px;
 
@@ -45,17 +52,17 @@
   padding: 8px 16px;
 }
 
-.lesson .lesson-container form .search-bar input {
+.lesson .lesson-container .input-container .search-bar input {
   border: none;
   width: 100%;
 }
 
-.lesson .lesson-container form .search-bar button {
+.lesson .lesson-container .input-container .search-bar button {
   border: none;
   background-color: transparent;
 }
 
-.lesson .lesson-container form .filter-sort {
+.lesson .lesson-container .input-container .filter-sort {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -66,7 +73,7 @@
 
 /* === FILTER === */
 
-.lesson .lesson-container form .filter-sort select {
+.lesson .lesson-container .input-container .filter-sort select {
   padding: 10px 14px;
   border: 1px solid var(--grey);
   border-radius: 50px;
@@ -74,7 +81,7 @@
 
 /* === SORT === */
 
-.lesson .lesson-container form .filter-sort .sort-container {
+.lesson .lesson-container .input-container .filter-sort .sort-container {
   padding: 10px 14px;
   border-radius: 50px;
   position: relative;
@@ -87,15 +94,15 @@
   color: var(--black);
 }
 
-.lesson .lesson-container form .filter-sort .sort-container.active {
+.lesson .lesson-container .input-container .filter-sort .sort-container.active {
   background-color: var(--orange);
   border: 1px solid var(--orange);
   color: var(--white);
 }
 
-.lesson .lesson-container form .filter-sort .sort-container input {
+.lesson .lesson-container .input-container .filter-sort .sort-container input {
   position: absolute;
-  opacity: 0;
+  opacity: 0%;
   cursor: pointer;
   height: 0;
   width: 0;
@@ -228,15 +235,21 @@
     padding-top: 180px;
     padding-bottom: 120px;
   }
-
+  
   .lesson .lesson-container {
+    gap: 90px;
+  }
+
+  .lesson .lesson-container #search-filter-sort-form {
     gap: 90px;
   }
 }
 
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
 @media (min-width: 1440px) {
 
-  .lesson .lesson-container form .search-bar {
+  .lesson .lesson-container .input-container .search-bar {
     max-width: 800px;
   }
 
