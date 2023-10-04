@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         exit();
     }
     $fileName = $file['name'];
-    $destination = '../../public/imgdata/profile/' . $fileName;
+    $destination = '../../public/imgdata/language/' . $fileName;
 
     if (move_uploaded_file($file['tmp_name'], $destination)) {
         echo $destination;

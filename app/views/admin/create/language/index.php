@@ -1,4 +1,5 @@
 <?php
+$language_pic = '/public/icons/profile.webp';
 ?>
 
 <div class="create">
@@ -7,19 +8,25 @@
       Add New Language
     </h1>
 
-    <form action="">
+    <form action="../../../../../api/admin/addLanguage.php" method="post">
       <div class="language-picture-container">
-        <img src="/public/icons/profile.webp" alt="Language flag image">
+        <img id="language-image" class="language-image" src="<?php echo $language_pic; ?>" alt="Language flag image"
+          draggable="false" height="150px" width="150px">
+        <input type="hidden" id="new-language-pic" name="new-language-pic" value="<?php echo $language_pic; ?>">
 
         <div class="button-container">
-          <button class="font-reg text-sm primary-blue-button">Change picture</button>
-          <button class="font-reg text-sm secondary-blue-button">Delete picture</button>
+          <button class="font-reg text-sm primary-blue-button">
+            <input type="file" id="upload-input" accept="image/*">
+            Change picture
+          </button>
+          <button class="font-reg text-sm secondary-blue-button" id="delete-btn">Delete picture</button>
         </div>
       </div>
 
       <div class="text-input-container">
         <label for="languageName" class="text-reg text-black text-xs">Language name</label>
-        <input id="language-input" type="text" name="languageName" placeholder="Language name" class="font-reg text-black text-sm" autocomplete="false">
+        <input id="language-input" type="text" name="languageName" placeholder="Language name"
+          class="font-reg text-black text-sm" autocomplete="false">
       </div>
 
       <div class="bottom-button-container">
