@@ -51,7 +51,7 @@ class Learn extends Controller {
       }
       
       // Page
-      $data_per_page = 2;
+      $data_per_page = 6;
       $data["curr_page"] = "1";
       if (isset($query["page"]) && !empty($query["page"])) {
         $data["curr_page"] = $query["page"];
