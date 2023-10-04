@@ -78,4 +78,14 @@ class LanguageModel
     $this->db->bind('languageImage', $languageImage);
     return $this->db->execute();
   }
+
+  public function editLanguage($language_id, $languageName, $languageImage)
+  {
+    $query = "UPDATE " . $this->table . " SET language_name = :languageName, language_flag = :languageImage WHERE language_id = :language_id";
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('languageName', $languageName);
+    $this->db->bind('languageImage', $languageImage);
+    return $this->db->execute();
+  }
 }
