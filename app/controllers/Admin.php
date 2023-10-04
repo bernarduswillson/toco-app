@@ -2,10 +2,7 @@
 
 class Admin extends Controller {
   public function index() {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
-      header('Location: /login');
-      exit();
-    }
+    $this->validateSession();
 
     $data["pageTitle"] = "Admin dashboard";
     $data["username"] = $_SESSION['username'];
@@ -20,15 +17,8 @@ class Admin extends Controller {
     $this->view('footer/index');
   }
 
-  public function dashboard() {
-    
-  }
-
   public function manage($languageId = null, $moduleId = null) {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
-      header('Location: /login');
-      exit();
-    }
+    $this->validateSession();
 
     // Manage Videos
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
@@ -68,10 +58,7 @@ class Admin extends Controller {
   }
 
   public function create($languageId = null, $moduleId = null) {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
-      header('Location: /login');
-      exit();
-    }
+    $this->validateSession();
 
     // Create Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
@@ -108,10 +95,7 @@ class Admin extends Controller {
   }
 
   public function edit($languageId = null, $moduleId = null, $videoId = null) {
-    if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
-      header('Location: /login');
-      exit();
-    }
+    $this->validateSession();
 
     // Edit Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {

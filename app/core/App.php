@@ -14,6 +14,9 @@ class App {
       if ( file_exists('app/controllers/' . $url[0] . '.php')) {
         $this->controller = $url[0];
         unset($url[0]);
+      } else {
+        $this->controller = 'Error404';
+        unset($url[0]);
       }
     }
 
@@ -26,12 +29,17 @@ class App {
       if ( method_exists($this->controller, $url[1]) ) {
         $this->method = $url[1];
         unset($url[1]);
+      } else {
+        $this->controller = 'Error404';
+        require_once 'app/controllers/' . $this->controller . '.php';
+        $this->controller = new $this->controller;
+        unset($url[0]);
       }
     }
 
     // === PARAMETER ===
 
-    if ( !empty($url) ) {
+    if ( !empty($url ) ) {
       $this->params = array_values($url);
     }
 

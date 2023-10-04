@@ -1,11 +1,10 @@
 <?php
 
+use JetBrains\PhpStorm\Language;
+
 class Learn extends Controller {
   public function index() {
-    if (!$this->isLoggedIn()) {
-        header('Location: /login');
-        exit();
-    }
+    $this->validateSession();
 
     $data["pageTitle"] = "Your journey starts here!";
     $data["languages"] = $this->model("LanguageModel")->getAllLanguage();
@@ -15,21 +14,19 @@ class Learn extends Controller {
     $this->view('learn/index', $data);
     $this->view('footer/index');
   }
-  
-  private function isLoggedIn() {
-    return isset($_SESSION['username']) && !empty($_SESSION['username']);
-  }
 
   public function lesson($languageId = null, $moduleId = null, $videoId = null) {
-    if (!$this->isLoggedIn()) {
-      header('Location: /login');
-      exit();
-    }
+    $this->validateSession();
+
+    $this->validateParamLanguage($languageId);
+    $this->validateParamModule($languageId, $moduleId);
+    $this->validateParamVideo($moduleId, $videoId);
 
     // Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {
-
+      echo "Video page";
     }
+
     // List of modules
     else if (isset($languageId) && !empty($languageId)) {
       $data["pageTitle"] = "Keep learning!";
@@ -43,9 +40,37 @@ class Learn extends Controller {
       $this->view('navbar/index');
       $this->view('lesson/index', $data);
       $this->view('footer/index');
+    
+    // No parameter
     } else {
-      header('Location: /404');
-      exit();
+      $this->show404();
+    }
+  }
+
+  public function validateParamLanguage($languageId) {
+    if (isset($languageId) && !empty($languageId)) {
+      if ($this->model("LanguageModel")->validateById($languageId)) {
+        return;
+      }
+      $this->show404();
+    }
+  }
+
+  public function validateParamModule($languageId, $moduleId) {
+    if (isset($moduleId) && !empty($moduleId)) {
+      if ($this->model("ModuleModel")->validateById($languageId, $moduleId)) {
+        return;
+      }
+      $this->show404();
+    }
+  }
+
+  public function validateParamVideo($moduleId, $videoId) {
+    if (isset($videoId) && !empty($videoId)) {
+      if ($this->model("VideoModel")->validateById($moduleId, $videoId)) {
+        return;
+      }
+      $this->show404();
     }
   }
 }

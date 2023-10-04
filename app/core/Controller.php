@@ -15,4 +15,22 @@ class Controller {
     require_once 'app/models/' . $model . '.php';
     return new $model;
   }
+
+  public function show404() {
+    $data["pageTitle"] = "404 | Oops, error in translation";
+
+    $this->view("header/index", $data);
+    $this->view("Error404/index");
+  }
+
+  public function validateSession() {
+    if (!$this->isLoggedIn()) {
+      header('Location: /login');
+      exit();
+    }
+  }
+
+  public function isLoggedIn() {
+    return isset($_SESSION['username']) && !empty($_SESSION['username']);
+  }
 }

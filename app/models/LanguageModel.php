@@ -14,21 +14,37 @@ class LanguageModel
     $temp = $this->db->single(); 
     return intval($temp["count"]);
   }
+  
+  public function validateById($language_id) {
+    $this->db->query(
+      "SELECT
+        CASE
+          WHEN :language_id IN (
+            SELECT language_id
+            FROM languages 
+          ) THEN TRUE
+          ELSE FALSE
+        END AS isvalid"
+    );
+    $this->db->bind('language_id', $language_id);
+    $temp = $this->db->single(); 
+    return boolval($temp["isvalid"]);
+  }
 
   public function getAllLanguage() {
     $this->db->query("SELECT * FROM " . $this->table);
     return $this->db->resultSet();
   }
 
-  public function getLanguageByName($languageName) {
+  public function getLanguageByName($language_name) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_name = :language_name');
-    $this->db->bind('language_name', $languageName);
+    $this->db->bind('language_name', $language_name);
     return $this->db->single();
   }
 
-  public function getLanguageById($languageId) {
+  public function getLanguageById($language_id) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_id = :language_id');
-    $this->db->bind('language_id', $languageId);
+    $this->db->bind('language_id', $language_id);
     return $this->db->single();
   }
   
