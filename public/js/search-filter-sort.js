@@ -6,14 +6,14 @@ const checkbox = document.querySelector("#sort-input");
 
 checkbox.addEventListener("click", () => {
   sortBtn.classList.toggle("active");
-  form.submit();
+  goToPage(1);
 });
 
 // Filter
 const filterInput = document.querySelector("#difficulty-input");
 
 filterInput.addEventListener("change", () => {
-  form.submit();
+  goToPage(1);
 })
 
 // Search
@@ -21,10 +21,9 @@ const searchBox = document.querySelector("#search-box");
 let timeoutId;
 
 searchBox.addEventListener("input", () => {
-  console.log("change");
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
-    form.submit();
+    goToPage(1);
   }, 500);
 })
 
