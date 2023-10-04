@@ -3,15 +3,13 @@
 class Video extends Controller {
   public function index() {
     if (!$this->isLoggedIn()) {
-        header('Location: /login');
+        header('Location: /video');
         exit();
     }
 
     $data["pageTitle"] = "Toco | Your journey starts here!";
     $data["user_id"] = $_SESSION['user_id'];
-    $data["video_id"] = $_GET['video_id'];
-    $data["video_url"] = $this->model("VideoModel")->getVideoUrl($data["video_id"]);
-    $data["video_title"] = $this->model("VideoModel")->getVideoTitle($data["video_id"]);
+    $data["video_id"] = 1;
 
     $this->view('header/index', $data);
     $this->view('navbar/index');

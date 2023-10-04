@@ -83,4 +83,10 @@ class VideoModel
     $this->db->bind('video_id', $video_id);
     return $this->db->single();
   }
+
+  public function getVideoTitle ($video_id) {
+    $this->db->query("SELECT video_name FROM " . $this->table . " WHERE video_id = :video_id");
+    $this->db->bind('video_id', $video_id);
+    return $this->db->single();
+  }
 }
