@@ -12,7 +12,7 @@ class ProgressModel
 
   public function initialize($user_id, $language_id)
   {
-    $query = "INSERT INTO progress (user_id, language_id) VALUES (:user_id, :language_id)";
+    $query = 'INSERT INTO ' . $this->table . ' (user_id, language_id) VALUES (:user_id, :language_id)';
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
     $this->db->bind('language_id', $language_id);
@@ -21,7 +21,7 @@ class ProgressModel
 
   public function getLanguageProgressCount($user_id, $language_id)
   {
-    $query = "SELECT COUNT(*) FROM progress WHERE user_id = :user_id AND language_id = :language_id";
+    $query = 'SELECT COUNT(*) FROM ' . $this->table . ' WHERE user_id = :user_id AND language_id = :language_id';
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
     $this->db->bind('language_id', $language_id);
