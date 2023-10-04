@@ -57,16 +57,16 @@ INSERT INTO modules (module_name, language_id, category, difficulty, module_orde
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk about your hobbies', 1, 'Conversation', 'Beginner', 5);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Introduce yourself', 1, 'Conversation', 'Beginner', 6);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Describe possessions', 1, 'Phrases', 'Beginner', 7);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Form questions', 1, 'Grammar', 'Intermediate', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Express a problem', 1, 'Grammar', 'Intermediate', 2);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk on the phone', 1, 'Conversation', 'Intermediate', 3);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Check into a hotel', 1, 'Conversation', 'Intermediate', 4);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk about daily life', 1, 'Conversation', 'Intermediate', 5);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 6);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 2);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Form questions', 1, 'Grammar', 'Intermediate', 8);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Express a problem', 1, 'Grammar', 'Intermediate', 9);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk on the phone', 1, 'Conversation', 'Intermediate', 10);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Check into a hotel', 1, 'Conversation', 'Intermediate', 11);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Talk about daily life', 1, 'Conversation', 'Intermediate', 12);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 13);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 14);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 15);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 16);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 17);
 
 DROP TABLE IF EXISTS modules_result;
 CREATE TABLE modules_result (
@@ -111,5 +111,3 @@ INSERT INTO videos_result (user_id, video_id) VALUES (3, 1);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 2);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 3);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 4);
-INSERT INTO videos_result (user_id, video_id) VALUES (3, 5);
-INSERT INTO videos_result (user_id, video_id) VALUES (3, 6);

@@ -2,11 +2,6 @@
 
 class Admin extends Controller {
   public function index() {
-    header('Location: /admin/dashboard');
-    exit();
-  }
-
-  public function dashboard() {
     if (!(isset($_SESSION['username']) && !empty($_SESSION['username'])) || !$_SESSION['is_admin']) {
       header('Location: /login');
       exit();
@@ -23,6 +18,10 @@ class Admin extends Controller {
     $this->view('navbar/index');
     $this->view('admin/dashboard/index', $data);
     $this->view('footer/index');
+  }
+
+  public function dashboard() {
+    
   }
 
   public function manage($languageId = null, $moduleId = null) {

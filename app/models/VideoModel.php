@@ -24,6 +24,37 @@ class VideoModel
     return $this->db->resultSet();
   }
 
+  // video_id SERIAL PRIMARY KEY,
+  // video_name VARCHAR(256) NOT NULL,
+  // video_url VARCHAR(256) NOT NULL,
+  // module_id INTEGER NOT NULL,
+  // video_desc TEXT NOT NULL,
+  // video_order INTEGER NOT NULL,
+
+  public function getUserVideosByModuleId($module_id, $user_id)
+  {
+    $this->db->query("
+    SELECT v.video_id, v.video_name, v.module_id, v.video_order,
+    CASE
+        WHEN vr.video_result_id IS NOT NULL THEN TRUE
+        ELSE FALSE
+    END AS is_finished
+    FROM (
+      SELECT *
+      FROM videos 
+      WHERE module_id = :module_id 
+    ) AS v
+    LEFT JOIN (
+      SELECT *
+      FROM videos_result
+      WHERE user_id = :user_id
+    ) AS vr ON v.video_id = vr.video_id
+    ORDER BY v.video_order ASC");
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('user_id', $user_id);
+    return $this->db->resultSet();
+  }
+
   public function getVideoById($video_id)
   {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE video_id = :video_id");

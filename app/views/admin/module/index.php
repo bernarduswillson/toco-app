@@ -18,7 +18,7 @@
 
     <div class="list-container">
       <div class="breadcrumb">
-        <a href="/admin/dashboard" class="text-orange font-reg text-sm">
+        <a href="/admin" class="text-orange font-reg text-sm">
           Dashboard
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
@@ -46,7 +46,7 @@
       <div class="admin-card">
         <span class="font-bold text-md"><?= $video["video_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $data["language"][1] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="secondary-card-button">
+          <a href="/learn/lesson/<?= $data["language"][1] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="secondary-card-button">
             Page
           </a>
           <a href="/admin/edit/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="primary-card-button">

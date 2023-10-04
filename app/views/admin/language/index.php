@@ -18,7 +18,7 @@
 
     <div class="list-container">
       <div class="breadcrumb">
-        <a href="/admin/dashboard" class="text-orange font-reg text-sm">
+        <a href="/admin" class="text-orange font-reg text-sm">
           Dashboard
         </a>
         <span class="text-orange font-reg text-sm">&gt;</span>
@@ -42,7 +42,7 @@
       <div class="admin-card">
         <span class="font-bold text-md"><?= $module["category"] . " - " . $module["module_name"] ?></span>
         <div class="button-container">
-          <a href="/learn/<?= $data["language"]["language_id"] . "/" . $module["module_id"] ?>" class="secondary-card-button">
+          <a href="/learn/lesson/<?= $data["language"]["language_id"] ?>" class="secondary-card-button">
             Page
           </a>
           <a href="/admin/manage/<?= $data["language"]["language_id"] . "/" . $module["module_id"] ?>" class="primary-card-button">

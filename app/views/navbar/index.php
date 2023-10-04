@@ -28,9 +28,9 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
             <div id="logged">
                 <?php if ($username) : ?>
                     <?php if ($is_admin) : ?>
-                        <a href="/admin"><span class="text-sm logged-text"><?php echo $username; ?>'s CMS</span></a>
+                        <a href="/admin"><span class="text-sm logged-text">CMS</span></a>
                     <?php else : ?>
-                        <a href="/mylearning"><span class="text-sm logged-text"><?php echo $username; ?>'s learning</span></a>
+                        <a href="/mylearning"><span class="text-sm logged-text">My learning</span></a>
                     <?php endif; ?>
                     <div>
                         <a href="/profile">
@@ -54,12 +54,12 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
             <li><a href="/#" class="text-sm text-black">Articles</a></li>
             <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
             <?php if ($username) : ?>
-                <li><a href="/mylearning" class="text-sm text-black"><?php echo $username; ?>'s learning</a></li>
                 <?php if ($is_admin) : ?>
-                    <li><a href="/admin/dashboard" class="text-sm text-black">CMS</a></li>
+                    <li><a href="/admin" class="text-sm text-black">CMS</a></li>
                 <?php else : ?>
-                    <li><a href="/profile" class="text-sm text-black">Profile</a></li>
-                <?php endif; ?>
+                    <li><a href="/mylearning" class="text-sm text-black">My learning</a></li>
+                    <?php endif; ?>
+                <li><a href="/profile" class="text-sm text-black">Profile</a></li>
                 <li><a href="../../../api/auth/logout.php" class="text-sm text-black">Logout</a></li>
             <?php else : ?>
                 <li><a href="/login" class="login-btn text-sm primary-button font-reg">Login</a></li>

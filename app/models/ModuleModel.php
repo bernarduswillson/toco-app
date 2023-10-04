@@ -24,17 +24,34 @@ class ModuleModel
     return $this->db->resultSet();
   }
 
+  public function getUserModulesByLanguageId($language_id, $user_id)
+  {
+    $this->db->query("
+    SELECT m.module_id, m.module_name, m.language_id, m.category, m.difficulty, m.module_order,
+    CASE
+        WHEN mr.module_result_id IS NOT NULL THEN TRUE
+        ELSE FALSE
+    END AS is_finished
+    FROM (
+      SELECT *
+      FROM modules 
+      WHERE language_id = :language_id 
+    ) AS m
+    LEFT JOIN (
+      SELECT *
+      FROM modules_result
+      WHERE user_id = :user_id
+    ) AS mr ON m.module_id = mr.module_id
+    ORDER BY m.module_order ASC");
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('user_id', $user_id);
+    return $this->db->resultSet();
+  }
+
   public function getModuleById($module_id)
   {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE module_id = :module_id");
     $this->db->bind('module_id', $module_id);
-    return $this->db->single();
-  }
-  public function getModuleByName($module_name, $language_name)
-  {
-    $this->db->query('SELECT * FROM ' . $this->table . ' m INNER JOIN languages l ON m.language_id = l.language_id WHERE module_name = :module_name AND l.language_name = :language_name');
-    $this->db->bind('module_name', $module_name);
-    $this->db->bind('language_name', $language_name);
     return $this->db->single();
   }
 
