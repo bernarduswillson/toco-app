@@ -5,53 +5,48 @@ class App {
     protected $method = 'index';
     protected $params = [];
   
-    public function __construct()
-    {
-      // Redirect to 'Home'
+    public function __construct() {
       $url = $this->parse_url();
-      if (file_exists('app/controllers/' . $url[0] . '.php')) {
-        $this->controller = $url[0];
-        unset($url[0]);
-      }
-      else if ($url[0] == '') {
-        $this->controller = 'Home';
-      }
-      else {
-        $this->controller = 'Error404';
-      }
       
-      // Load the controller
+      // === CONTROLLER ===
+  
+      if ( isset($url[0]) ) {
+        if ( file_exists('app/controllers/' . $url[0] . '.php')) {
+          $this->controller = $url[0];
+          unset($url[0]);
+        }
+      }
+  
       require_once 'app/controllers/' . $this->controller . '.php';
       $this->controller = new $this->controller;
   
-      if (isset($url[1])) {
-        if (method_exists($this->controller, $url[1])) {
+      // === METHOD ===
+  
+      if ( isset($url[1]) ) {
+        if ( method_exists($this->controller, $url[1]) ) {
           $this->method = $url[1];
           unset($url[1]);
         }
       }
   
-      if ($url) {
+      // === PARAMETER ===
+  
+      if ( !empty($url) ) {
         $this->params = array_values($url);
       }
   
+      // === RUN CONTROLLERS, METHODS, AND PARAMS ===
+  
       call_user_func_array([$this->controller, $this->method], $this->params);
     }
-  
-    public function parse_url()
-  {
-    if (isset($_SERVER['REQUEST_URI'])) {
-      if ($_SERVER['REQUEST_URI'] == '/') {
-        return [''];
-      }
-      $url = $_SERVER['REQUEST_URI'];
-      $url = preg_replace('#^/public/#', '/', $url);
-      $url = rtrim($url, '/');
-      $url = explode('/', $url);
-      $url = array_values(array_filter($url));
 
-      return $url;
+    public function parse_url() {
+      if ( isset($_GET['url']) ) {
+        $url = rtrim($_GET['url'], '/');
+        $url = filter_var($url, FILTER_SANITIZE_URL);
+        $url = explode('/', $url);
+        return $url;
+      }
     }
-  }
   }
   

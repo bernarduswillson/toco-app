@@ -33,8 +33,15 @@ class Learn extends Controller {
     // List of modules
     else if (isset($languageId) && !empty($languageId)) {
       $data["pageTitle"] = "Keep learning!";
+
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
+            
       $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageId($languageId);
+      if (isset($_GET["find"]) && !empty($_GET["find"])) {
+        $find = "%" . $_GET["find"] . "%"; 
+        $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageIdSearched($languageId, $find);
+      }
+
       for ($i = 0; $i < count($data["modules"]); $i++) {
         $data["modules"][$i]["videos"] = $this->model("VideoModel")->getVideosByModuleId($data["modules"][$i]["module_id"]);
       }

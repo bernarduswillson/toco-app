@@ -48,4 +48,11 @@ class ModuleModel {
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
   }
+  
+  public function getModulesByLanguageIdSearched($language_id, $search) {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE language_id = :language_id AND (module_name like :search OR category like :search)");
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('search', $search);
+    return $this->db->resultSet();
+  }
 }

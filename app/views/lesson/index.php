@@ -7,9 +7,9 @@
       <?= $data["language"]["language_name"] ?>
     </h1>
 
-    <form action="" method="GET">
+    <form method="get">
       <div class="search-bar">
-        <input type="text" placeholder="Search modules or videos" class="text-sm text-black font-reg">
+        <input name="find" type="text" placeholder="Search modules" class="text-sm text-black font-reg">
         <button type="submit">
           <img id="search-icon" src="/public/icons/search-icon.svg" alt="Search icon">
         </button>
@@ -17,7 +17,8 @@
 
       <div class="filter-sort">
         <select name="difficulty" id="difficulty-input" class="text-sm font-reg text-black">
-          <option value="Beginner" selected>Beginner</option>
+          <option value="">Select Difficulty</option>
+          <option value="Beginner">Beginner</option>
           <option value="Intermediate">Intermediate</option>
           <option value="Advanced">Advanced</option>
         </select>

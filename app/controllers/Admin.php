@@ -2,8 +2,8 @@
 
 class Admin extends Controller {
   public function index() {
-    header('Location: /admin/dashboard');
-    exit();
+    header('Location: /404');
+      exit();
   }
 
   public function dashboard() {
@@ -58,9 +58,12 @@ class Admin extends Controller {
     
     // Manage Languages
     else {
+      
       $data["pageTitle"] = "Admin manage";
       $data["languages"] = $this->model("LanguageModel")->getAllLanguage();
-  
+      
+      var_dump($_GET);
+      
       $this->view('header/index', $data);
       $this->view('navbar/index');
       $this->view('admin/manage/index', $data);

@@ -8,8 +8,8 @@
     </h1>
 
     <div class="search-bar">
-      <form action="" method="GET">
-        <input type="text" placeholder="Search languages" class="text-sm text-black font-reg">
+      <form action="" method="get">
+        <input name="find" type="text" placeholder="Search languages" class="text-sm text-black font-reg">
         <button type="submit">
           <img id="search-icon" src="/public/icons/search-icon.svg" alt="Search icon">
         </button>
