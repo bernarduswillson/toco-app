@@ -104,4 +104,15 @@ class ModuleModel
       return $this->db->resultSet();
   }
   
+  public function addModule($data)
+  {
+    $query = "INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES (:module_name, :language_id, :category, :difficulty, :module_order)";
+    $this->db->query($query);
+    $this->db->bind('module_name', $data['module_name']);
+    $this->db->bind('language_id', $data['language_id']);
+    $this->db->bind('category', $data['category']);
+    $this->db->bind('difficulty', $data['difficulty']);
+    $this->db->bind('module_order', $data['module_order']);
+    $this->db->execute();
+  }
 }

@@ -111,3 +111,17 @@ INSERT INTO videos_result (user_id, video_id) VALUES (3, 1);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 2);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 3);
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 4);
+
+CREATE OR REPLACE FUNCTION adjust_module_order_after_insert()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE modules 
+    SET module_order = module_order + 1 
+    WHERE language_id = NEW.language_id AND module_order >= NEW.module_order;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_insert_trigger
+BEFORE INSERT ON modules
+FOR EACH ROW EXECUTE FUNCTION adjust_module_order_after_insert();

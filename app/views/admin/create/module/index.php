@@ -7,7 +7,8 @@
       Add New Module
     </h1>
 
-    <form action="">
+    <form action="../../../../../api/admin/addModule.php" method="post">
+      <input type="hidden" name="language_id" value="<?= $data["languageId"] ?>">
       <div class="text-input-container">
         <label for="moduleName" class="text-reg text-black text-xs">Module name</label>
         <input id="module-input" type="text" name="moduleName" placeholder="Module name" class="font-reg text-black text-sm" autocomplete="false">
@@ -15,9 +16,9 @@
         <input id="category-input" type="text" name="category" placeholder="Category" class="font-reg text-black text-sm" autocomplete="false">
         <label for="difficulty" class="text-reg text-black text-xs">Difficulty</label>
         <select name="difficulty" class="font-reg text-black text-sm">
-          <option value="beginner" selected>Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="Beginner" selected>Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
         <label for="order" class="text-reg text-black text-xs">Order</label>
         <input id="order-input" type="number" name="order" placeholder="Module order" class="font-reg text-black text-sm" autocomplete="false">
