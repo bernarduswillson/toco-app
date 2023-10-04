@@ -9,6 +9,7 @@
 
     <form action="../../../../../api/admin/addVideo.php" method="post">
       <input type="hidden" name="moduleId" value="<?= $data["moduleId"] ?>">
+      <input type="hidden" name="languageId" value="<?= $data["languageId"] ?>">
       <div class="text-input-container">
         <label for="videoName" class="text-reg text-black text-xs">Video name</label>
         <input id="name-input" type="text" name="videoName" placeholder="Video name" class="font-reg text-black text-sm" autocomplete="false">

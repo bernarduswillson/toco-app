@@ -10,7 +10,7 @@
     <form id="search-filter-sort-form" action="" method="GET">
       <div class="input-container">
         <div id="search-box" class="search-bar">
-          <input name="find" type="text" placeholder="Search modules or videos" class="text-sm text-black font-reg" value="<?= $data["find"] ?>">
+          <input name="find" type="text" placeholder="Search modules or videos" class="text-sm text-black font-reg" value="<?= $data["find"] ?>" autofocus>
           <button type="submit">
             <img id="search-icon" src="/public/icons/search-icon.svg" alt="Search icon">
           </button>

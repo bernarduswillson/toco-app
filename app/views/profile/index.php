@@ -38,11 +38,8 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
                 </div>
             </div>
             <div class="btn-container">
-                <!-- click areanya masih ngebug -->
-                <button class="logout-btn font-reg text-sm" id="logout-btn">
-                    <a href="../../../api/auth/logout.php">
+                <button class="logout-btn font-reg text-sm" id="logout-btn" name="logout" type="submit">
                         Logout
-                    </a>
                 </button>
                 <button class="save-btn font-reg text-sm" type="submit" id="save-btn" disable>
                     Save changes
