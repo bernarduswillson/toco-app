@@ -32,8 +32,8 @@ CREATE TABLE progress (
   progress_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   language_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (user_id),
-  FOREIGN KEY (language_id) REFERENCES languages (language_id)
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
+  FOREIGN KEY (language_id) REFERENCES languages (language_id) ON DELETE CASCADE
 );
 
 INSERT INTO progress (user_id, language_id) VALUES (3, 1);
@@ -47,7 +47,7 @@ CREATE TABLE modules (
   category VARCHAR(50) NOT NULL,
   difficulty VARCHAR(50) NOT NULL,
   module_order INTEGER NOT NULL,
-  FOREIGN KEY (language_id) REFERENCES languages (language_id)
+  FOREIGN KEY (language_id) REFERENCES languages (language_id) ON DELETE CASCADE
 );
 
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 1, 'Vocabulary', 'Beginner', 1);
@@ -73,8 +73,8 @@ CREATE TABLE modules_result (
   module_result_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   module_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (user_id),
-  FOREIGN KEY (module_id) REFERENCES modules (module_id)
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
+  FOREIGN KEY (module_id) REFERENCES modules (module_id) ON DELETE CASCADE
 );
 
 INSERT INTO modules_result (user_id, module_id) VALUES (3, 1);
@@ -87,7 +87,7 @@ CREATE TABLE videos (
   module_id INTEGER NOT NULL,
   video_desc TEXT NOT NULL,
   video_order INTEGER NOT NULL,
-  FOREIGN KEY (module_id) REFERENCES modules (module_id)
+  FOREIGN KEY (module_id) REFERENCES modules (module_id) ON DELETE CASCADE
 );
 
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count from 1 to 20', 'https://www.youtube.com/embed/D0Ajq682yrA?si=snxdHX-WHAfRuLye', 1, 'Count from 1 to 10', 1);
@@ -103,8 +103,8 @@ CREATE TABLE videos_result (
   video_result_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   video_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (user_id),
-  FOREIGN KEY (video_id) REFERENCES videos (video_id)
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
+  FOREIGN KEY (video_id) REFERENCES videos (video_id) ON DELETE CASCADE
 );
 
 INSERT INTO videos_result (user_id, video_id) VALUES (3, 1);
