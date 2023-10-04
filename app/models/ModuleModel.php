@@ -17,6 +17,24 @@ class ModuleModel
     return intval($temp["count"]);
   }
 
+  public function validateById($language_id, $module_id) {
+    $this->db->query(
+      "SELECT
+        CASE
+          WHEN :module_id IN (
+            SELECT module_id
+            FROM modules 
+            WHERE language_id = :language_id
+          ) THEN TRUE
+          ELSE FALSE
+        END AS isvalid"
+    );
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('module_id', $module_id);
+    $temp = $this->db->single(); 
+    return boolval($temp["isvalid"]);
+  }
+
   public function getModulesByLanguageId($language_id)
   {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE language_id = :language_id");
@@ -27,22 +45,22 @@ class ModuleModel
   public function getUserModulesByLanguageId($language_id, $user_id)
   {
     $this->db->query("
-    SELECT m.module_id, m.module_name, m.language_id, m.category, m.difficulty, m.module_order,
-    CASE
-        WHEN mr.module_result_id IS NOT NULL THEN TRUE
-        ELSE FALSE
-    END AS is_finished
-    FROM (
-      SELECT *
-      FROM modules 
-      WHERE language_id = :language_id 
-    ) AS m
-    LEFT JOIN (
-      SELECT *
-      FROM modules_result
-      WHERE user_id = :user_id
-    ) AS mr ON m.module_id = mr.module_id
-    ORDER BY m.module_order ASC");
+      SELECT m.module_id, m.module_name, m.language_id, m.category, m.difficulty, m.module_order,
+      CASE
+          WHEN mr.module_result_id IS NOT NULL THEN TRUE
+          ELSE FALSE
+      END AS is_finished
+      FROM (
+        SELECT *
+        FROM modules 
+        WHERE language_id = :language_id 
+      ) AS m
+      LEFT JOIN (
+        SELECT *
+        FROM modules_result
+        WHERE user_id = :user_id
+      ) AS mr ON m.module_id = mr.module_id
+      ORDER BY m.module_order ASC");
     $this->db->bind('language_id', $language_id);
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();

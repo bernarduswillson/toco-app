@@ -4,10 +4,7 @@ class MyLearning extends Controller
 {
     public function index()
     {
-        if (!$this->isLoggedIn()) {
-            header('Location: /login');
-            exit();
-        }
+        $this->validateSession();
 
         $data["pageTitle"] = "Toco | Your journey starts here!";
         $data["user_id"] = $_SESSION['user_id'];
@@ -22,10 +19,5 @@ class MyLearning extends Controller
         $this->view('navbar/index');
         $this->view('mylearning/index', $data);
         $this->view('footer/index');
-    }
-
-    private function isLoggedIn()
-    {
-        return isset($_SESSION['username']) && !empty($_SESSION['username']);
     }
 }

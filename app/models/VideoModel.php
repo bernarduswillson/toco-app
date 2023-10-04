@@ -17,19 +17,30 @@ class VideoModel
     return intval($temp["count"]);
   }
 
+  public function validateById($module_id, $video_id) {
+    $this->db->query(
+      "SELECT
+        CASE
+          WHEN :video_id IN (
+            SELECT video_id
+            FROM videos 
+            WHERE module_id = :module_id
+          ) THEN TRUE
+          ELSE FALSE
+        END AS isvalid"
+    );
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('video_id', $video_id);
+    $temp = $this->db->single(); 
+    return boolval($temp["isvalid"]);
+  }
+
   public function getVideosByModuleId($module_id)
   {
     $this->db->query("SELECT * FROM " . $this->table . " WHERE module_id = :module_id");
     $this->db->bind('module_id', $module_id);
     return $this->db->resultSet();
   }
-
-  // video_id SERIAL PRIMARY KEY,
-  // video_name VARCHAR(256) NOT NULL,
-  // video_url VARCHAR(256) NOT NULL,
-  // module_id INTEGER NOT NULL,
-  // video_desc TEXT NOT NULL,
-  // video_order INTEGER NOT NULL,
 
   public function getUserVideosByModuleId($module_id, $user_id)
   {
