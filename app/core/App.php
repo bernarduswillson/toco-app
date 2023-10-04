@@ -4,13 +4,15 @@ class App {
   protected $controller = 'Home';
   protected $method = 'index';
   protected $params = [];
+  protected $query = [];
 
   public function __construct() {
     $url = $this->parse_url();
+    $_QUERY = $this->query; 
     
     // === CONTROLLER ===
 
-    if ( isset($url[0]) ) {
+    if ( isset($url[0]) && !empty($url[0]) ) {
       if ( file_exists('app/controllers/' . $url[0] . '.php')) {
         $this->controller = $url[0];
         unset($url[0]);
@@ -39,7 +41,7 @@ class App {
 
     // === PARAMETER ===
 
-    if ( !empty($url ) ) {
+    if ( !empty($url) ) {
       $this->params = array_values($url);
     }
 
@@ -50,11 +52,27 @@ class App {
   }
 
   public function parse_url() {
-    if ( isset($_GET['url']) ) {
-      $url = rtrim($_GET['url'], '/');
-      $url = filter_var($url, FILTER_SANITIZE_URL);
-      $url = explode('/', $url);
-      return $url;
+    if ( isset($_SERVER["REQUEST_URI"]) ) {
+      $protocol = "http://";
+      $host = "www.toco.com";
+      $path = $_SERVER["REQUEST_URI"];
+
+      $url = $protocol . $host . $path;
+      $url = parse_url($url);
+
+      $url_path = $url["path"];
+      $url_path = ltrim($url_path, '/');
+      $url_path = rtrim($url_path, '/');
+      $url_path = filter_var($url_path, FILTER_SANITIZE_URL);
+      $url_path = explode('/', $url_path);
+
+      if (isset($url["query"])) {
+        $queryArray = [];
+        parse_str($url["query"], $queryArray);
+        $this->query = $queryArray;
+      }
+
+      return $url_path;
     }
   }
 }

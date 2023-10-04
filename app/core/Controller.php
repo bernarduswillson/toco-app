@@ -33,4 +33,18 @@ class Controller {
   public function isLoggedIn() {
     return isset($_SESSION['username']) && !empty($_SESSION['username']);
   }
+
+  public function getQuery() {
+
+    $string = $_SERVER["REQUEST_URI"];
+    $pos = strpos($string, '?');
+
+    if ($pos !== false) {
+        $queryString = substr($string, $pos + 1);
+        $queryArray = [];
+        parse_str($queryString, $queryArray);
+        return $queryArray;
+    }
+    return [];
+  }
 }
