@@ -98,7 +98,7 @@
       </div>
 
       <div class="pagination-container">
-        <input id="page-input" name="page" type="hidden" value="<?= intval($data["curr_page"]) ?>">
+        <input id="page-input" type="hidden" name="page" value="<?= intval($data["curr_page"]) ?>">
         <?php if (intval($data["curr_page"]) > 1): ?>
           <button onclick="prevPage()" class="text-sm">&lt;</button>
         <?php endif; ?>
@@ -114,7 +114,9 @@
         <?php if (intval($data["curr_page"]) + 3 < $data["total_page"]): ?>
           <button disabled class="text-sm">...</button>
         <?php endif; ?>
+        <?php if ($data["curr_page"] != $data["total_page"]): ?>
           <button onclick="goToPage(<?= $data["total_page"] ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
+        <?php endif; ?>
         <?php if (intval($data["curr_page"]) < intval($data["total_page"])): ?>
           <button onclick="nextPage()" class="text-sm">&gt;</button>
         <?php endif; ?>

@@ -36,6 +36,26 @@ class LanguageModel
     return $this->db->resultSet();
   }
 
+  public function getAllLanguageFiltered($find) {
+    $query = "
+      SELECT language_id, language_name
+      FROM languages "; 
+    
+    // Search
+    $find = '%' . $find . '%';
+    if (!empty($find)) {
+      $query .= "WHERE language_name ILIKE :find";
+    }
+
+    $query .= ";";
+
+    $this->db->query($query);
+    if (!empty($find)) {
+      $this->db->bind('find', $find);
+    }
+    return $this->db->resultSet();
+  }
+
   public function getLanguageByName($language_name) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_name = :language_name');
     $this->db->bind('language_name', $language_name);

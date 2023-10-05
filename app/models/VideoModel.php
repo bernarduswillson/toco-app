@@ -42,6 +42,27 @@ class VideoModel
     return $this->db->resultSet();
   }
 
+  public function getVideosByModuleIdFiltered($module_id, $find) {
+    $query = "
+      SELECT video_id, video_name
+      FROM videos
+      WHERE module_id = :module_id   
+    ";
+    
+    // Search
+    $find = '%' . $find . '%';  
+    if (!empty($find)) {
+      $query .= "AND video_name ILIKE :find";
+    }
+
+    $query .= " ORDER BY video_order ASC;";
+
+    $this->db->query($query);
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('find', $find);
+    return $this->db->resultSet();
+  }
+
   public function getUserVideosByModuleId($module_id, $user_id)
   {
     $this->db->query("

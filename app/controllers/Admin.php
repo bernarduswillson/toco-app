@@ -24,8 +24,36 @@ class Admin extends Controller {
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
       $data["module"] = $this->model("ModuleModel")->getModuleById($moduleId);
-      $data["videos"] = $this->model("VideoModel")->getVideosByModuleId($moduleId);
       $data["pageTitle"] = "Manage " . $data["module"]["module_name"];
+      $query = $this->getQuery();
+      
+      // Search
+      $data["find"] = "";
+      if (isset($query["find"]) && !empty($query["find"])) {
+        $data["find"] = $query["find"];
+      }
+
+      // Page
+      $data_per_page = 6;
+      $data["curr_page"] = "1";
+      if (isset($query["page"]) && !empty($query["page"])) {
+        $data["curr_page"] = $query["page"];
+      }
+
+      // Fetch data
+      $data["videos"] = $this->model("VideoModel")->getVideosByModuleIdFiltered($moduleId, $data["find"]);
+
+      // Paginate data
+      $data["total_page"] = ceil(count($data["videos"])/$data_per_page);
+      $videos_part = [];
+      $j = 0;
+      for ($i = ($data["curr_page"] - 1) * $data_per_page; $i < $data["curr_page"] * $data_per_page; $i++) { 
+        if (isset($data["videos"][$i])) {
+          $videos_part[$j] = $data["videos"][$i];
+          $j++;
+        }
+      }
+      $data["videos"] = $videos_part;
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -35,9 +63,38 @@ class Admin extends Controller {
     
     // Manage Modules
     else if (isset($languageId) && !empty($languageId)) {
+
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
-      $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageId($data["language"]["language_id"]);
       $data["pageTitle"] = "Manage " . $data["language"]["language_name"];
+      $query = $this->getQuery();
+
+      // Search
+      $data["find"] = "";
+      if (isset($query["find"]) && !empty($query["find"])) {
+        $data["find"] = $query["find"];
+      }
+
+      // Page
+      $data_per_page = 6;
+      $data["curr_page"] = "1";
+      if (isset($query["page"]) && !empty($query["page"])) {
+        $data["curr_page"] = $query["page"];
+      }
+      
+      // Fetch data
+      $data["modules"] = $this->model("ModuleModel")->getModulesByLanguageIdFiltered($data["language"]["language_id"], $data["find"]);
+
+      // Paginate data
+      $data["total_page"] = ceil(count($data["modules"])/$data_per_page);
+      $modules_part = [];
+      $j = 0;
+      for ($i = ($data["curr_page"] - 1) * $data_per_page; $i < $data["curr_page"] * $data_per_page; $i++) { 
+        if (isset($data["modules"][$i])) {
+          $modules_part[$j] = $data["modules"][$i];
+          $j++;
+        }
+      }
+      $data["modules"] = $modules_part;
 
       $this->view('header/index', $data);
       $this->view('navbar/index');
@@ -48,8 +105,36 @@ class Admin extends Controller {
     // Manage Languages
     else {
       $data["pageTitle"] = "Admin manage";
-      $data["languages"] = $this->model("LanguageModel")->getAllLanguage();
+      $query = $this->getQuery();
   
+      // Search
+      $data["find"] = "";
+      if (isset($query["find"]) && !empty($query["find"])) {
+        $data["find"] = $query["find"];
+      }
+
+      // Page
+      $data_per_page = 6;
+      $data["curr_page"] = "1";
+      if (isset($query["page"]) && !empty($query["page"])) {
+        $data["curr_page"] = $query["page"];
+      }
+
+      // Fetch data
+      $data["languages"] = $this->model("LanguageModel")->getAllLanguageFiltered($data["find"]);
+
+      // Paginate data
+      $data["total_page"] = ceil(count($data["languages"])/$data_per_page);
+      $languages_part = [];
+      $j = 0;
+      for ($i = ($data["curr_page"] - 1) * $data_per_page; $i < $data["curr_page"] * $data_per_page; $i++) { 
+        if (isset($data["languages"][$i])) {
+          $languages_part[$j] = $data["languages"][$i];
+          $j++;
+        }
+      }
+      $data["languages"] = $languages_part;
+
       $this->view('header/index', $data);
       $this->view('navbar/index');
       $this->view('admin/manage/index', $data);
