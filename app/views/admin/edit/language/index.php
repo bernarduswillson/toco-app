@@ -28,16 +28,19 @@ $language_pic = $data["language"]["language_flag"];
       <div class="text-input-container">
         <label for="languageName" class="text-reg text-black text-xs">Language name</label>
         <input id="language-input" type="text" name="languageName" placeholder="Language name"
-          class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["language"]["language_name"] ?>">
+          class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["language"]["language_name"] ?>" required>
+          <p id="language-error"></p>
       </div>
 
       <div class="bottom-button-container">
         <a href="/admin/manage" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-red-button font-reg text-sm" name="delete">Delete</button>
-        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm">Save</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" disabled>Save</button>
       </div>
     </form>
   </div>
 </div>
-
+<script>
+    const initialLanguage = "<?= $data["language"]["language_name"] ?>";
+</script>
 <script src="/public/js/create-language.js"></script>
