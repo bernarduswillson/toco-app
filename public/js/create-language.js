@@ -7,7 +7,7 @@ function checkLanguage() {
   let language = document.getElementById("language-input").value
   if (language == initialLanguage && language.length > 0) {
     document.getElementById("language-input").style.borderColor = "black";
-    document.getElementById('email-error').innerHTML = "";
+    document.getElementById('language-error').innerHTML = "";
   }
   else if (language.length < 1) {
     document.getElementById("language-input").style.borderColor = "red";

@@ -35,7 +35,7 @@ $language_pic = $data["language"]["language_flag"];
       <div class="bottom-button-container">
         <a href="/admin/manage" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="submit" class="primary-red-button font-reg text-sm" name="delete">Delete</button>
-        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" disabled>Save</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" onchange="checkLanguage()" disabled>Save</button>
       </div>
     </form>
   </div>
