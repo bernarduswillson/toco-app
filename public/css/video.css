@@ -23,8 +23,8 @@
 
 .video-player {
     position: relative;
-    width: 80%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    width: 71%;
+    padding-bottom: 40%; /* 16:9 aspect ratio */
     margin-top: 40px;
     margin-bottom: 40px;
 }

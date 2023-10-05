@@ -8,10 +8,10 @@
     <div class="module-video">
         <div class="video-container">
             <h1 class="video-header text-l font-bold text-blue-purple-gradient">
-                <?php echo "test"; ?>
+                <?php echo implode($data["video_name"]); ?>
             </h1>
             <div class="video-player">
-                <iframe src="<?php echo 'https://www.youtube.com/embed/ioldoJQYKyQ?si=0Eyexy_89R0AwY6K'; ?>" frameborder="0" allowfullscreen></iframe>
+                <iframe src="<?php echo implode($data["video_url"]); ?>" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
