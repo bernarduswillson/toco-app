@@ -1,6 +1,50 @@
 const createBtn = document.querySelector("#create-btn");
 const languageNameInput = document.querySelector("#language-input");
 
+document.getElementById('language-input').addEventListener('input', checkLanguage);
+
+function checkLanguage() {
+  let language = document.getElementById("language-input").value
+  if (language.length < 1) {
+    document.getElementById("language-input").style.borderColor = "red";
+    document.getElementById('language-error').innerHTML = "Language cannot be empty";
+  }
+  else {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../api/admin/language.php', true);
+    xhr.onload = function () {
+      if (this.status == 200) {
+        console.log(this.responseText);
+        let response = JSON.parse(this.responseText);
+        if (response.status == "success") {
+          document.getElementById("language-input").style.borderColor = "green";
+          document.getElementById('language-error').innerHTML = "";
+        }
+        else {
+          document.getElementById("language-input").style.borderColor = "red";
+          document.getElementById('language-error').innerHTML = response.message;
+        }
+      }
+      checkAll();
+    }
+
+    xhr.send(JSON.stringify({ language: language }));
+  }
+  checkAll();
+}
+
+function checkAll() {
+  if (document.getElementById("language-input").style.borderColor == "green") {
+    document.getElementById('create-btn').disabled = false;
+    document.getElementById('create-btn').style.cursor = "pointer";
+    document.getElementById('create-btn').classList.remove("disable");
+  } else {
+    document.getElementById('create-btn').disabled = true;
+    document.getElementById('create-btn').style.cursor = "not-allowed";
+    document.getElementById('create-btn').classList.add("disable");
+  }
+}
+
 languageNameInput.addEventListener("blur", () => {
   if (languageNameInput.value) {
     createBtn.classList.remove("disable");

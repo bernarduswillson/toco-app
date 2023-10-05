@@ -60,6 +60,13 @@
   margin-bottom: 15px;
 }
 
+#language-error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 90px;
+}
+
 /* Button container */
 
 .create .bottom-button-container {
