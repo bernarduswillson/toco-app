@@ -187,6 +187,26 @@ class ModuleModel
     $this->db->execute();
   }
 
+  public function adjustModuleOrder1($language_id, $module_order, $old_module_order)
+  {
+    $query = "UPDATE " . $this->table . " SET module_order = module_order + 1 WHERE language_id = :language_id AND module_order >= :module_order AND module_order < :old_module_order";
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('module_order', $module_order);
+    $this->db->bind('old_module_order', $old_module_order);
+    $this->db->execute();
+  }
+
+  public function adjustModuleOrder2($language_id, $module_order, $old_module_order)
+  {
+    $query = "UPDATE " . $this->table . " SET module_order = module_order - 1 WHERE language_id = :language_id AND module_order <= :module_order AND module_order > :old_module_order";
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('module_order', $module_order);
+    $this->db->bind('old_module_order', $old_module_order);
+    $this->db->execute();
+  }
+  
   public function editModule($data)
   {
     $query = "UPDATE " . $this->table . " SET module_name = :module_name, language_id = :language_id, category = :category, difficulty = :difficulty, module_order = :module_order WHERE module_id = :module_id";

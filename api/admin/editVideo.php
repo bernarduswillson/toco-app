@@ -22,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data['module_id'] = $_POST['module_id'];
         $data['old_video_order'] = $_POST['video_order'];
 
+        if ($data['video_order'] < $data['old_video_order']) {
+            $video_model->adjustVideoOrder1($data['module_id'], $data['video_order'], $data['old_video_order']);
+        } else if ($data['video_order'] > $data['old_video_order']) {
+            $video_model->adjustVideoOrder2($data['module_id'], $data['video_order'], $data['old_video_order']);
+        }
         $video_model->editVideo($data);
         header('Location: ../../../../admin/manage/' . $_POST['language_id'] . '/' . $_POST['module_id']);
         exit();
