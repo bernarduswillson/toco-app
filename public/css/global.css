@@ -272,6 +272,14 @@ textarea:focus, input:focus{
   .text-xl {
     font-size: 54px;
   }
+
+  /* === CONFIRMATION MODAL === */
+
+  .confirm-container .confirm-card {
+    padding: 24px 40px 20px 40px;
+    width: 600px;
+  }
+
 }
 
 @media (min-width: 1440px) {
