@@ -1,6 +1,5 @@
 .profile {
     display: flex;
-    position: relative;
     min-height: 100vh;
     width: 100vw;
     justify-content: center;
@@ -8,8 +7,26 @@
 }
 
 .profile .profile-container {
-    width: 50%;
-    justify-content: left;
+    justify-content: center;
+    width: 95%;
+    max-width: 600px;
+}
+
+.profile .profile-container h1 {
+    text-align: center;
+}
+
+.profile .profile-container form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .profile-container form .profile-form {
+    width: 100%;
+    margin-bottom: 40px;
 }
 
 .profile-header {
@@ -25,9 +42,10 @@
 }
 
 .top-profile {
-    display: block;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .modify-image {
@@ -39,9 +57,9 @@
     margin-top: 40px;
 }
 
-/* #upload-input {
+.modify-image #upload-input {
     display: none;
-} */
+}
 
 .modify-image .change-btn {
     background-color: var(--blue);
@@ -51,6 +69,9 @@
     width: 200px;
     height: 50px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modify-image .delete-btn {
@@ -88,6 +109,7 @@
     padding: 5px 25px;
     cursor: pointer;
     margin-right: 20px;
+    color: var(--orange);
 }
 
 .btn-container .logout-btn a {
@@ -117,7 +139,7 @@
     }
 
     .top-profile {
-        display: flex;
+        flex-direction: row;
     }
 
     .modify-image {
