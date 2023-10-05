@@ -133,6 +133,26 @@ class VideoModel
     $this->db->execute();
   }
 
+  public function adjustVideoOrder1($module_id, $video_order, $old_video_order)
+  {
+    $query = "UPDATE " . $this->table . " SET video_order = video_order + 1 WHERE module_id = :module_id AND video_order >= :video_order AND video_order < :old_video_order";
+    $this->db->query($query);
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('video_order', $video_order);
+    $this->db->bind('old_video_order', $old_video_order);
+    $this->db->execute();
+  }
+
+  public function adjustVideoOrder2($module_id, $video_order, $old_video_order)
+  {
+    $query = "UPDATE " . $this->table . " SET video_order = video_order - 1 WHERE module_id = :module_id AND video_order <= :video_order AND video_order > :old_video_order";
+    $this->db->query($query);
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('video_order', $video_order);
+    $this->db->bind('old_video_order', $old_video_order);
+    $this->db->execute();
+  }
+
   public function editVideo($data)
   {
     $query = "UPDATE " . $this->table . " SET video_name = :video_name, video_desc = :description, video_url = :video_url, video_order = :video_order WHERE video_id = :video_id";

@@ -22,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data['language_id'] = $_POST['language_id'];
         $data['old_module_order'] = $_POST['module_order'];
 
+        if ($data['module_order'] < $data['old_module_order']) {
+            $module_model->adjustModuleOrder1($data['language_id'], $data['module_order'], $data['old_module_order']);
+        } else if ($data['module_order'] > $data['old_module_order']) {
+            $module_model->adjustModuleOrder2($data['language_id'], $data['module_order'], $data['old_module_order']);
+        }
         $module_model->editModule($data);
         header('Location: ../../../../admin/manage/' . $data['language_id']);
         exit();
