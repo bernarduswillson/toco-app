@@ -42,6 +42,13 @@ class ModuleModel
     return $this->db->resultSet();
   }
 
+  public function getModuleByName($module_name)
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " WHERE module_name = :module_name");
+    $this->db->bind('module_name', $module_name);
+    return $this->db->single();
+  }
+
   public function getModulesByLanguageIdFiltered($language_id, $find)
   {
     $query = "
