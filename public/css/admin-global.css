@@ -12,6 +12,14 @@
   gap: 50px;
 }
 
+.admin-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
 .admin-list-content-container h1 {
   text-align: center;
 }
@@ -34,7 +42,7 @@
   max-width: 600px;
 }
 
-.search-bar form {
+.search-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;

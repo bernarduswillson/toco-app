@@ -42,6 +42,27 @@ class ModuleModel
     return $this->db->resultSet();
   }
 
+  public function getModulesByLanguageIdFiltered($language_id, $find)
+  {
+    $query = "
+      SELECT module_id, module_name, category
+      FROM modules
+      WHERE language_id = :language_id ";
+    
+    // Search
+    $find = '%' . $find . '%';  
+    if (!empty($find)) {
+      $query .= "AND (module_name ILIKE :find OR category ILIKE :find)";
+    }
+
+    $query .= " ORDER BY module_order ASC;";
+
+    $this->db->query($query);
+    $this->db->bind('language_id', $language_id);
+    $this->db->bind('find', $find);
+    return $this->db->resultSet();
+  }
+
   public function getUserModulesByLanguageId($language_id, $user_id)
   {
     $this->db->query("
