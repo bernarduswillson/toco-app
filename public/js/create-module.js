@@ -46,14 +46,14 @@ function checkOrder() {
 
 
 function checkAll() {
-  if (document.getElementById("module-input").style.borderColor == "green" && document.getElementById("category-input").style.borderColor == "green" && document.getElementById("order-input").style.borderColor == "green") {
-    document.getElementById('create-btn').disabled = false;
-    document.getElementById('create-btn').style.cursor = "pointer";
-    document.getElementById('create-btn').classList.remove("disable");
-  } else {
+  if (document.getElementById("module-input").style.borderColor == "red" || document.getElementById("category-input").style.borderColor == "red" || document.getElementById("order-input").style.borderColor == "red") {
     document.getElementById('create-btn').disabled = true;
     document.getElementById('create-btn').style.cursor = "not-allowed";
     document.getElementById('create-btn').classList.add("disable");
+  } else {
+    document.getElementById('create-btn').disabled = false;
+    document.getElementById('create-btn').style.cursor = "pointer";
+    document.getElementById('create-btn').classList.remove("disable");
   }
 }
 
