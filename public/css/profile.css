@@ -61,29 +61,6 @@
     display: none;
 }
 
-.modify-image .change-btn {
-    background-color: var(--blue);
-    color: white;
-    border-radius: 10px;
-    border: 2px solid var(--blue);
-    width: 200px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modify-image .delete-btn {
-    background-color: var(--white);
-    color: var(--blue);
-    border-radius: 10px;
-    border: 2px solid var(--blue);
-    width: 200px;
-    height: 50px;
-    cursor: pointer;
-}
-
 .profile-form label {
     margin-top: 20px;
     display: block;

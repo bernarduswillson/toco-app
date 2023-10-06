@@ -8,6 +8,24 @@
     </h1>
 
     <form action="../../../../../api/admin/editVideo.php" method="post">
+      <!-- Modal -->
+      <div class="confirm-container close-modal-trigger">
+          <div class="confirm-card">
+              <div class="confirm-content">
+                  <h2 class="text-md text-red font-reg">Delete "<?= $data["video"]["video_name"] ?>"?</h2>
+                  <p class="text-sm text-black font-reg">This action cannot be undone. All associated data will be permanently removed.</p>
+              </div>
+              <div class="modal-button-container">
+                  <button type="button" class="secondary-btn font-reg text-sm close-modal-trigger">
+                      Cancel
+                  </button>   
+                  <button class="primary-btn font-reg text-sm" id="logout-btn" name="delete" type="submit">
+                      Delete
+                  </button>   
+              </div>
+          </div>  
+      </div>
+      <!--  -->
       <input type="hidden" name="module_id" value="<?= $data['video']['module_id'] ?>">
       <input type="hidden" name="video_id" value="<?= $data["video"]["video_id"] ?>">
       <input type="hidden" name="video_order" value="<?= $data["video"]["video_order"] ?>">
@@ -25,7 +43,7 @@
 
       <div class="bottom-button-container">
         <a href="/admin/manage/<?= $data["languageId"] . "/" . $data['video']['module_id'] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
-        <button type="submit" class="primary-red-button font-reg text-sm" name="delete">Delete</button>
+        <button type="button" class="primary-red-button font-reg text-sm modal-trigger">Delete</button>
         <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm">Save</button>
       </div>
     </form>
@@ -33,3 +51,4 @@
 </div>
 
 <script src="/public/js/create-video.js"></script>
+<script src="/public/js/modal.js"></script>
