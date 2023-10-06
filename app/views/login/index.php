@@ -41,7 +41,7 @@
                     </a>
                 </h3>
                 <h3 class="login-desc2">
-                    <a class="login-desc2-click">
+                    <a class="login-desc2-click" href="https://www.tiktok.com/@beweeee/video/7216658880758172955">
                         Forgot password?
                     </a>
                 </h3>

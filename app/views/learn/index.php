@@ -18,7 +18,7 @@
             <div class="learn-container">
                 <?php foreach ($data["languages"] as $language): ?>
                     <div class="learn-card" onclick="submitForm(<?= $language["language_id"] ?>)">
-                        <form id="form_<?= $language["language_id"] ?>" action="../../../api/auth/progress.php" method="post">
+                        <form id="form_<?= $language["language_id"] ?>" action="../../../api/main/addProgress.php" method="post">
                             <input type="hidden" name="language_id" value="<?= $language["language_id"] ?>">
                             <div>
                                 <img class="learn-card-image" src="<?= $language["language_flag"] ?>" alt="<?= $language["language_name"] ?>" height="130px">

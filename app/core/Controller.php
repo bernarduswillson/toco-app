@@ -15,4 +15,36 @@ class Controller {
     require_once 'app/models/' . $model . '.php';
     return new $model;
   }
+
+  public function show404() {
+    $data["pageTitle"] = "404 | Oops, error in translation";
+
+    $this->view("header/index", $data);
+    $this->view("Error404/index");
+  }
+
+  public function validateSession() {
+    if (!$this->isLoggedIn()) {
+      header('Location: /login');
+      exit();
+    }
+  }
+
+  public function isLoggedIn() {
+    return isset($_SESSION['username']) && !empty($_SESSION['username']);
+  }
+
+  public function getQuery() {
+
+    $string = $_SERVER["REQUEST_URI"];
+    $pos = strpos($string, '?');
+
+    if ($pos !== false) {
+        $queryString = substr($string, $pos + 1);
+        $queryArray = [];
+        parse_str($queryString, $queryArray);
+        return $queryArray;
+    }
+    return [];
+  }
 }

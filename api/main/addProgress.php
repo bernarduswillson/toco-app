@@ -10,7 +10,6 @@ $progress_model = new ProgressModel();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $language_id = $_POST['language_id'];
     $existingProgress = $progress_model->getLanguageProgressCount($_SESSION['user_id'], $language_id);
-    echo $existingProgress;
     if (intval($existingProgress) === 0) {
         $progress_model->initialize($_SESSION['user_id'], $language_id);
     }
