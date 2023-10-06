@@ -34,6 +34,36 @@
   max-width: 200px;
 }
 
+.create .input-container .language-picture-container .button-container #upload-input {
+  display: none;
+}
+
+.create .input-container .language-picture-container .button-container .change-btn {
+  background-color: var(--blue);
+  color: white;
+  border-radius: 10px;
+  border: 2px solid var(--blue);
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create .input-container .language-picture-container .button-container .delete-btn {
+  background-color: var(--red);
+  color: var(--blue);
+  border-radius: 10px;
+  border: 2px solid var(--blue);
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Input container */
 
 .create form {

@@ -11,10 +11,10 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
         <form action="../../../api/auth/profile.php" method="post">
 
             <!-- Modal -->
-            <div class="confirm-container">
+            <div class="confirm-container close-modal-trigger">
                 <div class="confirm-card">
                     <div class="confirm-content">
-                        <h2 class="text-md text-orange font-reg">Are you sure?</h2>
+                        <h2 class="text-md text-red font-reg">Are you sure?</h2>
                         <p class="text-sm text-black font-reg">You will be logged out from Toco</p>
                     </div>
                     <div class="modal-button-container">
@@ -25,7 +25,7 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
                             Logout
                         </button>   
                     </div>
-                </div>
+                </div>  
             </div>
             <!--  -->
 
@@ -35,7 +35,7 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
                 <input type="hidden" id="new-profile-pic" name="new-profile-pic" value="<?php echo $profile_pic; ?>">
                 <div class="modify-image">
                     <input id="upload-input" type="file" accept="image/*">
-                    <label for="upload-input" class="change-btn font-reg text-sm">Change picture</label>
+                    <label for="upload-input" class="change-btn font-reg text-sm .change-btn">Change picture</label>
                     <button id="delete-btn" class="delete-btn font-reg text-sm">
                         Delete picture
                     </button>

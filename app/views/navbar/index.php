@@ -6,6 +6,27 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
 
 <nav>
     <div class="container nav-container">
+
+        <!-- Modal -->
+        <!-- <div class="confirm-container close-modal-trigger">
+            <div class="confirm-card">
+                <div class="confirm-content">
+                    <h2 class="text-md text-red font-reg">Are you sure?</h2>
+                    <p class="text-sm text-black font-reg">You will be logged out from Toco</p>
+                </div>
+                <div class="modal-button-container">
+                    <button type="button" class="secondary-btn font-reg text-sm close-modal-trigger">
+                        Cancel
+                    </button>   
+                    <button class="primary-btn font-reg text-sm" id="logout-btn" name="logout" type="submit">
+                        <a href="../../../api/auth/logout.php" class="text-white">
+                            Logout
+                        </a>
+                    </button>   
+                </div>
+            </div>  
+        </div> -->
+        <!--  -->
         
         <div class="left-nav">
             <a href="/">
