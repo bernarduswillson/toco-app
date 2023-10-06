@@ -9,7 +9,7 @@ $language_model = new LanguageModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
-if (isset($data['language'])) {
+if (isset($data['language'])) { 
     $language_name = $data['language'];
     $language = $language_model->getLanguageByName($language_name);
     if ($language == null) {

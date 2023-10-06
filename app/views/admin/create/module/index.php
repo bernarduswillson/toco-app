@@ -8,7 +8,7 @@
     </h1>
 
     <form action="../../../../../api/admin/module.php" method="post">
-      <input type="hidden" name="language_id" value="<?= $data["languageId"] ?>">
+      <input type="hidden" name="language_id" id="language_id" value="<?= $data["languageId"] ?>">
       <div class="text-input-container">
         <label for="moduleName" class="text-reg text-black text-xs">Module name</label>
         <input id="module-input" type="text" name="moduleName" placeholder="Module name" class="font-reg text-black text-sm" autocomplete="false" required>

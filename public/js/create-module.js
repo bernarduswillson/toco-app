@@ -33,16 +33,35 @@ function checkCategory() {
 
 function checkOrder() {
   let order = document.getElementById("order-input").value
+  let language_id = document.getElementById("language_id").value
+
   if (order.length < 1) {
     document.getElementById("order-input").style.borderColor = "red";
     document.getElementById('order-error').innerHTML = "Order cannot be empty";
-  } else {
-    document.getElementById("order-input").style.borderColor = "green";
-    document.getElementById('order-error').innerHTML = "";
+  }
+  else {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../api/admin/module.php', true);
+    xhr.onload = function () {
+      if (this.status == 200) {
+        console.log(this.responseText);
+        let response = JSON.parse(this.responseText);
+        if (response.status == "success") {
+          document.getElementById("order-input").style.borderColor = "green";
+          document.getElementById('order-error').innerHTML = "";
+        }
+        else {
+          document.getElementById("order-input").style.borderColor = "red";
+          document.getElementById('order-error').innerHTML = response.message;
+        }
+      }
+      checkAll();
+    }
+
+    xhr.send(JSON.stringify({ order: order, language_id: language_id }));
   }
   checkAll();
 }
-
 
 
 function checkAll() {
@@ -57,15 +76,15 @@ function checkAll() {
   }
 }
 
-languageNameInput.addEventListener("blur", () => {
-  if (languageNameInput.value) {
-    createBtn.classList.remove("disable");
-    createBtn.disabled = false;
-  } else {
-    createBtn.classList.add("disable");
-    createBtn.disabled = true;
-  }
-})
+// languageNameInput.addEventListener("blur", () => {
+//   if (languageNameInput.value) {
+//     createBtn.classList.remove("disable");
+//     createBtn.disabled = false;
+//   } else {
+//     createBtn.classList.add("disable");
+//     createBtn.disabled = true;
+//   }
+// })
 
 function validate() {
   if (moduleNameInput.value && categoryInput.value && orderInput.value) {

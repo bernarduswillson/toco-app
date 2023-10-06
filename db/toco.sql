@@ -65,8 +65,8 @@ INSERT INTO modules (module_name, language_id, category, difficulty, module_orde
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 13);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 14);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 15);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 16);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 17);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 2);
 
 DROP TABLE IF EXISTS modules_result;
 CREATE TABLE modules_result (
@@ -128,27 +128,6 @@ BEFORE INSERT ON modules
 FOR EACH ROW EXECUTE FUNCTION adjust_module_order_after_insert();
 
 
--- CREATE OR REPLACE FUNCTION adjust_module_order_after_update()
--- RETURNS TRIGGER AS $$
--- BEGIN
---     IF NEW.module_order < OLD.module_order THEN
---         UPDATE modules 
---         SET module_order = module_order + 1 
---         WHERE language_id = NEW.language_id AND module_order >= NEW.module_order AND module_order < OLD.module_order;
---     ELSIF NEW.module_order > OLD.module_order THEN
---         UPDATE modules 
---         SET module_order = module_order - 1 
---         WHERE language_id = NEW.language_id AND module_order <= NEW.module_order AND module_order > OLD.module_order;
---     END IF;
---     RETURN NEW;
--- END;
--- $$ LANGUAGE plpgsql;
-
--- CREATE TRIGGER after_update_trigger
--- BEFORE UPDATE ON modules
--- FOR EACH ROW EXECUTE FUNCTION adjust_module_order_after_update();
-
-
 CREATE OR REPLACE FUNCTION adjust_module_order_after_delete()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -177,27 +156,6 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER after_insert_trigger
 BEFORE INSERT ON videos
 FOR EACH ROW EXECUTE FUNCTION adjust_video_order_after_insert();
-
-
--- CREATE OR REPLACE FUNCTION adjust_video_order_after_update()
--- RETURNS TRIGGER AS $$
--- BEGIN
---     IF NEW.video_order < OLD.video_order THEN
---         UPDATE videos 
---         SET video_order = video_order + 1 
---         WHERE module_id = NEW.module_id AND video_order >= NEW.video_order AND video_order < OLD.video_order;
---     ELSIF NEW.video_order > OLD.video_order THEN
---         UPDATE videos 
---         SET video_order = video_order - 1 
---         WHERE module_id = NEW.module_id AND video_order <= NEW.video_order AND video_order > OLD.video_order;
---     END IF;
---     RETURN NEW;
--- END;
--- $$ LANGUAGE plpgsql;
-
--- CREATE TRIGGER after_update_trigger
--- BEFORE UPDATE ON videos
--- FOR EACH ROW EXECUTE FUNCTION adjust_video_order_after_update();
 
 
 CREATE OR REPLACE FUNCTION adjust_video_order_after_delete()

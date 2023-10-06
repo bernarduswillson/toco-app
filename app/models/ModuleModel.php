@@ -49,6 +49,14 @@ class ModuleModel
     return $this->db->single();
   }
 
+  public function getHighestModuleOrder($language_id)
+  {
+    $this->db->query("SELECT MAX(module_order) FROM " . $this->table . " WHERE language_id = :language_id");
+    $this->db->bind('language_id', $language_id);
+    $temp = $this->db->single();
+    return intval($temp["max"]);
+  }
+
   public function getModulesByLanguageIdFiltered($language_id, $find)
   {
     $query = "
