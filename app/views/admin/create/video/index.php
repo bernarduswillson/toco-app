@@ -17,6 +17,7 @@ $video = '/public/video/default.mp4';
         <p id="video-error"></p>
         <label for="description" class="text-reg text-black text-xs">Description</label>
         <input id="desc-input" type="text" name="description" placeholder="Description" class="font-reg text-black text-sm" autocomplete="false">
+        
         <label for="videoUrl" class="text-reg text-black text-xs">URL</label>
         <input type="hidden" id="new-video" name="new-video" value="<?php echo $video; ?>">
         <div class="button-container">

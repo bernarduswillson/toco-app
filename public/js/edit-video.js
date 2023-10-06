@@ -29,7 +29,7 @@ function checkOrder() {
   }
   else {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../../../../../api/admin/video.php', true);
+    xhr.open('POST', '../../../../../api/admin/editVideo.php', true);
     xhr.onload = function () {
       if (this.status == 200) {
         console.log(this.responseText);

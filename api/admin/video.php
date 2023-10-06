@@ -20,7 +20,7 @@ if (isset($data['order'])) {
     }
 }
 
-if (isset($_POST['videoName']) && isset($_POST['description']) && isset($_POST['new-video']) && isset($_POST['order']) && isset($_POST['moduleId'])) {
+if (isset($_POST['videoName']) && isset($_POST['new-video']) && isset($_POST['order']) && isset($_POST['moduleId'])) {
     $data['video_name'] = $_POST['videoName'];
     $data['description'] = $_POST['description'];
     $data['video_url'] = $_POST['new-video'];
