@@ -53,7 +53,7 @@ $language_pic = $data["language"]["language_flag"];
       <div class="bottom-button-container">
         <a href="/admin/manage" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="button" class="primary-red-button font-reg text-sm modal-trigger">Delete</button>
-        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" onchange="checkLanguage()" disabled>Save</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" onchange="checkLanguage()">Save</button>
       </div>
     </form>
   </div>
@@ -62,5 +62,5 @@ $language_pic = $data["language"]["language_flag"];
 <script>
     const initialLanguage = "<?= $data["language"]["language_name"] ?>";
 </script>
-<script src="/public/js/create-language.js"></script>
+<script src="/public/js/edit-language.js"></script>
 <script src="/public/js/modal.js"></script>

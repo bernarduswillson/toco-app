@@ -5,7 +5,11 @@ document.getElementById('language-input').addEventListener('input', checkLanguag
 
 function checkLanguage() {
   let language = document.getElementById("language-input").value
-  if (language.length < 1) {
+  if (language == initialLanguage && language.length > 0) {
+    document.getElementById("language-input").style.borderColor = "black";
+    document.getElementById('language-error').innerHTML = "";
+  }
+  else if (language.length < 1) {
     document.getElementById("language-input").style.borderColor = "red";
     document.getElementById('language-error').innerHTML = "Language cannot be empty";
   }
@@ -34,14 +38,14 @@ function checkLanguage() {
 }
 
 function checkAll() {
-  if (document.getElementById("language-input").style.borderColor == "green" || document.getElementById("language-input").style.borderColor == "black") {
-    document.getElementById('create-btn').disabled = false;
-    document.getElementById('create-btn').style.cursor = "pointer";
-    document.getElementById('create-btn').classList.remove("disable");
-  } else {
+  if (document.getElementById("language-input").style.borderColor == "red") {
     document.getElementById('create-btn').disabled = true;
     document.getElementById('create-btn').style.cursor = "not-allowed";
     document.getElementById('create-btn').classList.add("disable");
+  } else {
+    document.getElementById('create-btn').disabled = false;
+    document.getElementById('create-btn').style.cursor = "pointer";
+    document.getElementById('create-btn').classList.remove("disable");
   }
 }
 
@@ -91,7 +95,7 @@ function saveImageToRepository(imageFile) {
       console.log('New file path:', data);
       const newLanguagePicInput = document.getElementById('new-language-pic');
       newLanguagePicInput.value = data;
-      const languagePicture = document.getElementById('language-picture');
+      const languagePicture = document.getElementById('language-image');
       languagePicture.src = data;
     })
     .catch(error => console.error('Error:', error));

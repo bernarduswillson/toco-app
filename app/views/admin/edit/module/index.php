@@ -50,7 +50,7 @@
       <div class="bottom-button-container">
         <a href="/admin/manage/<?= $data["module"]["language_id"] ?>" class="secondary-orange-button font-reg text-sm">Back</a>
         <button type="button" class="primary-red-button font-reg text-sm modal-trigger">Delete</button>
-        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" onchange="checkModule(), checkCategory(), checkOrder()" disabled>Save</button>
+        <button id="create-btn" type="submit" class="primary-orange-button font-reg text-sm" onchange="checkModule(), checkCategory(), checkOrder()">Save</button>
       </div>
     </form>
   </div>

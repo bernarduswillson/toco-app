@@ -32,7 +32,7 @@ if (isset($_POST['delete'])) {
 } else if (isset($_POST['languageName']) && isset($_POST['new-language-pic'])) {
     $language_name = $_POST['languageName'];
     $language_image = $_POST['new-language-pic'];
-    $language = $language_model->addLanguage($language_name, $language_image);
+    $language = $language_model->editLanguage($_POST['language-id'], $language_name, $language_image);
 
     if ($language == null) {
         echo json_encode(array('status' => 'error', 'message' => 'Language exists'));

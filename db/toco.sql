@@ -90,13 +90,13 @@ CREATE TABLE videos (
   FOREIGN KEY (module_id) REFERENCES modules (module_id) ON DELETE CASCADE
 );
 
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count from 1 to 20', 'https://www.youtube.com/embed/D0Ajq682yrA?si=snxdHX-WHAfRuLye', 1, 'Count from 1 to 10', 1);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count  to 100', 'https://www.youtube.com/embed/D4eJ5kg28nU?si=k3QH0cCYyg9RClb-', 1, 'Count to 100', 2);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Big numbers', 'https://www.youtube.com/embed/ioldoJQYKyQ?si=0Eyexy_89R0AwY6K', 1, 'Big numbers', 3);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Learn pronouns', 'https://www.youtube.com/embed/h_GnSOIfWf4?si=73H6TWULcdq9pySO', 2, 'Learn pronouns', 1);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('100 most popular names', 'https://www.youtube.com/embed/pH3rDBCtZHo?si=zjCMS4zfooyC362W', 2, '100 most popular names', 2);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', 'https://www.youtube.com/embed/ZlO8Si2OkKk?si=ELyvLDNyxrqOAQVS', 2, 'Greet someone!', 3);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', 'https://www.youtube.com/embed/ZlO8Si2OkKk?si=ELyvLDNyxrqOAQVS', 17, 'Greet someone!', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count from 1 to 20', '/public/video/default.mp4', 1, 'Count from 1 to 10', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Count  to 100', '/public/video/default.mp4', 1, 'Count to 100', 2);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Big numbers', '/public/video/default.mp4', 1, 'Big numbers', 3);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Learn pronouns', '/public/video/default.mp4', 2, 'Learn pronouns', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('100 most popular names', '/public/video/default.mp4', 2, '100 most popular names', 2);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', '/public/video/default.mp4', 2, 'Greet someone!', 3);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', '/public/video/default.mp4', 17, 'Greet someone!', 1);
 
 DROP TABLE IF EXISTS videos_result;
 CREATE TABLE videos_result (

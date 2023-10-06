@@ -42,6 +42,14 @@ class VideoModel
     return $this->db->resultSet();
   }
 
+  public function getHighestVideoOrder($module_id)
+  {
+    $this->db->query("SELECT MAX(video_order) FROM " . $this->table . " WHERE module_id = :module_id");
+    $this->db->bind('module_id', $module_id);
+    $temp = $this->db->single();
+    return intval($temp["max"]);
+  }
+
   public function getVideosByModuleIdFiltered($module_id, $find) {
     $query = "
       SELECT video_id, video_name
