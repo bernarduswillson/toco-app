@@ -26,7 +26,7 @@
           </div>  
       </div>
       <!--  -->
-      <input type="hidden" name="language_id" value="<?= $data["module"]["language_id"] ?>">
+      <input type="hidden" name="language_id" id="language_id" value="<?= $data["module"]["language_id"] ?>">
       <input type="hidden" name="module_id" value="<?= $data["module"]["module_id"] ?>">
       <input type="hidden" name="module_order" value="<?= $data["module"]["module_order"] ?>">
       <div class="text-input-container">
@@ -56,5 +56,5 @@
   </div>
 </div>
 
-<script src="/public/js/create-module.js"></script>
+<script src="/public/js/edit-module.js"></script>
 <script src="/public/js/modal.js"></script>

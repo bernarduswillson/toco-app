@@ -41,7 +41,7 @@ function checkOrder() {
   }
   else {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../../api/admin/module.php', true);
+    xhr.open('POST', '../../../../../api/admin/editModule.php', true);
     xhr.onload = function () {
       if (this.status == 200) {
         console.log(this.responseText);
@@ -62,6 +62,7 @@ function checkOrder() {
   }
   checkAll();
 }
+
 
 function checkAll() {
   if (document.getElementById("module-input").style.borderColor == "red" || document.getElementById("category-input").style.borderColor == "red" || document.getElementById("order-input").style.borderColor == "red") {
