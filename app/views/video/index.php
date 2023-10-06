@@ -11,7 +11,9 @@
                 <?php echo implode($data["video_name"]); ?>
             </h1>
             <div class="video-player">
-                <iframe src="<?php echo implode($data["video_url"]); ?>" frameborder="0" allowfullscreen></iframe>
+                <video width="1280" height="720" controls>
+                    <source src="<?php echo implode($data["video_url"]); ?>" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
