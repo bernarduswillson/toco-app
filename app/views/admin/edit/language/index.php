@@ -24,7 +24,7 @@ $language_pic = $data["language"]["language_flag"];
                   </button>   
                   <button class="primary-btn font-reg text-sm" id="logout-btn" name="delete" type="submit">
                       Delete
-                  </button>   
+                  </button>
               </div>
           </div>  
       </div>

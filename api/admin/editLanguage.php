@@ -29,9 +29,7 @@ if (isset($_POST['delete'])) {
         header('Location: ../../admin/manage');
         echo json_encode(array('status' => 'success', 'message' => 'Language deleted'));
     }
-}
-
-if (isset($_POST['languageName']) && isset($_POST['new-language-pic'])) {
+} else if (isset($_POST['languageName']) && isset($_POST['new-language-pic'])) {
     $language_name = $_POST['languageName'];
     $language_image = $_POST['new-language-pic'];
     $language = $language_model->addLanguage($language_name, $language_image);
