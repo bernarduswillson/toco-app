@@ -10,13 +10,22 @@ $video_model = new VideoModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
-if (isset($_POST['video_id']) && isset($_POST['module_id']) && isset($_POST['language_id'])) {
-    $user_id = $_POST['user_id'];
-    $video_id = $_POST['video_id'];
-    $module_id = $_POST['module_id'];
-    $language_id = $_POST['language_id'];
+$video_id = $_POST['video_id'];
+$module_id = $_POST['module_id'];
+$language_id = $_POST['language_id'];
 
-    $video_order = $video_model->getVideoOrder($video_id);
+$video_order = $video_model->getVideoOrder($video_id);
+
+if (isset($_POST['back'])) {
+    if ($video_order == 1) {
+        header('Location: ../../learn/lesson/' . $_POST['language_id']);
+    } else if ($video_order > 1) {
+        $prev_video_id = $video_model->getVideoIdByOrder($module_id, $video_order - 1);
+        header('Location: ../../learn/lesson/' . $language_id . '/' . $module_id . '/' . $prev_video_id);
+    }
+} else if (isset($_POST['video_id']) && isset($_POST['module_id']) && isset($_POST['language_id'])) {
+    $user_id = $_POST['user_id'];
+
     $highest_video_order = $video_model->getHighestVideoOrder($module_id);
     $is_finished = $progress_model->isUserVideoFinished($user_id, $video_id);
     $video_count = $video_model->getVideoCountByModuleId($module_id);
@@ -36,6 +45,4 @@ if (isset($_POST['video_id']) && isset($_POST['module_id']) && isset($_POST['lan
         $next_video_id = $video_model->getVideoIdByOrder($module_id, $video_order + 1);
         header('Location: ../../learn/lesson/' . $language_id . '/' . $module_id . '/' . $next_video_id);
     }
-} else {
-    echo 'Invalid request.';
 }

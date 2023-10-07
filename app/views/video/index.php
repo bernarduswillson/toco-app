@@ -14,52 +14,18 @@
             </p>
         </div>
         <form action="../../../../api/main/addFinished.php" method="post">
-            <input type="hidden" name="video_id" value="<?= $data["video_id"] ?>">
-            <input type="hidden" name="module_id" value="<?= $data["module_id"] ?>">
-            <input type="hidden" name="language_id" value="<?= $data["language_id"] ?>">
-            <input type="hidden" name="user_id" value="<?= $data["user_id"] ?>">
-            <button type="submit" class="distinct-button font-reg text-sm" id="btn-next">
-                Next
-            </button>
+            <div class="button-container">
+                <button class="distinct-button font-reg text-sm" id="btn-back" name="back">
+                    Back
+                </button>
+                <input type="hidden" name="video_id" value="<?= $data["video_id"] ?>">
+                <input type="hidden" name="module_id" value="<?= $data["module_id"] ?>">
+                <input type="hidden" name="language_id" value="<?= $data["language_id"] ?>">
+                <input type="hidden" name="user_id" value="<?= $data["user_id"] ?>">
+                <button type="submit" class="distinct-button font-reg text-sm" id="btn-finish">
+                    Next
+                </button>
+            </div>
         </form>
     </div>
 </div>
-<!-- 
-<script>
-    $(document).ready(function () {
-        var video_w = $('#video_w');
-        var videoRatio = 1.77;
-        var windowRatio = 1.6; //this is width to height ratio of video.
-        $(window).resize(function () {
-            setVideoHeight();
-        });
-        function setVideoHeight() {
-            windowRatio = $(window).width() / $(window).height();
-            video_w.addClass('resized');
-            if (windowRatio < videoRatio) {
-                video_w.width($(window).width());
-                video_w.height(video_w.width() / videoRatio);
-            }
-            else {
-
-                video_w.height($(window).height());
-                video_w.width(video_w.height().videoRatio);
-            }
-        }
-    });
-</script>
-
-<style>
-    #video_w video {
-        width: 100%;
-    }
-
-    #video_w.resized video {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-    .row_video {
-        margin: 0;
-    }
-</style> -->
