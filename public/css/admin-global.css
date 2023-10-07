@@ -3,6 +3,7 @@
 .admin-container {
   width: 95%;
   max-width: 800px;
+  min-height: 100vh;
 }
 
 .admin-list-content-container {

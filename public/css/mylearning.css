@@ -52,6 +52,10 @@
     margin-bottom: 10px;
 }
 
+.progress-card:last-child {
+    margin-bottom: 100px;
+}
+
 .overall-modules,
 .progress-modules {
     margin-right: 0;
