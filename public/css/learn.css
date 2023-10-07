@@ -1,15 +1,13 @@
 .learn {
     display: flex;
     flex-direction: column;
-    margin: 100px 0;
     min-height: 100vh;
-    justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 .learn-header {
-    margin-top: 120px;
+    margin-top: 130px;
     background: linear-gradient(45deg, #006CDB, #8535D4);
     font-size: 50px;
     font-weight: 700;
@@ -27,7 +25,7 @@
     justify-content: center;
     margin: 100px 0;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 70px;
 }
 
 .learn-card {
@@ -41,7 +39,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    margin: 20px 3vw;
+    margin: 20px 0;
 }
 
 .learn-card:hover {
@@ -69,7 +67,6 @@
     .learn {
         height: auto;
         overflow: hidden;
-        margin: 50px 0;
     }
 
     .learn-container {

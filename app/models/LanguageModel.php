@@ -5,17 +5,20 @@ class LanguageModel
   private $table = 'languages';
   private $db;
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->db = new Database();
   }
 
-  public function getLanguageCount() {
+  public function getLanguageCount()
+  {
     $this->db->query('SELECT COUNT(*) FROM ' . $this->table);
-    $temp = $this->db->single(); 
+    $temp = $this->db->single();
     return intval($temp["count"]);
   }
-  
-  public function validateById($language_id) {
+
+  public function validateById($language_id)
+  {
     $this->db->query(
       "SELECT
         CASE
@@ -27,27 +30,28 @@ class LanguageModel
         END AS isvalid"
     );
     $this->db->bind('language_id', $language_id);
-    $temp = $this->db->single(); 
+    $temp = $this->db->single();
     return boolval($temp["isvalid"]);
   }
 
-  public function getAllLanguage() {
-    $this->db->query("SELECT * FROM " . $this->table);
+  public function getAllLanguage()
+  {
+    $this->db->query("SELECT * FROM " . $this->table . " ORDER BY language_name");
     return $this->db->resultSet();
   }
 
-  public function getAllLanguageFiltered($find) {
+  public function getAllLanguageFiltered($find)
+  {
     $query = "
-      SELECT language_id, language_name
-      FROM languages "; 
-    
-    // Search
+        SELECT language_id, language_name
+        FROM languages ";
+
     $find = '%' . $find . '%';
     if (!empty($find)) {
-      $query .= "WHERE language_name ILIKE :find";
+      $query .= "WHERE language_name ILIKE :find ";
     }
 
-    $query .= ";";
+    $query .= "ORDER BY language_name ASC;";
 
     $this->db->query($query);
     if (!empty($find)) {
@@ -56,19 +60,23 @@ class LanguageModel
     return $this->db->resultSet();
   }
 
-  public function getLanguageByName($language_name) {
+
+  public function getLanguageByName($language_name)
+  {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_name = :language_name');
     $this->db->bind('language_name', $language_name);
     return $this->db->single();
   }
 
-  public function getLanguageById($language_id) {
+  public function getLanguageById($language_id)
+  {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE language_id = :language_id');
     $this->db->bind('language_id', $language_id);
     return $this->db->single();
   }
-  
-  public function getAllLanguageName() {
+
+  public function getAllLanguageName()
+  {
     $this->db->query("SELECT language_name FROM " . $this->table);
     return $this->db->resultSet();
   }
@@ -78,7 +86,7 @@ class LanguageModel
     $query = "SELECT COUNT(*) FROM progress WHERE user_id = :user_id";
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
-    $temp = $this->db->single(); 
+    $temp = $this->db->single();
     return intval($temp["count"]);
   }
 
