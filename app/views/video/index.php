@@ -13,9 +13,18 @@
                 <?= $data["video"]["video_desc"] ?>
             </p>
         </div>
+        <form action="../../../../api/main/addFinished.php" method="post">
+            <input type="hidden" name="video_id" value="<?= $data["video_id"] ?>">
+            <input type="hidden" name="module_id" value="<?= $data["module_id"] ?>">
+            <input type="hidden" name="language_id" value="<?= $data["language_id"] ?>">
+            <input type="hidden" name="user_id" value="<?= $data["user_id"] ?>">
+            <button type="submit" class="distinct-button font-reg text-sm" id="btn-next">
+                Next
+            </button>
+        </form>
     </div>
 </div>
-
+<!-- 
 <script>
     $(document).ready(function () {
         var video_w = $('#video_w');
@@ -53,4 +62,4 @@
     .row_video {
         margin: 0;
     }
-</style>
+</style> -->

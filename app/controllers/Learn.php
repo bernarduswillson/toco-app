@@ -25,6 +25,8 @@ class Learn extends Controller {
       $data["pageTitle"] = "Toco | Your journey starts here!";
       $data["user_id"] = $_SESSION['user_id'];
       $data["video_id"] = $videoId;
+      $data["module_id"] = $moduleId;
+      $data["language_id"] = $languageId;
       $data["video"] = $this->model("VideoModel")->getVideoById($videoId);
 
       $this->view('header/index', $data);

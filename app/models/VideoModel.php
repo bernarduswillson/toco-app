@@ -126,6 +126,15 @@ class VideoModel
     return intval($temp["count"]);
   }
 
+  public function getVideoCountByModuleId($module_id)
+  {
+    $query = "SELECT COUNT(*) FROM videos WHERE module_id = :module_id";
+    $this->db->query($query);
+    $this->db->bind('module_id', $module_id);
+    $temp = $this->db->single();
+    return intval($temp["count"]);
+  }
+
   public function getUserVideoCountEachLanguage($user_id)
   {
     $query = "
@@ -148,6 +157,23 @@ class VideoModel
     $this->db->query($query);
     $this->db->bind('user_id', $user_id);
     return $this->db->resultSet();
+  }
+
+  public function getVideoOrder($video_id)
+  {
+    $this->db->query("SELECT video_order FROM " . $this->table . " WHERE video_id = :video_id");
+    $this->db->bind('video_id', $video_id);
+    $temp = $this->db->single();
+    return intval($temp["video_order"]);
+  }
+
+  public function getVideoIdByOrder($module_id, $video_order)
+  {
+    $this->db->query("SELECT video_id FROM " . $this->table . " WHERE module_id = :module_id AND video_order = :video_order");
+    $this->db->bind('module_id', $module_id);
+    $this->db->bind('video_order', $video_order);
+    $temp = $this->db->single();
+    return intval($temp["video_id"]);
   }
 
   public function addVideo($data)
