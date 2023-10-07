@@ -10,18 +10,17 @@
     <form id="search-filter-sort-form" action="" method="GET">
       <div class="input-container">
         <div id="search-box" class="search-bar">
-          <input name="find" type="text" placeholder="Search modules or videos" class="text-sm text-black font-reg" value="<?= $data["find"] ?>" autofocus>
+          <input name="find" type="text" placeholder="Search modules or videos" class="text-sm text-black font-reg" value="<?= $data["find"] ?>">
           <button type="submit">
             <img id="search-icon" src="/public/icons/search-icon.svg" alt="Search icon">
           </button>
         </div>
 
         <div class="filter-sort">
-          <select name="difficulty" id="difficulty-input" class="text-sm font-reg text-black">
-            <option value="" <?php echo empty($data["difficulty"]) ? "selected" :  ""; ?>>Select difficulty</option>
-            <option value="Beginner" <?php echo $data["difficulty"] == "Beginner" ? "selected" :  "" ?>>Beginner</option>
-            <option value="Intermediate" <?php echo $data["difficulty"] == "Intermediate" ? "selected" :  "" ?>>Intermediate</option>
-            <option value="Advanced" <?php echo $data["difficulty"] == "Advanced" ? "selected" :  "" ?>>Advanced</option>
+          <select name="completion" id="completion-input" class="text-sm font-reg text-black">
+            <option value="" <?php echo empty($data["completion"]) ? "selected" :  ""; ?>>Select completion</option>
+            <option value="true" <?php echo $data["completion"] == "Beginner" ? "selected" :  "" ?>>Completed</option>
+            <option value="false" <?php echo $data["completion"] == "Intermediate" ? "selected" :  "" ?>>Not completed</option>
           </select>
 
           <label class="sort-container text-sm font-reg <?php echo $data["sort"] == "true" ? "active" : ""; ?>">Sort A-Z
@@ -98,25 +97,40 @@
       </div>
 
       <div class="pagination-container">
+        <!-- page input data -->
         <input id="page-input" type="hidden" name="page" value="<?= intval($data["curr_page"]) ?>">
+        
+        <!-- prev page button -->
         <?php if (intval($data["curr_page"]) > 1): ?>
           <button onclick="prevPage()" class="text-sm">&lt;</button>
         <?php endif; ?>
+
+        <!-- page 1 button -->
         <button onclick="goToPage(1)" class="text-sm <?php echo $data["curr_page"] == 1 ? 'active' : '' ?>">1</button>
+        
+        <!-- ... button -->
         <?php if (intval($data["curr_page"]) - 3 > 1): ?>
           <button disabled class="text-sm">...</button>
         <?php endif; ?>
+
+        <!-- main buttons -->
         <?php for($i = 2; $i < $data["total_page"]; $i++): ?>
           <?php if ($i == 1 || $i == $data["total_page"] || $i == $data["curr_page"] || ($i <= $data["curr_page"] + 2 && $i >= $data["curr_page"] - 2)): ?>
             <button onclick="goToPage(<?= $i ?>)" class="text-sm <?php echo $data["curr_page"] == $i ? 'active' : '' ?>"><?= $i ?></button>
           <?php endif; ?>
         <?php endfor; ?>
+
+        <!-- ... button -->
         <?php if (intval($data["curr_page"]) + 3 < $data["total_page"]): ?>
           <button disabled class="text-sm">...</button>
         <?php endif; ?>
-        <?php if ($data["curr_page"] != $data["total_page"]): ?>
-          <button onclick="goToPage(<?= $data["total_page"] ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
+
+        <!-- last page button -->
+        <?php if ("1" != $data["total_page"] && $data["total_page"] != "0"): ?>
+          <button onclick="goToPage(<?= $data['total_page'] ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
         <?php endif; ?>
+
+        <!-- next page button -->
         <?php if (intval($data["curr_page"]) < intval($data["total_page"])): ?>
           <button onclick="nextPage()" class="text-sm">&gt;</button>
         <?php endif; ?>

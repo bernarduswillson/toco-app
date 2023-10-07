@@ -10,7 +10,7 @@ checkbox.addEventListener("click", () => {
 });
 
 // Filter
-const filterInput = document.querySelector("#difficulty-input");
+const filterInput = document.querySelector("#completion-input");
 
 filterInput.addEventListener("change", () => {
   goToPage(1);
@@ -24,7 +24,7 @@ searchBox.addEventListener("input", () => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     goToPage(1);
-  }, 500);
+  }, 1500);
 })
 
 // Pagination

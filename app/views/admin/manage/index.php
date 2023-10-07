@@ -68,8 +68,8 @@
         <?php if (intval($data["curr_page"]) + 3 < $data["total_page"]): ?>
           <button disabled class="text-sm">...</button>
         <?php endif; ?>
-        <?php if ($data["curr_page"] != $data["total_page"]): ?>
-          <button onclick="goToPage(<?= $data["total_page"] ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
+        <?php if ("1" != $data["total_page"] && $data["total_page"] != "0"): ?>
+          <button onclick="goToPage(<?= $data['total_page']  ?>)" class="text-sm <?php echo $data["curr_page"] == $data["total_page"] ? 'active' : '' ?>"><?= $data["total_page"] ?></button>
         <?php endif; ?>
         <?php if (intval($data["curr_page"]) < intval($data["total_page"])): ?>
           <button onclick="nextPage()" class="text-sm">&gt;</button>

@@ -47,9 +47,9 @@ class Learn extends Controller {
       }
       
       // Filter
-      $data["difficulty"] = "";
-      if (isset($query["difficulty"]) && !empty($query["difficulty"])) {
-        $data["difficulty"] = $query["difficulty"];
+      $data["completion"] = "";
+      if (isset($query["completion"]) && !empty($query["completion"])) {
+        $data["completion"] = $query["completion"];
       }
       
       // Sort
@@ -66,7 +66,7 @@ class Learn extends Controller {
       }
 
       // Data fetching
-      $data["modules"] = $this->model("ModuleModel")->getUserModulesByLanguageIdFiltered($languageId, $_SESSION["user_id"], $data["find"], $data["difficulty"], $data["sort"]);
+      $data["modules"] = $this->model("ModuleModel")->getUserModulesByLanguageIdFiltered($languageId, $_SESSION["user_id"], $data["find"], $data["completion"], $data["sort"]);
       
       // Paginate data
       $data["total_page"] = ceil(count($data["modules"])/$data_per_page);
