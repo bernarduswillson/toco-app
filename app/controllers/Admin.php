@@ -150,7 +150,6 @@ class Admin extends Controller {
 
     $this->validateParamLanguage($languageId);
     $this->validateParamModule($languageId, $moduleId);
-    $this->validateParamVideo($moduleId, $videoId);
 
     // Create Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {

@@ -65,8 +65,18 @@ INSERT INTO modules (module_name, language_id, category, difficulty, module_orde
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Plan activities', 1, 'Conversation', 'Intermediate', 13);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use prepositions', 1, 'Grammar', 'Advanced', 14);
 INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Tenses', 1, 'Grammar', 'Advanced', 15);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Let''s count', 2, 'Vocabulary', 'Beginner', 1);
-INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet people', 2, 'Phrases', 'Beginner', 2);
+
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use Basic Phrases', 2, 'Phrases', 'Beginner', 1);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Introduce Yourself', 2, 'Conversation', 'Beginner', 2);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use Common Phrases', 2, 'Phrases', 'Beginner', 3);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Greet People', 2, 'Phrases', 'Beginner', 4);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Order foods and drinks', 2, 'Phrases', 'Beginner', 5);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Describe Places', 2, 'Phrases', 'Beginner', 6);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Express Ownership', 2, 'Phrases', 'Intermediate', 7);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Conjunctions', 2, 'Verbs', 'Intermediate', 8);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Form Plurals', 2, 'Verbs', 'Intermediate', 9);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use ber- verbs', 2, 'Verbs', 'Intermediate', 10);
+INSERT INTO modules (module_name, language_id, category, difficulty, module_order) VALUES ('Use me- verbs', 2, 'Verbs', 'Intermediate', 11);
 
 DROP TABLE IF EXISTS modules_result;
 CREATE TABLE modules_result (
@@ -96,7 +106,9 @@ INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) V
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Learn pronouns', '/public/imgdata/video/LearnPronounsInEnglish.mp4', 2, 'Learn pronouns blablablaballbalblablalbaba', 1);
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('100 most popular names', '/public/imgdata/video/100MostPopularEnglishGirlsNames.mp4', 2, '100 most popular names blablablaballbalblablalbaba', 2);
 INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', '/public/imgdata/video/LearnPronounsInEnglish.mp4', 2, 'Greet someone! blablablaballbalblablalbaba', 3);
-INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Greet someone!', '/public/imgdata/video/LearnPronounsInEnglish.mp4', 17, 'Greet someone! blablablaballbalblablalbaba', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('10 Basic Phrases in Indonesian', '/public/imgdata/video/10 basic phrases for your first conversation.mp4', 16, 'Greet someone! blablablaballbalblablalbaba', 1);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Top 25 Indonesian Phrases', '/public/imgdata/video/Top 25 Indonesian Phrases.mp4', 16, 'Greet someone! blablablaballbalblablalbaba', 2);
+INSERT INTO videos (video_name, video_url, module_id, video_desc, video_order) VALUES ('Self Introduction in Indonesian', '/public/imgdata/video/How to introduce yourself in Indonesian.mp4', 17, 'Greet someone! blablablaballbalblablalbaba', 1);
 
 DROP TABLE IF EXISTS videos_result;
 CREATE TABLE videos_result (
