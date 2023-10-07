@@ -14,7 +14,7 @@
             </p>
         </div>
         <form action="../../../../api/main/addFinished.php" method="post">
-            <div class="button-container">
+            <div class="video-button-container">
                 <button class="distinct-button font-reg text-sm" id="btn-back" name="back">
                     Back
                 </button>

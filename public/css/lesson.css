@@ -127,6 +127,11 @@
   border-radius: 10px;
   background-color: var(--white);
   cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.lesson .lesson-container .card-container .module-card:hover {
+  background-color: #F5F5F5;
 }
 
 .lesson .lesson-container .card-container .module-card.active {

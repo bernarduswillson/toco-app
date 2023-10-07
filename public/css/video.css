@@ -8,6 +8,7 @@
 
 .video-container {
     margin: 0 5vw;
+    width: 100vw;
 }
 
 .video-header {
@@ -36,12 +37,22 @@
     margin-bottom: 3vw;
 }
 
-.button-container {
+.video-button-container {
     display: flex;
     justify-content: space-between;
 }
 
 #btn-finish, #btn-back {
     margin-bottom: 7vw;
+    transition: all 0.15s ease-in-out;
+}
+
+#btn-finish:hover, #btn-back:hover {
+    transform: translateY(-4px);
+    opacity: 0.6;
+}
+
+#btn-finish:active, #btn-back:active {
+    transform: translateY(6px);
 }
 

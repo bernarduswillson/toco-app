@@ -45,7 +45,7 @@
         <div class="admin-card">
           <span class="font-bold text-md"><?= $video["video_name"] ?></span>
           <div class="button-container">
-            <a href="/learn/lesson/<?= $data["language"][1] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="secondary-card-button">
+            <a href="/learn/lesson/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="secondary-card-button">
               Page
             </a>
             <a href="/admin/edit/<?= $data["language"]["language_id"] . "/" . $data["module"]["module_id"] . "/" . $video["video_id"] ?>" class="primary-card-button">

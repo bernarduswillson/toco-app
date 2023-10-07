@@ -38,6 +38,6 @@ if (isset($_POST['delete'])) {
         echo json_encode(array('status' => 'error', 'message' => 'Language exists'));
     } else {
         header('Location: ../../admin/manage');
-        echo json_encode(array('status' => 'success', 'message' => 'Language created'));
+        echo json_encode(array('status' => 'success', 'message' => 'Language updated'));
     }
 }

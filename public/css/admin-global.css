@@ -126,6 +126,11 @@
   color: var(--white);
   height: fit-content;
   cursor: pointer;
+  opacity: 1;
+}
+
+.admin-card .button-container .primary-card-button:hover {
+  opacity: 0.6;
 }
 
 /* Breadcrumb */
