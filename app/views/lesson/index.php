@@ -17,11 +17,10 @@
         </div>
 
         <div class="filter-sort">
-          <select name="difficulty" id="difficulty-input" class="text-sm font-reg text-black">
-            <option value="" <?php echo empty($data["difficulty"]) ? "selected" :  ""; ?>>Select difficulty</option>
-            <option value="Beginner" <?php echo $data["difficulty"] == "Beginner" ? "selected" :  "" ?>>Beginner</option>
-            <option value="Intermediate" <?php echo $data["difficulty"] == "Intermediate" ? "selected" :  "" ?>>Intermediate</option>
-            <option value="Advanced" <?php echo $data["difficulty"] == "Advanced" ? "selected" :  "" ?>>Advanced</option>
+          <select name="completion" id="completion-input" class="text-sm font-reg text-black">
+            <option value="" <?php echo empty($data["completion"]) ? "selected" :  ""; ?>>Select completion</option>
+            <option value="true" <?php echo $data["completion"] == "Beginner" ? "selected" :  "" ?>>Completed</option>
+            <option value="false" <?php echo $data["completion"] == "Intermediate" ? "selected" :  "" ?>>Not completed</option>
           </select>
 
           <label class="sort-container text-sm font-reg <?php echo $data["sort"] == "true" ? "active" : ""; ?>">Sort A-Z
