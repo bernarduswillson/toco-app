@@ -22,7 +22,16 @@ class Learn extends Controller {
 
     // Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {
-      echo "Video page";
+      $data["pageTitle"] = "Toco | Your journey starts here!";
+      $data["user_id"] = $_SESSION['user_id'];
+      $data["video_id"] = $videoId;
+      $data["video_url"] = $this->model("VideoModel")->getVideoUrl($data["video_id"]);
+      $data["video_name"] = $this->model("VideoModel")->getVideoTitle($data["video_id"]);
+
+      $this->view('header/index', $data);
+      $this->view('navbar/index');
+      $this->view('video/index', $data);
+      $this->view('footer/index');
     }
 
     // List of modules

@@ -26,5 +26,6 @@
     <link rel="stylesheet" href="/public/css/mylearning.css">
     <link rel="stylesheet" href="/public/css/create.css">
     <link rel="stylesheet" href="/public/css/modal.css">
+    <link rel="stylesheet" href="/public/css/video.css">
   </head>
   <body>
