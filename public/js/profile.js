@@ -31,11 +31,13 @@ function saveImageToRepository(imageFile) {
     })
         .then(response => response.text())
         .then(data => {
-            console.log('New file path:', data);
+            const cleanedData = data.replace(/^(\.\.\/\..\/)/, '');
+            const rootData = cleanedData.startsWith('/') ? cleanedData : '/' + cleanedData
+            console.log('New file path:', rootData);
             const newProfilePicInput = document.getElementById('new-profile-pic');
-            newProfilePicInput.value = data;
+            newProfilePicInput.value = rootData;
             const profilePicture = document.getElementById('profile-picture-profile');
-            profilePicture.src = data;
+            profilePicture.src = rootData;
         })
         .catch(error => console.error('Error:', error));
 }
