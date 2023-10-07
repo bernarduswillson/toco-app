@@ -20,6 +20,9 @@ class Admin extends Controller {
   public function manage($languageId = null, $moduleId = null) {
     $this->validateSession();
 
+    $this->validateParamLanguage($languageId);
+    $this->validateParamModule($languageId, $moduleId);
+
     // Manage Videos
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
@@ -145,6 +148,10 @@ class Admin extends Controller {
   public function create($languageId = null, $moduleId = null) {
     $this->validateSession();
 
+    $this->validateParamLanguage($languageId);
+    $this->validateParamModule($languageId, $moduleId);
+    $this->validateParamVideo($moduleId, $videoId);
+
     // Create Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
       $data["pageTitle"] = "Add New Module";
@@ -182,6 +189,10 @@ class Admin extends Controller {
   public function edit($languageId = null, $moduleId = null, $videoId = null) {
     $this->validateSession();
 
+    $this->validateParamLanguage($languageId);
+    $this->validateParamModule($languageId, $moduleId);
+    $this->validateParamVideo($moduleId, $videoId);
+
     // Edit Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {
       $data["pageTitle"] = "Add New Module";
@@ -214,6 +225,33 @@ class Admin extends Controller {
       $this->view("navbar/index");
       $this->view("admin/edit/language/index", $data);
       $this->view("footer/index");
+    }
+  }
+
+  public function validateParamLanguage($languageId) {
+    if (isset($languageId) && !empty($languageId)) {
+      if ($this->model("LanguageModel")->validateById($languageId)) {
+        return;
+      }
+      $this->show404();
+    }
+  }
+
+  public function validateParamModule($languageId, $moduleId) {
+    if (isset($moduleId) && !empty($moduleId)) {
+      if ($this->model("ModuleModel")->validateById($languageId, $moduleId)) {
+        return;
+      }
+      $this->show404();
+    }
+  }
+
+  public function validateParamVideo($moduleId, $videoId) {
+    if (isset($videoId) && !empty($videoId)) {
+      if ($this->model("VideoModel")->validateById($moduleId, $videoId)) {
+        return;
+      }
+      $this->show404();
     }
   }
 }
