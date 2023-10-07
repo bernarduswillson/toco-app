@@ -23,18 +23,19 @@
 
 .video-player {
     position: relative;
-    width: 71%;
+    max-width: 100%;
+    height: auto;
     /* padding-bottom: 40%; 16:9 aspect ratio */
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-.video-player iframe {
-    position: absolute;
-    align-self: center;
-    width: 100%;
-    height: 100%;
-    border: none;
+.video-description {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: #000;
+    margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
@@ -43,12 +44,15 @@
     }
 
     .video .video-container {
-        width: 70%;
+        max-width: 100%;
+        height: auto;
         align-items: center;
     }
 
     .video-player {
         align-items: center;
+        max-width: 70%;
+        height: auto;
         margin: auto;
         margin-bottom: 30px;
     }
