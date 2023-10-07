@@ -30,9 +30,9 @@ if (isset($data['email'])) {
   $user = $user_model->getUserByEmail($email);
   if ($user == null) {
     http_response_code(200);
-    echo json_encode(array('status' => 'success', 'message' => 'User not found'));
+    echo json_encode(array('status' => 'success', 'message' => 'Email not found'));
   } else {
-    echo json_encode(array('status' => 'error', 'message' => 'User exists'));
+    echo json_encode(array('status' => 'error', 'message' => 'Email exists'));
   }
 }
 
@@ -43,7 +43,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
   $email = $_POST['email'];
   $rows = $user_model->register(array('username' => $username, 'password' => $password, 'email' => $email));
 
-  if ($rows && $language_rows && $progress_rows) {
+  if ($rows) {
     header('Location: ../../login');
     echo json_encode(array('status' => 'success', 'message' => 'User created'));
 
