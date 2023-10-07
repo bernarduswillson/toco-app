@@ -75,7 +75,7 @@ document.getElementById('upload-input').addEventListener('change', function (eve
 document.getElementById('delete-btn').addEventListener('click', function (event) {
   event.preventDefault();
   const languagePicture = document.getElementById('language-image');
-  languagePicture.src = '../../../public/icons/profile.webp';
+  languagePicture.src = '/public/icons/profile.webp';
   const uploadInput = document.getElementById('upload-input');
   uploadInput.value = '';
   const newLanguagePicInput = document.getElementById('new-language-pic');
@@ -92,11 +92,13 @@ function saveImageToRepository(imageFile) {
   })
     .then(response => response.text())
     .then(data => {
-      console.log('New file path:', data);
+      const cleanedData = data.replace(/^(\.\.\/\..\/)/, '');
+      const rootData = cleanedData.startsWith('/') ? cleanedData : '/' + cleanedData
+      console.log('New file path:', rootData);
       const newLanguagePicInput = document.getElementById('new-language-pic');
-      newLanguagePicInput.value = data;
+      newLanguagePicInput.value = rootData;
       const languagePicture = document.getElementById('language-image');
-      languagePicture.src = data;
+      languagePicture.src = rootData;
     })
     .catch(error => console.error('Error:', error));
 }

@@ -14,7 +14,7 @@ document.getElementById('upload-input').addEventListener('change', function (eve
 document.getElementById('delete-btn').addEventListener('click', function (event) {
     event.preventDefault();
     const profilePicture = document.getElementById('profile-picture-profile');
-    profilePicture.src = '../../../public/icons/profile.webp';
+    profilePicture.src = '/public/icons/profile.webp';
     const uploadInput = document.getElementById('upload-input');
     uploadInput.value = '';
     const newProfilePicInput = document.getElementById('new-profile-pic');
