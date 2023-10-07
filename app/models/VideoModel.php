@@ -201,4 +201,17 @@ class VideoModel
     $this->db->bind('video_id', $video_id);
     $this->db->execute();
   }
+  public function getVideoUrl ($video_id) {
+    $this->db->query("SELECT video_url FROM " . $this->table . " WHERE video_id = :video_id");
+    $this->db->bind('video_id', $video_id);
+    $temp = $this->db->single();
+    return $temp;
+  }
+
+  public function getVideoTitle ($video_id) {
+    $this->db->query("SELECT video_name FROM " . $this->table . " WHERE video_id = :video_id");
+    $this->db->bind('video_id', $video_id);
+    $temp = $this->db->single();
+    return $temp;
+  }
 }
