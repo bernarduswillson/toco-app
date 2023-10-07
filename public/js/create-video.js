@@ -92,9 +92,11 @@ function saveVideoToRepository(videoFile) {
   })
     .then(response => response.text())
     .then(data => {
-      console.log('New file path:', data);
+      const cleanedData = data.replace(/^(\.\.\/\..\/)/, '');
+      const rootData = cleanedData.startsWith('/') ? cleanedData : '/' + cleanedData
+      console.log('New file path:', rootData);
       const newVideoInput = document.getElementById('new-video');
-      newVideoInput.value = data;
+      newVideoInput.value = rootData;
     })
     .catch(error => console.error('Error:', error));
 }
