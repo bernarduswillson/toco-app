@@ -22,7 +22,7 @@
                 <input type="hidden" name="module_id" value="<?= $data["module_id"] ?>">
                 <input type="hidden" name="language_id" value="<?= $data["language_id"] ?>">
                 <input type="hidden" name="user_id" value="<?= $data["user_id"] ?>">
-                <button type="submit" class="distinct-button font-reg text-sm" id="btn-finish">
+                <button type="submit" class="primary-button font-reg text-sm" id="btn-finish">
                     Next
                 </button>
             </div>

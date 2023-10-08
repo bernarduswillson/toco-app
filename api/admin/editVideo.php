@@ -4,8 +4,10 @@ require_once '../../config/config.php';
 require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/VideoModel.php';
+require_once '../../app/models/ProgressModel.php';
 
 $video_model = new VideoModel();
+$progress_model = new ProgressModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
@@ -22,8 +24,23 @@ if (isset($data['order'])) {
 
 if (isset($_POST['delete'])) {
     $video_id = $_POST['video_id'];
+    $module_id = $_POST['module_id'];
+    $user_id = $_POST['user_id'];
 
     $video_model->deleteVideo($video_id);
+
+    $video_count = $video_model->getVideoCountByModuleId($module_id);
+    $video_finished_count = $progress_model->getUserVideoFinishedCount($user_id, $module_id);
+
+    if ($video_count == $video_finished_count) {
+        $isProgress = $progress_model->isProgress($user_id, $module_id);
+        if ($isProgress == 0) {
+            $progress_model->addModuleResult($user_id, $module_id);
+        }
+    }
+    if ($video_count == 0) {
+        $progress_model->deleteProgress($user_id, $module_id);
+    }
     header('Location: ../../../../admin/manage/' . $_POST['language_id'] . '/' . $_POST['module_id']);
 } else if (isset($_POST['videoName']) && isset($_POST['new-video']) && isset($_POST['order']) && isset($_POST['module_id'])) {
     $data['video_id'] = $_POST['video_id'];

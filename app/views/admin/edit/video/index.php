@@ -31,6 +31,7 @@ $video = $data["video"]["video_url"];
       <input type="hidden" name="video_id" value="<?= $data["video"]["video_id"] ?>">
       <input type="hidden" name="video_order" value="<?= $data["video"]["video_order"] ?>">
       <input type="hidden" name="language_id" value="<?= $data["languageId"] ?>">
+      <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
       <div class="text-input-container">
         <label for="videoName" class="text-reg text-black text-xs">Video name</label>
         <input id="name-input" type="text" name="videoName" placeholder="Video name" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["video"]["video_name"] ?>">
