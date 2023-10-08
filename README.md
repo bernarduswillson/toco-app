@@ -18,3 +18,29 @@ Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
     * Cara menjalankan server
     * Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan 
     * Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+
+
+# TOCO
+TOCO is a web application designed to help users learn a new language . With TOCO, users can choose from a variety of languages and skill levels, and then work through a series of lessons to improve their vocabulary, grammar, and pronunciation. Users can track their progress over time. Whether you're a beginner or an advanced learner, TOCO is the perfect tool to help you master a new language.
+
+## Requirement
+- Docker
+
+## Installation
+1. Clone this repository
+2. make sure that the docker engine is up and running
+3. run `docker-compose up`
+4. enjoy at 'localhost:8008'
+
+## screenshots
+- homepage
+- login
+- register
+- dashboard
+- lesson
+- video
+- admin dashboard
+
+
+## Pembagian Tugas
+
