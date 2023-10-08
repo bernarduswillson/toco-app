@@ -13,20 +13,20 @@ $language_pic = $data["language"]["language_flag"];
     <form action="../../../../../api/admin/editLanguage.php" method="post">
       <!-- Modal -->
       <div class="confirm-container close-modal-trigger">
-          <div class="confirm-card">
-              <div class="confirm-content">
-                  <h2 class="text-md text-red font-reg">Delete "<?= $data["language"]["language_name"] ?>"?</h2>
-                  <p class="text-sm text-black font-reg">This action cannot be undone. All associated data will be permanently removed.</p>
-              </div>
-              <div class="modal-button-container">
-                  <button type="button" class="secondary-btn font-reg text-sm close-modal-trigger">
-                      Cancel
-                  </button>   
-                  <button class="primary-btn font-reg text-sm" id="logout-btn" name="delete" type="submit">
-                      Delete
-                  </button>
-              </div>
-          </div>  
+        <div class="confirm-card">
+          <div class="confirm-content">
+            <h2 class="text-md text-red font-reg">Delete "<?= $data["language"]["language_name"] ?>"?</h2>
+            <p class="text-sm text-black font-reg">This action cannot be undone. All associated data will be permanently removed.</p>
+          </div>
+          <div class="modal-button-container">
+            <button type="button" class="secondary-btn font-reg text-sm close-modal-trigger">
+              Cancel
+            </button>   
+            <button class="primary-btn font-reg text-sm" id="logout-btn" name="delete" type="submit">
+              Delete
+            </button>
+          </div>
+        </div>  
       </div>
       <!--  -->
 

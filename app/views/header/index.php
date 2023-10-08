@@ -27,5 +27,6 @@
     <link rel="stylesheet" href="/public/css/create.css">
     <link rel="stylesheet" href="/public/css/modal.css">
     <link rel="stylesheet" href="/public/css/video.css">
+    <link rel="stylesheet" href="/public/css/toast.css">
   </head>
   <body>
