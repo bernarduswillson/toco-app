@@ -93,6 +93,7 @@ class Learn extends Controller {
     // No parameter
     } else {
       $this->show404();
+      exit();
     }
   }
 
@@ -102,6 +103,7 @@ class Learn extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 
@@ -111,6 +113,7 @@ class Learn extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 
@@ -120,6 +123,7 @@ class Learn extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 }

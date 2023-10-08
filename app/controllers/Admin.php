@@ -233,6 +233,7 @@ class Admin extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 
@@ -242,6 +243,7 @@ class Admin extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 
@@ -251,6 +253,7 @@ class Admin extends Controller {
         return;
       }
       $this->show404();
+      exit();
     }
   }
 }
