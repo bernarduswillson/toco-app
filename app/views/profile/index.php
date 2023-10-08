@@ -72,6 +72,3 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
 </script>
 <script src="../../../public/js/profile.js"></script>
 <script src="../../../public/js/modal.js"></script>
-</body>
-
-</html>

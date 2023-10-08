@@ -30,6 +30,7 @@ if (isset($_POST['delete'])) {
         echo json_encode(array('status' => 'success', 'message' => 'Language deleted'));
     }
 } else if (isset($_POST['languageName']) && isset($_POST['new-language-pic'])) {
+    $language_id = $_POST['language-id'];
     $language_name = $_POST['languageName'];
     $language_image = $_POST['new-language-pic'];
     $language = $language_model->editLanguage($_POST['language-id'], $language_name, $language_image);
@@ -37,7 +38,7 @@ if (isset($_POST['delete'])) {
     if ($language == null) {
         echo json_encode(array('status' => 'error', 'message' => 'Language exists'));
     } else {
-        header('Location: ../../admin/manage');
+        header("Location: ../../admin/manage");
         echo json_encode(array('status' => 'success', 'message' => 'Language updated'));
     }
 }
