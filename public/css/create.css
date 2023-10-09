@@ -1,0 +1,228 @@
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
+
+.create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 110px 0 60px 0;
+}
+
+.create .input-container {
+  margin-bottom: 50px;
+}
+
+/* Language Image */
+
+.create .input-container .language-picture-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.create .input-container .language-picture-container img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.create .input-container .language-picture-container .button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200px;
+}
+
+.create .input-container .language-picture-container .button-container #upload-input {
+  display: none;
+}
+
+.create .input-container .language-picture-container .button-container .change-btn {
+  background-color: var(--blue);
+  color: white;
+  border-radius: 10px;
+  border: 2px solid var(--blue);
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create .input-container .language-picture-container .button-container .delete-btn {
+  background-color: var(--red);
+  color: var(--blue);
+  border-radius: 10px;
+  border: 2px solid var(--blue);
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-image-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input container */
+
+.create form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create .text-input-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2px;
+  margin: 50px 0;
+}
+
+.create .text-input-container input,
+.create .text-input-container select {
+  padding: 10px 14px;
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#language-error, #module-error, #video-error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 80px;
+}
+
+#category-error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 178px;
+}
+
+#order-error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 374px;
+}
+
+#order-error-v {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 394px;
+}
+
+
+/* Button container */
+
+.create .bottom-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+/* Button */
+
+.primary-orange-button,
+.secondary-orange-button:hover {
+  background-color: var(--orange);
+  border: 2px solid var(--orange);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--white);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
+.primary-orange-button.disable {
+  cursor: not-allowed;
+  opacity: 50%;
+}
+
+.secondary-orange-button {
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--orange);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
+.primary-blue-button,
+.secondary-blue-button:hover {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--white);
+  height: fit-content;
+  cursor: pointer;
+}
+
+.secondary-blue-button {
+  background-color: var(--white);
+  border: 2px solid var(--blue);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--blue);
+  height: fit-content;
+  cursor: pointer;
+}
+
+.primary-red-button,
+.secondary-red-button:hover {
+  background-color: var(--red);
+  border: 2px solid var(--red);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--white);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
+.secondary-red-button {
+  background-color: var(--white);
+  border: 2px solid var(--red);
+  padding: 4px 16px;
+  border-radius: 8px;
+  color: var(--red);
+  height: fit-content;
+  cursor: pointer;
+  width: 150px;
+}
+
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+  .create {
+    margin: 150px 0 60px 0;
+  }
+
+  .create .bottom-button-container {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,76 @@
+.learn {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.learn-header {
+    margin-top: 130px;
+    background: linear-gradient(45deg, #006CDB, #8535D4);
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 75px;
+    padding-bottom: 10px;
+}
+
+.learn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+.learn-card {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin: 20px 0;
+}
+
+.learn-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.learn-card:active {
+    transform: scale(1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.learn-card-image {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.learn-card-header {
+    text-align: center;
+    font-weight: 400;
+    color: black;
+}
+
+@media (max-width: 767px) {
+    .learn {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .learn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

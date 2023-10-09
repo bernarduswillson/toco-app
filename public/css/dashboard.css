@@ -1,0 +1,48 @@
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 110px 0;
+}
+
+.dashboard .admin-list-content-container .list-container .entity-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  color: var(--orange);
+  transition: all 0.15s ease-in-out;
+}
+
+.dashboard .admin-list-content-container .list-container .entity-card:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.dashboard .admin-list-content-container .primary-button {
+  margin-bottom: 50px;
+  transition: all 0.15s ease-in-out;
+}
+
+.dashboard .admin-list-content-container .primary-button:hover {
+  transform: translateY(-4px);
+  opacity: 0.6;
+}
+
+.dashboard .admin-list-content-container .primary-button:active {
+  transform: translateY(6px);
+}
+
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+  .dashboard {
+    margin: 150px 0 0 0;
+  }
+}

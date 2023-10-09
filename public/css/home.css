@@ -1,80 +1,267 @@
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
+
 .home {
+    width: 100vw;
+    height: fit-content;
     display: flex;
-    position: relative;
-    height: 100vh;
-    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
+    position: relative;
 }
 
-.left-home {
-    margin-left: 7%;
+.home .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.home-header1 {
-    color: #006CDB;
-    font-size: 30px;
-    font-weight: 400;
+/* Hero */
+
+.home .home-container .hero-container {
+    width: 100%;
+    height: 100vh;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 200px;
 }
 
-.home-header2 {
-    background: linear-gradient(45deg, #006CDB, #8535D4);
-    font-size: 70px;
-    font-weight: 700;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    line-height: 75px;
-    padding-bottom: 10px;
+.home .home-container .hero-container .left-home {
+    display: flex;
+    flex-direction: column;
 }
 
-.right-home {
-    position: absolute;
-    right: 7%;
-    margin-top: 50px;
-    z-index: -1;
-}
-
-.home-image {
-    height: 60vh;
-}
-
-.get-started {
-    margin-top: 40px;
-    background: linear-gradient(45deg, #006CDB, #F37021);
-    color: #FFFFFF;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-size: 16px;
+.home .home-container .hero-container .left-home .get-started-btn {
+    margin-top: 30px;
     letter-spacing: 1px;
-    cursor: pointer;
-    border: none;
-    opacity: 1;
     transition: all 0.3s ease 0s;
 }
 
-.get-started:hover {
+.home .home-container .hero-container .left-home .get-started-btn:hover {
     transform: translateY(-4px);
     opacity: 0.6;
 }
 
-.get-started:active {
+.home .home-container .hero-container .left-home .get-started-btn:active {
     transform: translateY(6px);
 }
 
-@media (max-width: 700px) {
+.home .home-container .hero-container .right-home img {
+    height: 330px;
+    margin-left: -60px;
+}
 
-    .right-home {
-        right: -180px;
+/* About */
+
+.home .home-container .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+.home .home-container .about-container #about-logo {
+    width: 70px;
+}
+
+.home .home-container .about-container p {
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.home .home-container .about-container #about-image {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Features */
+
+.home .home-container .feature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 160px;
+}
+
+.home .home-container .feature-container h2 {
+    margin-bottom: 60px;
+}
+
+.home .home-container .feature-container .feature-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card p {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.home .home-container .feature-container .feature-card-container .feature-card img {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* Banner */
+
+.home .home-container .banner-container {
+    margin-bottom: 120px;
+    background-image: url("/public/images/banner-image.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 84px 0;
+    width: 100%;
+}
+
+.home .home-container .banner-container h2 {
+    text-align: center;
+}
+
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+
+    /* Hero */
+
+    .home .home-container .hero-container {
+        width: 85%;
+        margin-bottom: 200px;
     }
 
-    .home-header2 {
-        background: linear-gradient(45deg, #006CDB, #8535D4);
-        font-size: 60px;
-        font-weight: 700;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        line-height: 65px;
-        padding-bottom: 10px;
+    .home .home-container .hero-container .right-home img {
+        height: 360px;
     }
+
+    .home .home-container .hero-container .left-home {
+        gap: 10px;
+    }
+
+    /* About */
+
+    .home .home-container .about-container p {
+        width: 70%;
+        margin-bottom: 40px;
+    }
+
+    .home .home-container .about-container #about-image {
+        width: 70%;
+    }
+
+    /* Features */
+
+    .home .home-container .feature-container h2 {
+        margin-bottom: 120px;
+    }
+
+    .home .home-container .feature-container .feature-card-container {
+        align-items: flex-start;
+        gap: 120px;
+        width: 80%;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card {
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card.left-card {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card p {
+        text-align: left;
+        width: 400px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 300px;
+        margin-left: -25%;
+        mask-image:-webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+        -webkit-mask-image:-webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    }
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+
+    /* Hero */
+
+    .home .home-container .hero-container .right-home img {
+        height: 420px;
+    }
+
+    /* Features */
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 420px;
+    }
+
+    /* Banner */
+
+    .home .home-container .banner-container {
+        padding: 160px 0;
+    }
+}
+
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
+@media (min-width: 1440px) {
+
+    /* Hero */
+
+    .home .home-container .hero-container .right-home img {
+        height: 620px;
+    }
+
+    /* Features */
+
+    .home .home-container .feature-container {
+        margin-bottom: 300px;
+    }
+
+    .home .home-container .feature-container h2 {
+        margin-bottom: 180px;
+    }
+
+    .home .home-container .feature-container .feature-card-container {
+        gap: 180px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card p {
+        width: 600px;
+    }
+
+    .home .home-container .feature-container .feature-card-container .feature-card img {
+        width: 460px;
+    }
+
+    /* Banner */
+
+    .home .home-container .banner-container {
+        margin-bottom: 300px;
+        padding: 240px 0;
+    }
+
 }

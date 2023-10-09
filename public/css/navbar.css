@@ -1,141 +1,262 @@
-body, ul {
-    margin: 0;
-    padding: 0;
-}
+/* ===#===#===#===#===#=== Mobile ===#===#===#===#===#=== */
 
 nav {
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 0;
+    justify-content: center;
     width: 100vw;
-    z-index: 100;
+    height: fit-content;
+    padding: 10px 0;
+
+    position: absolute;
+    z-index: 20;
+    top: 0;
 }
 
-.nav-logo {
-    margin: 10px 50px;
-    cursor: pointer;
-    opacity: 1;
-    transition: all 0.3s ease 0s;
-}
-
-.nav-logo:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
-}
-
-.nav-logo:active {
-    transform: translateY(4px);
-}
-
-.left-nav {
-    background-color: #FFFFFF;
+nav .nav-container {
     display: flex;
     align-items: center;
-    color: white;
-    padding: 10px 20px;
+    justify-content: space-between;
+} 
+
+nav .nav-container .left-nav {
+    display: flex;
 }
 
-.right-nav {
-    margin-right: 50px;
-    position: absolute;
-    right: 0;
+/* Nav logo */
+
+nav .nav-container .left-nav #nav-logo {
+    height: 50px;
 }
 
-.nav-login {
-    background: linear-gradient(45deg, #006CDB, #8535D4);
-    color: #FFFFFF;
-    padding: 8px 35px;
-    border-radius: 20px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border: none;
-    opacity: 1;
-    transition: all 0.3s ease 0s;
-}
+/* Nav menu */
 
-.nav-login:hover {
-    transform: translateY(-2px);
-    opacity: 0.6;
-}
-
-.nav-login:active {
-    transform: translateY(4px);
-}
-
-
-.nav-menu-toggle {
+nav .nav-container .left-nav .nav-menu {
     display: none;
 }
 
-.nav-links {
-    list-style-type: none;
+/* Hamburger */
+
+nav .nav-container .right-nav #hamburger {
     display: flex;
-    font-size: 19px;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.nav-links li {
-    margin-right: 70px;
+nav .nav-container .right-nav #hamburger div {
+    width: 32px;
+    height: 5px;
+    background-color: var(--black);
+    margin-bottom: 5px;
+    border-radius: 2.5px;
 }
 
-li a {
-    color: #000000;
-    text-decoration: none;
-    position: relative;
+/* Hamburger animation */
+nav .nav-container .right-nav #hamburger.open #bar-1,
+nav .nav-container .right-nav #hamburger.open #bar-2,
+nav .nav-container .right-nav #hamburger.open #bar-3 {
+    transition: all 0.25s ease-in-out;
 }
 
-li a::before {
-    content: '';
-    position: absolute;
+nav .nav-container .right-nav #hamburger.open #bar-1 {
+    transform: rotate(45deg) translateX(7px) translateY(7px);
+}
+
+nav .nav-container .right-nav #hamburger.open #bar-2 {
+    transform: scale(0);
+}
+
+nav .nav-container .right-nav #hamburger.open #bar-3 {
+    transform: rotate(-45deg) translateX(7px) translateY(-7px);
+}
+
+/* Logged */
+
+nav .nav-container .right-nav #logged {
+    display: none;
+}
+
+nav .nav-container .right-nav #logged #profile-picture {
+    margin-left: 20px;
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+}
+
+nav .nav-container .right-nav #logged #profile-picture:hover {
+    transform: scale(1.1);
+}
+
+nav .nav-container .right-nav #logged #profile-picture:active {
+    transform: scale(1);
+}
+
+nav .nav-container .right-nav #logged a:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+nav .nav-container .right-nav #logged a:active {
+    transform: scale(1);
+}
+
+/* Login Button */
+
+nav .nav-container .right-nav .login-btn {
+    display: none;
+}
+
+/* Dropdown */
+
+nav .dropdown-menu {
+    /* display: none; */
     width: 0;
-    height: 2px;
+    height: fit-content;
+    background-color: var(--white);
+    transition: all 0.3s ease 0s;
+
+    position: absolute;
+    top:77px;
+    right: 0;
     bottom: 0;
-    left: 0;
-    background-color: #000000;
-    transition: width 0.1s ease-in;
 }
 
-a:hover::before {
+nav .dropdown-menu.open {
+    display: block;
     width: 100%;
 }
 
-
-.hamburger {
-    display: block;
-    width: 25px;
-    height: 5px;
-    background-color: #000000;
-    margin-bottom: 5px;
-    border-radius: 20px;
+nav .dropdown-menu ul {
+    list-style-type: none;
 }
 
-@media (max-width: 1000px) {
+nav .dropdown-menu ul li a {
+    display: block;
+    padding: 12px 20px;
+    background-color: var(--white);
+}
 
-    .left-nav {
-        justify-content: space-between;
+nav .dropdown-menu ul li a.login-btn {
+    width: inherit;
+    margin: 10px 12px;
+    text-align: center;
+}
+
+nav .dropdown-menu ul li a:hover {
+    background: var(--blue-purple-gradient);
+    color: var(--white);
+}
+
+nav .dropdown-menu ul li a:active {
+    background: var(--blue-purple-gradient);
+    color: var(--white);
+}
+
+/* ===#===#===#===#===#=== Tablet ===#===#===#===#===#=== */
+
+@media (min-width: 768px) {
+
+    /* Nav menu */
+
+    nav {
+        padding: 15px 0;
     }
 
-    .nav-menu-toggle {
-        display: block;
-        cursor: pointer;
-        opacity: 1;
-    }
-
-    .nav-menu-toggle:hover {
-        opacity: 0.5;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
+    nav .nav-container .left-nav .nav-menu {
         display: flex;
-        flex-direction: column;
+        list-style-type: none;
+        align-items: center;
     }
 
-    .nav-login {
+    nav .nav-container .left-nav .nav-menu li {
+        margin-left: 30px;
+    }
+
+    nav .nav-container .left-nav .nav-menu li a {
+        position: relative;
+    }
+
+    nav .nav-container .left-nav .nav-menu li a::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: var(--blue-purple-gradient);
+        transition: width 0.1s ease-in;
+    }
+
+    nav .nav-container .left-nav .nav-menu li a:hover::before {
+        width: 100%;
+    }
+
+    /* Hamburger */
+    
+    nav .nav-container .right-nav #hamburger {
         display: none;
+    }
+
+    /* Logged */
+
+    nav .nav-container .right-nav #logged {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    /* Login button */
+
+    nav .nav-container .right-nav .login-btn {
+        display: flex;
+        transition: all 0.3s ease 0s;
+    }
+
+    nav .nav-container .right-nav .login-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.6;
+    }
+
+    nav .nav-container .right-nav .login-btn:active {
+        transform: translateY(4px);
+    }
+
+    /* Dropdown */
+
+    nav .dropdown-menu {
+        display: none;
+    }
+
+    nav .dropdown-menu.open {
+        display: none;
+    }
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+    nav {
+        padding: 20px 0;
+    }
+
+    /* Nav menu */
+
+    nav .nav-container .left-nav .nav-menu li {
+        margin-left: 50px;
+    }
+}
+
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
+@media (min-width: 1440px) {
+    nav {
+        padding: 30px 0;
+    }
+
+    /* Nav menu */
+
+    nav .nav-container .left-nav .nav-menu li {
+        margin-left: 60px;
     }
 }

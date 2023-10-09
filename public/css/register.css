@@ -1,0 +1,233 @@
+.register {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.left-register {
+    width: 50%;
+    align-items: center;
+    background-image: url("../images/tuco-artwork.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.right-register {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}
+
+.right-register2 {
+    width: 55%;
+}
+
+.register-image {
+    justify-content: center;
+    width: 100%;
+}
+
+.register-header {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(45deg, #006CDB, #8535D4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 50px;
+}
+
+.register-email {
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.register-email-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-email-input:focus {
+    border-bottom: 2px solid #006CDB;
+}
+
+.register-email-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.register-username {
+    margin-top: 40px;
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.register-username-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-username-input:focus {
+    border-bottom: 2px solid #006CDB;
+}
+
+.register-username-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.register-password {
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+.register-password-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-password-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.register-confirm {
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+.register-confirm-input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.register-confirm-input:focus {
+    border-bottom: 2px solid #006CDB;
+    width: 105%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.register-button {
+    margin-top: 70px;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #006CDB, #8535D4);
+    color: #FFFFFF;
+    padding: 12px 100px;
+    border-radius: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 0.5px solid #006CDB;
+    transition: all 0.3s ease 0s;
+    /* gamau transition backgroundnya */
+}
+
+.register-button:hover {
+    transform: translateY(-4px);
+    opacity: 0.6;
+}
+
+.register-button:active {
+    transform: translateY(6px);
+}
+
+.register-desc1 {
+    display: flex;
+    justify-content: center;
+}
+
+.register-desc1-click {
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: underline;
+    opacity: 0.5;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    transition: all 0.3s ease 0s;
+}
+
+.register-desc1-click:hover {
+    transform: translateY(-2px);
+}
+
+.register-desc1-click:active {
+    transform: translateY(4px);
+}
+
+.register-desc2 {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.register-desc2-click {
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: underline;
+    opacity: 0.5;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    transition: all 0.3s ease 0s;
+}
+
+.register-desc2-click:hover {
+    transform: translateY(-2px);
+}
+
+.register-desc2-click:active {
+    transform: translateY(4px);
+}
+
+#username-error, #email-error, #password-error, #confirm-password-error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+}
+
+@media (max-width: 1000px) {
+
+    .left-register {
+        display: none;
+    }
+
+    .right-register {
+        width: 100vw;
+    }
+}

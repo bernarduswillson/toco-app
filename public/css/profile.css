@@ -1,0 +1,153 @@
+.profile {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.profile .profile-container {
+    justify-content: center;
+    width: 95%;
+    max-width: 600px;
+}
+
+.profile .profile-container h1 {
+    text-align: center;
+}
+
+.profile .profile-container form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .profile-container form .profile-form {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-top: 120px;
+    padding-bottom: 50px;
+}
+
+.profile-image {
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+
+.top-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile .change-btn {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.profile .delete-btn {
+    background-color: var(--white);
+    color: var(--blue);
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modify-image {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.modify-image #upload-input {
+    display: none;
+}
+
+.profile-form label {
+    margin-top: 20px;
+    display: block;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 80px;
+}
+
+.btn-container .logout-btn {
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    padding: 5px 25px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: var(--orange);
+}
+
+.btn-container .logout-btn a {
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.btn-container .save-btn {
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    padding: 5px 25px;
+    cursor: pointer;
+}
+
+#username-error,
+#email-error {
+    position: absolute;
+    color: red;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .profile-header {
+        text-align: left;
+    }
+
+    .top-profile {
+        flex-direction: row;
+    }
+
+    .modify-image {
+        margin-left: 70px;
+        margin-top: 0;
+    }
+
+}
