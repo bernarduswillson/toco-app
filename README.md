@@ -139,7 +139,7 @@ TOCO is a web application designed to help users learn a new language . With TOC
 - Accessibility 96%
 - Best Practices 100%
 - SEO 91%
-! [lighthouse](img/lighthouse.png)
+! [lighthouse](img/lighthouse.jpg)
  
 
 ## Repository Tree
