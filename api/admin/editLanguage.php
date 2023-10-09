@@ -4,6 +4,7 @@ require_once '../../config/config.php';
 require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/LanguageModel.php';
+session_start();
 
 $language_model = new LanguageModel();
 $xml = file_get_contents('php://input');
@@ -38,7 +39,8 @@ if (isset($_POST['delete'])) {
     if ($language == null) {
         echo json_encode(array('status' => 'error', 'message' => 'Language exists'));
     } else {
-        header("Location: ../../admin/manage");
+        $_SESSION["changes"] = "success";
+        header("Location: ../../admin/edit/$language_id");
         echo json_encode(array('status' => 'success', 'message' => 'Language updated'));
     }
 }

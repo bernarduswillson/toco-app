@@ -198,36 +198,54 @@ class Admin extends Controller {
 
     // Edit Video
     if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId) && isset($videoId) && !empty($videoId)) {
-      $data["pageTitle"] = "Add New Module";
       $data["languageId"] = $languageId;
       $data["video"] = $this->model("VideoModel")->getVideoById($videoId);
+      $data["pageTitle"] = "Edit " . $data["video"]["video_name"];
   
       $this->view("header/index", $data);
+      $this->view("toast/index");
       $this->view("navbar/index");
       $this->view("admin/edit/video/index", $data);
       $this->view("footer/index");
+      
+      if (isset($_SESSION["changes"]) && $_SESSION["changes"] == "success") {
+        echo '<script>showToast("Video updated successfully.");</script>';
+        unset($_SESSION["changes"]);
+      }
     }
 
     // Edit Module
     else if (isset($languageId) && !empty($languageId) && isset($moduleId) && !empty($moduleId)) {
-      $data["pageTitle"] = "Add New Module";
       $data["module"] = $this->model("ModuleModel")->getModuleById($moduleId);
+      $data["pageTitle"] = "Edit " . $data["module"]["module_name"];
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
+      $this->view("toast/index");
       $this->view("admin/edit/module/index", $data);
       $this->view("footer/index");
+
+      if (isset($_SESSION["changes"]) && $_SESSION["changes"] == "success") {
+        echo '<script>showToast("Module updated successfully.");</script>';
+        unset($_SESSION["changes"]);
+      }
     } 
     
     // Edit Language
     else if (isset($languageId) && !empty($languageId)) {
-      $data["pageTitle"] = "Add New Language";
       $data["language"] = $this->model("LanguageModel")->getLanguageById($languageId);
+      $data["pageTitle"] = "Edit " . $data["language"]["language_name"];
   
       $this->view("header/index", $data);
       $this->view("navbar/index");
+      $this->view("toast/index");
       $this->view("admin/edit/language/index", $data);
       $this->view("footer/index");
+
+      if (isset($_SESSION["changes"]) && $_SESSION["changes"] == "success") {
+        echo '<script>showToast("Language updated successfully.");</script>';
+        unset($_SESSION["changes"]);
+      }
     }
   }
 

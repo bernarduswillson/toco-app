@@ -5,4 +5,4 @@
 </div>
 <!--  -->
 
-<script src="../../../public/js/toast.js"></script>
+<script src="/public/js/toast.js"></script>

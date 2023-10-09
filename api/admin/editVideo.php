@@ -6,6 +6,7 @@ require_once '../../app/core/Database.php';
 require_once '../../app/models/VideoModel.php';
 require_once '../../app/models/ProgressModel.php';
 require_once '../../app/models/UserModel.php';
+session_start();
 
 $video_model = new VideoModel();
 $progress_model = new ProgressModel();
@@ -67,5 +68,7 @@ if (isset($_POST['delete'])) {
         $video_model->adjustVideoOrder2($data['module_id'], $data['video_order'], $data['old_video_order']);
     }
     $video_model->editVideo($data);
-    header('Location: ../../../../admin/manage/' . $_POST['language_id'] . '/' . $_POST['module_id']);
+
+    $_SESSION["changes"] = "success";
+    header('Location: ../../../../admin/edit/' . $_POST['language_id'] . '/' . $_POST['module_id'] . '/' . $data["video_id"]);
 }

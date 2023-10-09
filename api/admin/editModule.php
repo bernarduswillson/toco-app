@@ -4,6 +4,7 @@ require_once '../../config/config.php';
 require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/ModuleModel.php';
+session_start();
 
 $module_model = new ModuleModel();
 $xml = file_get_contents('php://input');
@@ -41,6 +42,7 @@ if (isset($_POST['delete'])) {
         $module_model->adjustModuleOrder2($data['language_id'], $data['module_order'], $data['old_module_order']);
     }
     $module_model->editModule($data);
-    header('Location: ../../../../admin/manage/' . $data['language_id']);
+    $_SESSION["changes"] = "success";
+    header('Location: ../../../../admin/edit/' . $data['language_id'] . "/" . $data['module_id']);
     echo json_encode(array('status' => 'success', 'message' => 'Module edited'));
 }
