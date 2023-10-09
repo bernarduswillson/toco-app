@@ -15,10 +15,8 @@ $language_pic = '/public/icons/profile.webp';
         <input type="hidden" id="new-language-pic" name="new-language-pic" value="<?php echo $language_pic; ?>">
 
         <div class="button-container">
-          <button class="font-reg text-sm primary-blue-button">
-            <input type="file" id="upload-input" name="upload-input" accept="image/*">
-            Change picture
-          </button>
+          <input type="file" id="upload-input" accept="image/*">
+          <label for="upload-input" class="primary-blue-button font-reg text-sm">Change picture</label>
           <button class="font-reg text-sm secondary-blue-button" id="delete-btn">Delete picture</button>
         </div>
       </div>
