@@ -30,8 +30,19 @@ class Controller {
     }
   }
 
+public function validateAdmin() {
+    if (!$this->isAdmin()) {
+      header('Location: /');
+      exit();
+    }
+  }
+
   public function isLoggedIn() {
     return isset($_SESSION['username']) && !empty($_SESSION['username']);
+  }
+
+  public function isAdmin() {
+    return isset($_SESSION['username']) && !empty($_SESSION['username']) && $_SESSION['is_admin'] == 1;
   }
 
   public function getQuery() {

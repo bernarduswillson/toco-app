@@ -3,6 +3,7 @@
 class Admin extends Controller {
   public function index() {
     $this->validateSession();
+    $this->validateAdmin();
 
     $data["pageTitle"] = "Admin dashboard";
     $data["username"] = $_SESSION['username'];
@@ -147,6 +148,7 @@ class Admin extends Controller {
 
   public function create($languageId = null, $moduleId = null) {
     $this->validateSession();
+
 
     $this->validateParamLanguage($languageId);
     $this->validateParamModule($languageId, $moduleId);
