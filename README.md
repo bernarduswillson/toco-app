@@ -34,18 +34,25 @@ TOCO is a web application designed to help users learn a new language . With TOC
 
 ## screenshots
 - homepage
-![homepage](img/homepage.png)
+![homepage](img/homepage-guest.png)
 - login
   ![login](img/login.png)
 - register
-- dashboard
-- lesson
+  ![register](img/register.png)
+- choose language
+    ![choose language](img/learning.png)
+- choose module
+  ![lesson](img/module.png)
 - video
+  ![video](img/video.png)
 - admin dashboard
+  ![admin dashboard](img/admin-dashboard.png)
 - edit module
+  ![edit module](img/edit-module.png)
 - edit lesson
+  ![edit lesson](img/edit-module-vid.png)
 - edit video
-  
+  ![edit video](img/edit-video.png)
 
 
 ## Pembagian Tugas
