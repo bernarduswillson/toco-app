@@ -1,6 +1,5 @@
 const createBtn = document.querySelector("#create-btn");
 const languageNameInput = document.querySelector("#language-input");
-const form = document.querySelector("#my-form");
 
 document.getElementById('language-input').addEventListener('input', checkLanguage);
 

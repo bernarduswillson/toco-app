@@ -53,7 +53,7 @@ $parse_video = explode("/", $video);
 
         <label for="order" class="text-reg text-black text-xs">Order</label>
         <input id="order-input" type="number" name="order" placeholder="Module order" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["video"]["video_order"] ?>">
-        <p id="order-error"></p>
+        <p id="order-error-v"></p>
       </div>
 
       <div class="bottom-button-container">

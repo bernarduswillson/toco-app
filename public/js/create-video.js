@@ -25,7 +25,7 @@ function checkOrder() {
 
   if (order.length < 1) {
     document.getElementById("order-input").style.borderColor = "red";
-    document.getElementById('order-error').innerHTML = "Order cannot be empty";
+    document.getElementById('order-error-v').innerHTML = "Order cannot be empty";
   }
   else {
     const xhr = new XMLHttpRequest();
@@ -36,11 +36,11 @@ function checkOrder() {
         let response = JSON.parse(this.responseText);
         if (response.status == "success") {
           document.getElementById("order-input").style.borderColor = "green";
-          document.getElementById('order-error').innerHTML = "";
+          document.getElementById('order-error-v').innerHTML = "";
         }
         else {
           document.getElementById("order-input").style.borderColor = "red";
-          document.getElementById('order-error').innerHTML = response.message;
+          document.getElementById('order-error-v').innerHTML = response.message;
         }
       }
       checkAll();
