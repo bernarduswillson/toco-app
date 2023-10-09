@@ -68,6 +68,7 @@ document.getElementById('upload-input').addEventListener('change', function (eve
   const reader = new FileReader();
 
   reader.onload = function (e) {
+    document.getElementById('video-path').innerHTML = file.name;
     saveVideoToRepository(file);
   };
 
@@ -80,6 +81,7 @@ document.getElementById('delete-btn').addEventListener('click', function (event)
   uploadInput.value = '';
   const newVideoInput = document.getElementById('new-video');
   newVideoInput.value = '/public/video/default.mp4';
+  document.getElementById('video-path').innerHTML = 'default.mp4';
 });
 
 function saveVideoToRepository(videoFile) {

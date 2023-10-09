@@ -1,5 +1,6 @@
 <?php
 $video = $data["video"]["video_url"];
+$parse_video = explode("/", $video);
 ?>
 
 <div class="create">
@@ -38,15 +39,16 @@ $video = $data["video"]["video_url"];
         <p id="video-error"></p>
         <label for="description" class="text-reg text-black text-xs">Description</label>
         <input id="desc-input" type="text" name="description" placeholder="Description" class="font-reg text-black text-sm" autocomplete="false" value="<?= $data["video"]["video_desc"] ?>">
-        <label for="videoUrl" class="text-reg text-black text-xs">URL</label>
-        
+        <label for="videoUrl" class="text-reg text-black text-xs">File</label>
         <input type="hidden" id="new-video" name="new-video" value="<?php echo $video; ?>">
-        <div class="button-container">
-          <button class="font-reg text-sm primary-blue-button">
+        <div class="language-picture-container">
+          <p id="video-path"><?= end($parse_video); ?></p>
+          <input type="hidden" id="new-language-pic" name="new-language-pic" value="<?php echo $video; ?>">
+          <div class="button-container">
             <input type="file" id="upload-input" accept="video/*">
-            Change video
-          </button>
-          <button class="font-reg text-sm secondary-blue-button" id="delete-btn">Delete video</button>
+            <label for="upload-input" class="primary-blue-button font-reg text-sm">Change video</label>
+            <button class="font-reg text-sm secondary-blue-button" id="delete-btn">Delete video</button>
+          </div>
         </div>
 
         <label for="order" class="text-reg text-black text-xs">Order</label>
