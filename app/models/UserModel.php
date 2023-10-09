@@ -30,6 +30,12 @@ class UserModel
     return $this->db->resultSet();
   }
 
+  public function getAllUserIds()
+  {
+    $this->db->query('SELECT user_id FROM users');
+    return $this->db->resultSet();
+  }
+
   public function register($data)
   {
     $query = "INSERT INTO users (email, username, password, is_admin) values (:email, :username, :password, false)";

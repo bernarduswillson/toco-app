@@ -5,9 +5,11 @@ require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/VideoModel.php';
 require_once '../../app/models/ProgressModel.php';
+require_once '../../app/models/UserModel.php';
 
 $video_model = new VideoModel();
 $progress_model = new ProgressModel();
+$user_model = new UserModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
@@ -29,18 +31,33 @@ if (isset($_POST['delete'])) {
 
     $video_model->deleteVideo($video_id);
 
-    $video_count = $video_model->getVideoCountByModuleId($module_id);
-    $video_finished_count = $progress_model->getUserVideoFinishedCount($user_id, $module_id);
+    // Get all user IDs
+    $user_ids = $user_model->getAllUserIds();
 
-    if ($video_count == $video_finished_count) {
-        $isProgress = $progress_model->isProgress($user_id, $module_id);
-        if ($isProgress == 0) {
-            $progress_model->addModuleResult($user_id, $module_id);
+    // Loop through each user
+    foreach ($user_ids as $user_id) {
+        $user_id = $user_id['user_id'];
+        // Get the video count and finished video count for the user
+        $video_count = $video_model->getVideoCountByModuleId($module_id);
+        $video_finished_count = $progress_model->getUserVideoFinishedCount($user_id, $module_id);
+
+        // Check if all videos for the module are finished
+        if ($video_count == $video_finished_count) {
+            // Check if the user has progress for the module
+            $isProgress = $progress_model->isProgress($user_id, $module_id);
+
+            // If the user has no progress, add a module result
+            if ($isProgress == 0) {
+                $progress_model->addModuleResult($user_id, $module_id);
+            }
+        }
+
+        // If there are no videos for the module, delete progress
+        if ($video_count == 0) {
+            $progress_model->deleteProgress($user_id, $module_id);
         }
     }
-    if ($video_count == 0) {
-        $progress_model->deleteProgress($user_id, $module_id);
-    }
+
     header('Location: ../../../../admin/manage/' . $_POST['language_id'] . '/' . $_POST['module_id']);
 } else if (isset($_POST['videoName']) && isset($_POST['new-video']) && isset($_POST['order']) && isset($_POST['module_id'])) {
     $data['video_id'] = $_POST['video_id'];
