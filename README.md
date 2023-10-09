@@ -34,9 +34,9 @@ TOCO is a web application designed to help users learn a new language . With TOC
 
 ## screenshots
 - homepage
-![homepage](https://gitlab.informatika.org/if3110-2022-k02-01-30/if-3110-2022-k-02-01-30/-/raw/master/screenshots/homepage.png)
+![homepage](img/homepage.png)
 - login
-  ![login](https://gitlab.informatika.org/if3110-2022-k02-01-30/if-3110-2022-k-02-01-30/-/raw/master/screenshots/login.png)
+  ![login](img/login.png)
 - register
 - dashboard
 - lesson
