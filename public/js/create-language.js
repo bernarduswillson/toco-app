@@ -1,5 +1,6 @@
 const createBtn = document.querySelector("#create-btn");
 const languageNameInput = document.querySelector("#language-input");
+const form = document.querySelector("#my-form");
 
 document.getElementById('language-input').addEventListener('input', checkLanguage);
 
@@ -98,3 +99,11 @@ function saveImageToRepository(imageFile) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+form.addEventListener('submit', (event) => {
+  if (document.getElementById("language-input").style.borderColor !== "green") {
+    event.preventDefault();
+    document.getElementById("language-input").style.borderColor = "red";
+    document.getElementById('language-error').innerHTML = "Language cannot be empty";
+  }
+});

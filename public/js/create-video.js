@@ -124,3 +124,10 @@ descInput.addEventListener("blur", () => {
 orderInput.addEventListener("blur", () => {
   validate();
 });
+
+createBtn.addEventListener('click', (event) => {
+  if (document.getElementById("name-input").style.borderColor !== "green" || document.getElementById("order-input").style.borderColor !== "green") {
+    event.preventDefault();
+    // Add code to display an error message to the user
+  }
+});
