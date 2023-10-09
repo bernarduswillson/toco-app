@@ -20,6 +20,7 @@ class Admin extends Controller {
 
   public function manage($languageId = null, $moduleId = null) {
     $this->validateSession();
+    $this->validateAdmin();
 
     $this->validateParamLanguage($languageId);
     $this->validateParamModule($languageId, $moduleId);
@@ -148,7 +149,7 @@ class Admin extends Controller {
 
   public function create($languageId = null, $moduleId = null) {
     $this->validateSession();
-
+    $this->validateAdmin();
 
     $this->validateParamLanguage($languageId);
     $this->validateParamModule($languageId, $moduleId);
@@ -189,6 +190,7 @@ class Admin extends Controller {
 
   public function edit($languageId = null, $moduleId = null, $videoId = null) {
     $this->validateSession();
+    $this->validateAdmin();
 
     $this->validateParamLanguage($languageId);
     $this->validateParamModule($languageId, $moduleId);
