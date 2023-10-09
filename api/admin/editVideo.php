@@ -31,28 +31,21 @@ if (isset($_POST['delete'])) {
 
     $video_model->deleteVideo($video_id);
 
-    // Get all user IDs
     $user_ids = $user_model->getAllUserIds();
 
-    // Loop through each user
     foreach ($user_ids as $user_id) {
         $user_id = $user_id['user_id'];
-        // Get the video count and finished video count for the user
         $video_count = $video_model->getVideoCountByModuleId($module_id);
         $video_finished_count = $progress_model->getUserVideoFinishedCount($user_id, $module_id);
 
-        // Check if all videos for the module are finished
         if ($video_count == $video_finished_count) {
-            // Check if the user has progress for the module
             $isProgress = $progress_model->isProgress($user_id, $module_id);
 
-            // If the user has no progress, add a module result
             if ($isProgress == 0) {
                 $progress_model->addModuleResult($user_id, $module_id);
             }
         }
 
-        // If there are no videos for the module, delete progress
         if ($video_count == 0) {
             $progress_model->deleteProgress($user_id, $module_id);
         }

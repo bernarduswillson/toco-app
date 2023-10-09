@@ -5,9 +5,11 @@ require_once '../../app/core/App.php';
 require_once '../../app/core/Database.php';
 require_once '../../app/models/VideoModel.php';
 require_once '../../app/models/ProgressModel.php';
+require_once '../../app/models/UserModel.php';
 
 $video_model = new VideoModel();
 $progress_model = new ProgressModel();
+$user_model = new UserModel();
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 
@@ -32,8 +34,15 @@ if (isset($_POST['videoName']) && isset($_POST['new-video']) && isset($_POST['or
 
     $video_model->addVideo($data);
     $isProgress = $progress_model->isProgress($_POST['user_id'], $data['module_id']);
-    if ($isProgress == 1) {
-        $progress_model->deleteProgress($_POST['user_id'], $data['module_id']);
+    $userIds = $user_model->getAllUserIds();
+
+    foreach ($userIds as $user) {
+        $user_id = $user['user_id'];
+        $isProgress = $progress_model->isProgress($user_id, $data['module_id']);
+
+        if ($isProgress == 1) {
+            $progress_model->deleteProgress($user_id, $data['module_id']);
+        }
     }
     header('Location: /admin/manage/' . $_POST['languageId'] . '/' . $data['module_id']);
     echo json_encode(array('status' => 'success', 'message' => 'Video created'));
