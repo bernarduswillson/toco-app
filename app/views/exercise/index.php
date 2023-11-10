@@ -11,7 +11,7 @@
       <div class="input-container">
         <div class="filter-sort">
           <select name="language" id="language-input" class="text-sm font-reg text-black">
-            <option value="" <?php echo empty($data["languages"]) ? "selected" : ""; ?>>All languages</option>
+            <option value="-1" <?php echo empty($data["languages"]) ? "selected" : ""; ?>>All languages</option>
             <?php foreach ($data["languages"] as $language): ?>
               <option value="<?= $language["language_id"] ?>">
                 <?= $language["language_name"] ?>
@@ -20,7 +20,7 @@
           </select>
         </div>
       </div>
-
+      
       <div class="card-container" id="exercise-container">
       </div>
     </form>
@@ -29,5 +29,4 @@
 <script>
   const languages = <?= json_encode($data["languages"]) ?>;
 </script>
-<!-- <script src="/public/js/search-filter-sort.js"></script> -->
 <script src="/public/js/exercise.js"></script>
