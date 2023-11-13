@@ -5,48 +5,50 @@
         </h1>
         <form method="post" action="../../../api/exercise/submit.php">
             <div class="" id="question-container">
-                <div>
-                    <?= $data['question']['question'] ?>
-                </div>
-                <?php foreach ($data["option"] as $option): ?>
+                <?php foreach ($data["questions"] as $question): ?>
                     <div>
-                        <label>
-                            <input type="radio" name="options" value="<?= $option['option_id'] ?>"
-                                onclick="saveSelectedOption('<?= $data['question']['question_id'] ?>', '<?= $option['option_id'] ?>')">
-
-                            <?= $option['option'] ?>
-                        </label>
+                        <?= $question['question'] ?>
                     </div>
-
+                    <?php foreach ($question["options"] as $option): ?>
+                        <div>
+                            <label>
+                                <input type="radio" name="options[<?= $question['question_id'] ?>]" value="<?= $option['option_id'] ?>"
+                                    onclick="saveSelectedOption('<?= $question['question_id'] ?>', '<?= $option['option_id'] ?>')">
+                                <?= $option['option'] ?>
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </div>
             <div class="" id="hidden"></div>
             <input type="hidden" name="exerciseId" value="<?= $data['currentExercise']['exercise_id'] ?>">
+            <input type="hidden" name="userId" value="<?= $data["user_id"] ?>">
             <button type="submit" name="submitQuiz">Submit</button>
         </form>
         <div id="exercise-score"></div>
     </div>
 </div>
+
 <script>
-    const selectedOption = {};
+    const selectedOptions = {};
 
     function saveSelectedOption(questionId, optionId) {
-        const questionKey = questionId.toString();
-        selectedOption[questionKey] = optionId;
-        // selectedOption[2] = 5
+        selectedOptions[questionId] = optionId;
 
-        let listString = Object.entries(selectedOption)
-        .map(([key, value]) => `${key}:${value}`)
-        .join(',');
+        let listString = Object.entries(selectedOptions)
+            .map(([key, value]) => `${key}:${value}`)
+            .join(',');
 
         listString += listString ? '.' : '';
+
+        console.log(listString);
 
         const hidden = document.getElementById('hidden');
 
         hidden.innerHTML = '';
 
         hidden.innerHTML = `
-            <input type="hidden" name="selectedOption" value="${listString}">
+            <input name="selectedOptions" value="${listString}">
         `;
     }
 </script>

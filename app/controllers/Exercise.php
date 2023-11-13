@@ -56,15 +56,20 @@ class Exercise extends Controller
       $response = curl_exec($ch);
       $question = json_decode($response, true);
 
-      $data["question"] = $question['result'][0]; // ini '0' bisa diganti page
+      $data["questions"] = $question['result'];
 
-      $baseUrl = 'http://express:5000/option/' . $data["question"]["question_id"];
-      $ch = curl_init($baseUrl);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      $response = curl_exec($ch);
-      $option = json_decode($response, true);
-
-      $data["option"] = $option['result'];
+      foreach ($data["questions"] as &$question) {
+        $baseUrl = 'http://express:5000/option/' . $question["question_id"];
+        $ch = curl_init($baseUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        $option = json_decode($response, true);
+    
+        $question["options"] = $option['result'];
+    
+        curl_close($ch);
+      }
+      unset($question);
       
       $this->view('header/index', $data);
       $this->view('navbar/index');

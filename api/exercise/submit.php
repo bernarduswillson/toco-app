@@ -1,9 +1,13 @@
 <?php
-function submitQuiz($exerciseId, $selectedOption)
+function submitQuiz($exerciseId, $selectedOptions, $userId)
 {
-    $selectedOption = rtrim($selectedOption, '.');
+    $pairs = array();
 
-    $pairs = explode(',', $selectedOption);
+    if ($selectedOptions) {
+        $selectedOptions = rtrim($selectedOptions, '.');
+        $pairs = explode(',', $selectedOptions);
+    }
+
 
     $submitData = [];
 
@@ -11,9 +15,6 @@ function submitQuiz($exerciseId, $selectedOption)
         list($questionId, $optionId) = explode(':', $pair);
         $submitData["question_" . $questionId] = $optionId;
     }
-
-    var_dump($submitData);
-    var_dump($exerciseId);
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://express:5000/exercise/result/" . $exerciseId);
@@ -28,17 +29,65 @@ function submitQuiz($exerciseId, $selectedOption)
         echo 'Error: ' . curl_error($ch);
     } else {
         $data = json_decode($response, true);
-        echo 'Quiz submitted successfully: ' . print_r($data, true);
+
+        $correctResults = $data['correctResults'];
+        $wrongResults = $data['wrongResults'];
+
+        $correctCount = count($correctResults);
+        $wrongCount = count($wrongResults);
+
+        $score = $correctCount / ($correctCount + $wrongCount) * 100;
+
+        // echo 'Quiz submitted successfully. Score: ' . $score;
     }
 
     curl_close($ch);
+
+    $baseUrl = 'http://soap:8080/service/gems';
+
+    $soapRequest = '<x:Envelope
+                        xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
+                        xmlns:ser="http://service.toco.org/">
+                        <x:Header/>
+                        <x:Body>
+                            <ser:addGems>
+                                <user_id>' . $userId . '</user_id>
+                                <gem>' . $score . '</gem>
+                            </ser:addGems>
+                        </x:Body>
+                    </x:Envelope>';
+
+    $ch = curl_init($baseUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $soapRequest);
+    curl_setopt(
+        $ch,
+        CURLOPT_HTTPHEADER,
+        array(
+            'Content-Type: text/xml',
+            'SOAPAction: addGems',
+            'X-api-key: toco_php'
+        )
+    );
+
+    $response = curl_exec($ch);
+
+    if (curl_errno($ch)) {
+        echo 'Curl error: ' . curl_error($ch);
+    }
+
+    curl_close($ch);
+
+    header('Location: ../../exercise');
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitQuiz'])) {
     $exerciseId = $_POST['exerciseId'];
-    $selectedOption = isset($_POST['selectedOption']) ? $_POST['selectedOption'] : [];
+    $userId = $_POST['userId'];
+    $selectedOptions = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 
-    submitQuiz($exerciseId, $selectedOption);
+    submitQuiz($exerciseId, $selectedOptions, $userId);
 }
 ?>
