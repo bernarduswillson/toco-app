@@ -9,7 +9,7 @@ class Merchandise extends Controller
         $data["pageTitle"] = "Merch!";
         $data["user_id"] = $_SESSION['user_id'];
 
-        $baseUrl = 'http://soap:8080/gems';
+        $baseUrl = 'http://soap:8080/service/gems';
 
         $soapRequest = '<x:Envelope
                             xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
@@ -17,7 +17,7 @@ class Merchandise extends Controller
                             <x:Header/>
                             <x:Body>
                                 <ser:getGems>
-                                    <arg0>' . $data["user_id"] . '</arg0>
+                                    <user_id>' . $data["user_id"] . '</user_id>
                                 </ser:getGems>
                             </x:Body>
                         </x:Envelope>';
