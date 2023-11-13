@@ -9,7 +9,7 @@ class Merchandise extends Controller
         $data["pageTitle"] = "Merch!";
         $data["user_id"] = $_SESSION['user_id'];
 
-        $baseUrl = 'http://10.97.58.62:8080/gems';
+        $baseUrl = 'http://soap:8080/gems';
 
         $soapRequest = '<x:Envelope
                             xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
@@ -17,7 +17,7 @@ class Merchandise extends Controller
                             <x:Header/>
                             <x:Body>
                                 <ser:getGems>
-                                    <arg0>1</arg0>
+                                    <arg0>' . $data["user_id"] . '</arg0>
                                 </ser:getGems>
                             </x:Body>
                         </x:Envelope>';
@@ -26,10 +26,14 @@ class Merchandise extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $soapRequest);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: text/xml',
-            'SOAPAction: getGems'
-        )
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: text/xml',
+                'SOAPAction: getGems',
+                'X-api-key: toco_php'
+            )
         );
 
         $response = curl_exec($ch);
@@ -40,7 +44,12 @@ class Merchandise extends Controller
 
         curl_close($ch);
         $data['gems'] = $response;
-
+        
+        if (preg_match('/<return>(\d+)<\/return>/', $response, $matches)) {
+            $data['gems'] = (int)$matches[1];
+        } else {
+            echo 'Error extracting numeric value from XML response.';
+        }
 
         $this->view('header/index', $data);
         $this->view('navbar/index');

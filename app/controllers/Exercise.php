@@ -9,7 +9,7 @@ class Exercise extends Controller
     $data["pageTitle"] = "Test your knowledge!";
     $data["languages"] = $this->model("LanguageModel")->getAllLanguage();
 
-    $baseUrl = 'http://172.20.10.2:5000/exercise';
+    $baseUrl = 'http://express:5000/exercise';
     $ch = curl_init($baseUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
@@ -35,7 +35,7 @@ class Exercise extends Controller
       $data["user_id"] = $_SESSION['user_id'];
       $data["exercise_id"] =  intval($exerciseId);
 
-      $baseUrl = 'http://172.20.10.2:5000/exercise';
+      $baseUrl = 'http://express:5000/exercise';
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
@@ -50,7 +50,7 @@ class Exercise extends Controller
         }
       }
 
-      $baseUrl = 'http://172.20.10.2:5000/question/' . $data["exercise_id"];
+      $baseUrl = 'http://express:5000/question/' . $data["exercise_id"];
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
@@ -58,7 +58,7 @@ class Exercise extends Controller
 
       $data["question"] = $question['result'][0]; // ini '0' bisa diganti page
 
-      $baseUrl = 'http://172.20.10.2:5000/option/' . $data["question"]["question_id"];
+      $baseUrl = 'http://express:5000/option/' . $data["question"]["question_id"];
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
