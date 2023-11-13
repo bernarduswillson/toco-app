@@ -3,18 +3,6 @@ fetchQuestions(0);
 let selectedOption = {};
 
 function fetchQuestions(page) {
-  fetch(`http://localhost:5000/exercise/${exercise}`)
-    .then(response => response.json())
-    .then(exercise => {
-      const questionHeader = document.getElementById('question-header');
-
-      questionHeader.innerHTML = '';
-
-      questionHeader.innerHTML = `
-        ${exercise.result[0].exe_name}
-      `;
-    });
-
   fetch(`http://localhost:5000/question/${exercise}`)
     .then(response => response.json())
     .then(question => {
