@@ -33,7 +33,7 @@
     function saveSelectedOption(questionId, optionId) {
         const questionKey = questionId.toString();
         selectedOption[questionKey] = optionId;
-        selectedOption[2] = 5
+        // selectedOption[2] = 5
 
         let listString = Object.entries(selectedOption)
         .map(([key, value]) => `${key}:${value}`)
