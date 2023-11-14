@@ -9,6 +9,7 @@ class Merchandise extends Controller
         $data["pageTitle"] = "Merch!";
         $data["user_id"] = $_SESSION['user_id'];
 
+        // user's gems
         $baseUrl = 'http://soap:8080/service/gems';
 
         $soapRequest = '<x:Envelope
@@ -44,12 +45,22 @@ class Merchandise extends Controller
 
         curl_close($ch);
         $data['gems'] = $response;
-        
+
         if (preg_match('/<return>(\d+)<\/return>/', $response, $matches)) {
-            $data['gems'] = (int)$matches[1];
+            $data['gems'] = (int) $matches[1];
         } else {
             echo 'Error extracting numeric value from XML response.';
         }
+
+        // merch
+        // $baseUrl = 'http://express:5000/merch';
+        $baseUrl = 'http://192.168.0.11:5000/merch';
+        $ch = curl_init($baseUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        $merch = json_decode($response, true);
+
+        $data["merch"] = $merch['result'];
 
         $this->view('header/index', $data);
         $this->view('navbar/index');
