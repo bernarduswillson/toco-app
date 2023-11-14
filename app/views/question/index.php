@@ -23,6 +23,7 @@
             <div class="" id="hidden"></div>
             <input type="hidden" name="exerciseId" value="<?= $data['currentExercise']['exercise_id'] ?>">
             <input type="hidden" name="userId" value="<?= $data["user_id"] ?>">
+            <input type="hidden" name="isDone" value="<?= $data["isDone"] ?>">
             <button type="submit" name="submitQuiz">Submit</button>
         </form>
         <div id="exercise-score"></div>
@@ -48,7 +49,7 @@
         hidden.innerHTML = '';
 
         hidden.innerHTML = `
-            <input name="selectedOptions" value="${listString}">
+            <input type="hidden" name="selectedOptions" value="${listString}">
         `;
     }
 </script>

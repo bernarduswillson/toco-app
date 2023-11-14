@@ -1,6 +1,7 @@
 <?php
 function submitQuiz($exerciseId, $selectedOptions, $userId)
 {
+    // rest submit exercise
     $pairs = array();
 
     if ($selectedOptions) {
@@ -17,7 +18,8 @@ function submitQuiz($exerciseId, $selectedOptions, $userId)
     }
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "http://express:5000/exercise/result/" . $exerciseId);
+    // curl_setopt($ch, CURLOPT_URL, "http://express:5000/exercise/result/" . $exerciseId);
+    curl_setopt($ch, CURLOPT_URL, "http://192.168.0.11:5000/exercise/result/" . $exerciseId);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($submitData));
@@ -43,6 +45,35 @@ function submitQuiz($exerciseId, $selectedOptions, $userId)
 
     curl_close($ch);
 
+
+    // rest add progress
+    $ch = curl_init();
+    // curl_setopt($ch, CURLOPT_URL, "http://express:5000/progress/create");
+    curl_setopt($ch, CURLOPT_URL, "http://192.168.0.11:5000/progress/create");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt(
+        $ch,
+        CURLOPT_POSTFIELDS,
+        json_encode(
+            array(
+                "user_id" => (int)$userId,
+                "exercise_id" => (int)$exerciseId,
+                "score" => $score
+            )
+        )
+    );
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    $response = curl_exec($ch);
+    if ($response === false) {
+        echo 'Error: ' . curl_error($ch);
+    } else {
+        $data = json_decode($response, true);
+        // echo 'Progress added successfully. Progress id: ' . $data['result']['progress_id'];
+    }
+
+
+    // soap add gems
     $baseUrl = 'http://soap:8080/service/gems';
 
     $soapRequest = '<x:Envelope
@@ -78,16 +109,19 @@ function submitQuiz($exerciseId, $selectedOptions, $userId)
     }
 
     curl_close($ch);
-
-    header('Location: ../../exercise');
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitQuiz'])) {
     $exerciseId = $_POST['exerciseId'];
     $userId = $_POST['userId'];
+    $isDone = $_POST['isDone'];
     $selectedOptions = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 
-    submitQuiz($exerciseId, $selectedOptions, $userId);
+    if (!$isDone) {
+        submitQuiz($exerciseId, $selectedOptions, $userId);
+    }
+
+    header('Location: ../../exercise');
 }
 ?>
