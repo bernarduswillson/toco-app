@@ -1,5 +1,5 @@
 <?php
-function submitQuiz($exerciseId, $selectedOptions, $userId)
+function submitQuiz($exerciseId, $selectedOptions, $userId, $isDone)
 {
     // rest submit exercise
     $pairs = array();
@@ -45,6 +45,9 @@ function submitQuiz($exerciseId, $selectedOptions, $userId)
 
     curl_close($ch);
 
+    if ($isDone) {
+        return $score;
+    }
 
     // rest add progress
     $ch = curl_init();
@@ -109,6 +112,8 @@ function submitQuiz($exerciseId, $selectedOptions, $userId)
     }
 
     curl_close($ch);
+
+    return $score;
 }
 
 
@@ -118,10 +123,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitQuiz'])) {
     $isDone = $_POST['isDone'];
     $selectedOptions = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 
-    if (!$isDone) {
-        submitQuiz($exerciseId, $selectedOptions, $userId);
-    }
+    $score = submitQuiz($exerciseId, $selectedOptions, $userId, $isDone);
 
-    header('Location: ../../exercise');
+    header('Location: ../../exercise/result/' . $exerciseId . '?score=' . $score . '&isDone=' . $isDone);
 }
 ?>

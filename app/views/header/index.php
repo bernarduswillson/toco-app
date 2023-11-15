@@ -29,5 +29,6 @@
     <link rel="stylesheet" href="/public/css/video.css">
     <link rel="stylesheet" href="/public/css/toast.css">
     <link rel="stylesheet" href="/public/css/exercise.css">
+    <link rel="stylesheet" href="/public/css/question.css">
   </head>
   <body>

@@ -1,0 +1,139 @@
+.question {
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    /* justify-content: center; */
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.question .question-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.question .question-container h1 {
+    text-align: center;
+}
+
+.question-content {
+    margin: 0 10vw;
+}
+
+.question-content .question-item {
+    margin-bottom: 40px;
+}
+
+.question-content .question-item .question-header {
+    color: #006CDB;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.question-content .question-item .question-text {
+    font-size: 21px;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+.question-content .question-item .option .option-text {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+.option input[type="radio"] {
+    display: none;
+}
+
+.option-label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.radio-custom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+}
+
+.option input[type="radio"]:checked + .option-label .radio-custom::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.submit-button {
+    margin-top: 40px;
+    background: linear-gradient(45deg, #006CDB, #8535D4);
+    color: #FFFFFF;
+    padding: 12px 100px;
+    border-radius: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 0.5px solid #006CDB;
+    transition: all 0.3s ease 0s;
+}
+
+.submit-button {
+    margin-top: 90px;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #006CDB, #8535D4);
+    color: #FFFFFF;
+    padding: 12px 100px;
+    border-radius: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 0.5px solid #006CDB;
+    transition: all 0.3s ease 0s;
+}
+
+.submit-button:hover {
+    transform: translateY(-4px);
+    opacity: 0.6;
+}
+
+.submit-button:active {
+    transform: translateY(6px);
+}
+
+
+.result {
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.result .result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.result .result-text {
+    text-align: center;
+}
