@@ -1,5 +1,5 @@
 <?php
-function buyItem($merchId, $userId)
+function buyItem($merchId, $userId, $email)
 {
     // rest buy merchandise
     $ch = curl_init();
@@ -12,7 +12,8 @@ function buyItem($merchId, $userId)
         CURLOPT_POSTFIELDS,
         json_encode(
             array(
-                "user_id" => (int)$userId
+                "user_id" => (int)$userId,
+                "email" => $email
             )
         )
     );
@@ -31,7 +32,8 @@ function buyItem($merchId, $userId)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buyMerch'])) {
     $merchId = $_POST['merchId'];
     $userId = $_POST['userId'];
+    $email = $_POST['email'];
 
-    buyItem($merchId, $userId);
+    buyItem($merchId, $userId, $email);
 }
 ?>

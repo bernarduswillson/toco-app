@@ -29,6 +29,7 @@
                         <form action="../../../api/merch/buy.php" method="post">
                             <input type="hidden" name="merchId" value="<?= $merch['merchandise_id'] ?>">
                             <input type="hidden" name="userId" value="<?= $data['user_id'] ?>">
+                            <input type="hidden" name="email" value="<?= $data['email'] ?>">
                             <button type="submit" name="buyMerch">Buy</button>
                         </form>
                     </div>

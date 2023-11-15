@@ -8,6 +8,7 @@ class Merchandise extends Controller
 
         $data["pageTitle"] = "Merch!";
         $data["user_id"] = $_SESSION['user_id'];
+        $data["email"] = $_SESSION['email'];
 
         // user's gems
         $baseUrl = 'http://soap:8080/service/gems';
