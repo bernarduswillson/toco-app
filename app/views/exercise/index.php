@@ -5,7 +5,7 @@ $selectedLanguageId = isset($_GET['language']) ? (int) $_GET['language'] : -1;
 <div class="exercise">
   <div class="container exercise-container">
     <h1 class="font-bold text-xl text-blue-purple-gradient">
-      Exercises
+      Exercise
     </h1>
 
     <form id="search-filter-sort-form" action="" method="GET">

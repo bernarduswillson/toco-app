@@ -37,6 +37,7 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
                 <li><a href="<?php echo $username ? '/learn' : '/login'; ?>" class="text-sm text-black">Learn</a></li>
                 <li><a href="/exercise" class="text-sm text-black">Exercise</a></li>
                 <li><a href="/merchandise" class="text-sm text-black">Merchandise</a></li>
+                <li><a href="/transaction" class="text-sm text-black">Transactions</a></li>
             </ul>
         </div>
 
@@ -72,8 +73,9 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : '/pu
     <div class="dropdown-menu">
         <ul>
             <li><a href="<?php echo $username ? '/learn' : '/login'; ?>" class="text-sm text-black">Learn</a></li>
-            <li><a href="/#" class="text-sm text-black">Articles</a></li>
-            <li><a href="/#" class="text-sm text-black">Bootcamp</a></li>
+            <li><a href="/exercise" class="text-sm text-black">Exercise</a></li>
+            <li><a href="/merchandise" class="text-sm text-black">Merchandise</a></li>
+            <li><a href="/transaction" class="text-sm text-black">Transactions</a></li>
             <?php if ($username) : ?>
                 <?php if ($is_admin) : ?>
                     <li><a href="/admin" class="text-sm text-black">CMS</a></li>
