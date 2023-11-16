@@ -12,7 +12,7 @@
                             Question
                             <?= $questionNumber ?>
                         </h2>
-                        <div class="question-text">
+                        <div class="question-text font-bold">
                             <?= $question['question'] ?>
                         </div>
                         <?php foreach ($question["options"] as $option): ?>

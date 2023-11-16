@@ -1,16 +1,26 @@
 <div class="result">
     <div class="container result-container">
-        <h1 class="font-bold text-xl text-blue-purple-gradient result-text">
-            Your Score: <?= $data['score'] ?>
+        <h1 class="text-xl result-header">
+            Congratulations!<br>You have completed<br><span class="text-blue-purple-gradient">
+                <?= $data['exe_name'] ?>
+            </span>
         </h1>
-        <? if ($data['isDone'] == "") : ?>
-            <div class="font-bold text-xl text-blue-purple-gradient result-text">
-                Gems earned: +<?= $data['score'] ?>
-            </div>
-            <div class="font-bold text-xl text-blue-purple-gradient result-text">
-                Your total gems: <?= $data['gems'] ?>
-            </div>
-        <? endif; ?>
+        <div class="result-content">
+            <h1 class="font-bold">
+                Your Score:
+                <span class="result-text"> <?= $data['score'] ?> </span>
+            </h1>
+            <? if ($data['isDone'] == ""): ?>
+                <div class="font-bold">
+                    Gems earned: <span class="result-text"> +
+                    <?= $data['score'] ?> </span>
+                </div>
+                <div class="font-bold">
+                    Your total gems:
+                    <span class="result-text"> <?= $data['gems'] ?> </span>
+                </div>
+            <? endif; ?>
+        </div>
         <div class="button-container">
             <a href="/exercise" class="distinct-button submit-button">Back to Exercise</a>
         </div>

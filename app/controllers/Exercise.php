@@ -127,7 +127,8 @@ class Exercise extends Controller
       $query = $this->getQuery();
       $data["score"] = -1;
 
-      if (isset($query["score"]) && isset($query["isDone"])) {
+      if (isset($query["name"]) && isset($query["score"]) && isset($query["isDone"])) {
+        $data["exe_name"] = $query["name"];
         $data["score"] = $query["score"];
         $data["isDone"] = $query["isDone"];
       }
