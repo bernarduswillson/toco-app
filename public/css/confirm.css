@@ -1,0 +1,24 @@
+.conf {
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.conf .conf-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.conf .conf-container h1 {
+    text-align: center;
+}
+
+.text-red {
+    color: var(--red);
+}

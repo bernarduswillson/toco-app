@@ -27,7 +27,7 @@
                             <?= $merch['desc'] ?>
                         </div>
                         <div class="merch-price">
-                            <?= $merch['price'] ?>
+                            <?= $merch['price'] ?> Gems
                         </div>
                         <div>
                             <form action="../../../api/merch/buy.php" method="post">

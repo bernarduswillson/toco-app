@@ -32,5 +32,6 @@
     <link rel="stylesheet" href="/public/css/question.css">
     <link rel="stylesheet" href="/public/css/merchandise.css">
     <link rel="stylesheet" href="/public/css/transaction.css">
+    <link rel="stylesheet" href="/public/css/confirm.css">
   </head>
   <body>

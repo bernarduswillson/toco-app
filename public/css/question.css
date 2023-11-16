@@ -134,8 +134,12 @@
     text-align: end;
 }
 
-.result .result-content .result-text {
+.result-text {
     color: var(--orange);
+}
+
+.result .result-content .result-text-green {
+    color: #2AAA8A;
 }
 
 @media (max-width: 1000px) {

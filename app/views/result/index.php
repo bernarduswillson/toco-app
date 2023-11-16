@@ -7,12 +7,11 @@
         </h1>
         <div class="result-content">
             <h1 class="font-bold">
-                Your Score:
-                <span class="result-text"> <?= $data['score'] ?> </span>
+                Your Score: <?= $data['score'] ?>
             </h1>
             <? if ($data['isDone'] == ""): ?>
                 <div class="font-bold">
-                    Gems earned: <span class="result-text"> +
+                    Gems earned: <span class="result-text-green"> +
                     <?= $data['score'] ?> </span>
                 </div>
                 <div class="font-bold">
