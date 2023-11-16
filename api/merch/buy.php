@@ -19,13 +19,22 @@ function buyItem($merchId, $userId, $email)
     );
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     $response = curl_exec($ch);
-    var_dump($response);
 
     if ($response === false) {
         echo 'Error: ' . curl_error($ch);
     } else {
         $data = json_decode($response, true);
     }
+
+    if ($data["message"] === "success") {
+        $isSuccess = 1;
+    } else if ($data["message"] === "insufficient gems") {
+        $isSuccess = 0;
+    } else {
+        $isSuccess = -1;
+    }
+
+    return $isSuccess;
 }
 
 
@@ -34,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buyMerch'])) {
     $userId = $_POST['userId'];
     $email = $_POST['email'];
 
-    buyItem($merchId, $userId, $email);
+    $isSuccess = buyItem($merchId, $userId, $email);
+
+    header('Location: ../../merchandise/confirmation/' . $merchId . '/?success=' . $isSuccess);
 }
 ?>
