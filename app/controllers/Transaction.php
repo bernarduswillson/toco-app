@@ -60,7 +60,7 @@ class Transaction extends Controller
             $data['transaction'][] = $transaction;
         }
     } else {
-        echo 'Error extracting values from XML response.';
+        $data['transaction'] = [];
     }    
 
     $this->view('header/index', $data);

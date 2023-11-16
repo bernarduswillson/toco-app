@@ -7,6 +7,12 @@
       Transaction
     </h1>
 
+    <? if (empty($data['transaction'])): ?>
+      <div class="font-bold text-md text-center">
+        You have no transaction history.
+      </div>
+    <? endif; ?>
+
     <div class="card-container" id="transaction-container">
       <?php foreach ($data['transaction'] as $transaction): ?>
         <div class="transaction-card">
@@ -44,9 +50,9 @@
             </div>
             <span class="font-reg text-xs">
               <? if (explode(' ', $transaction['action'])[0] == 'Buy'): ?>
-                <img src="/assets/images/gem.svg" alt="merch" class="merch-icon">
+                <img src="/public/icons/merch.svg" alt="merch" width="50px" class="merch-icon">
               <? else: ?>
-                <img src="/assets/images/gem.svg" alt="gem" class="gem-icon">
+                <img src="/public/icons/gems.svg" alt="gem" width="50px" class="gem-icon">
               <? endif; ?>
             </span>
           </div>

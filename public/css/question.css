@@ -2,7 +2,7 @@
     width: 100%;
     padding-top: 120px;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     padding-bottom: 60px;
     min-height: 100vh;
 }

@@ -38,8 +38,8 @@
                 <input type="hidden" name="userId" value="<?= $data["user_id"] ?>">
                 <input type="hidden" name="isDone" value="<?= $data["isDone"] ?>">
                 <div class="button-container">
-                    <button class="primary-button submit-button" type="submit" name="submitQuiz">Submit</button>
-                </div>
+        <button class="primary-button submit-button" type="submit" name="submitQuiz" onclick="submitFormAndRedirect()">Submit</button>
+    </div>
             </div>
         </form>
     </div>
