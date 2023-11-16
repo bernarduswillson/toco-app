@@ -54,7 +54,8 @@ class Transaction extends Controller
             $transaction = [
                 'amount' => intval($components[0]),
                 'action' => $components[1],
-                'status' => $components[2]
+                'status' => $components[2],
+                'created_at' => $components[3]
             ];
             $data['transaction'][] = $transaction;
         }

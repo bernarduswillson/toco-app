@@ -1,0 +1,119 @@
+.transaction {
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.transaction .transaction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.transaction .transaction-container h1 {
+    text-align: center;
+}
+
+.transaction .transaction-container .card-container {
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.transaction .transaction-container .card-container .transaction-card {
+    border: 2px solid var(--orange);
+    padding: 10px 16px 16px 16px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--white);
+    transition: all 0.15s ease-in-out;
+}
+
+.transaction .transaction-container .card-container .transaction-card:hover {
+    background-color: #F5F5F5;
+}
+
+.transaction .transaction-container .card-container .transaction-card.active {
+    background-color: var(--orange);
+}
+
+.transaction .transaction-container .card-container .transaction-card .transaction-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.transaction .transaction-container .card-container .transaction-card .transaction-head .content {
+    display: flex;
+    flex-direction: column;
+    gap: -5px;
+}
+
+.transaction .transaction-container .card-container .transaction-card .transaction-head .content h2 {
+    color: var(--orange);
+}
+
+.transaction .transaction-container .card-container .transaction-card .transaction-head .content span {
+    color: var(--grey);
+}
+
+.transaction .transaction-container .card-container .transaction-card.active .transaction-head .content h2,
+.transaction .transaction-container .card-container .transaction-card.active .transaction-head .content span {
+    color: var(--white);
+}
+
+.amount-text-get {
+    color: #2AAA8A;
+    margin-bottom: 20px;
+}
+
+.amount-text-buy {
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.datetime-text {
+    color: var(--grey);
+}
+
+.status-text-green {
+    margin-top: 15px;
+    color: #2AAA8A;
+}
+
+.status-text-red {
+    margin-top: 15px;
+    color: var(--red);
+}
+
+/* ===#===#===#===#===#=== Laptop ===#===#===#===#===#=== */
+
+@media (min-width: 1024px) {
+
+    .transaction {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .transaction .transaction-container {
+        gap: 50px;
+    }
+}
+
+/* ===#===#===#===#===#=== Desktop ===#===#===#===#===#=== */
+
+@media (min-width: 1440px) {
+
+    .transaction .transaction-container .card-container {
+        max-width: 1000px;
+    }
+
+}

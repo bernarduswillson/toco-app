@@ -34,6 +34,7 @@
                 <?php endforeach; ?>
                 <div class="" id="hidden"></div>
                 <input type="hidden" name="exerciseId" value="<?= $data['currentExercise']['exercise_id'] ?>">
+                <input type="hidden" name="exerciseName" value="<?= $data['currentExercise']['exe_name'] ?>">
                 <input type="hidden" name="userId" value="<?= $data["user_id"] ?>">
                 <input type="hidden" name="isDone" value="<?= $data["isDone"] ?>">
                 <div class="button-container">

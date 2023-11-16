@@ -31,5 +31,6 @@
     <link rel="stylesheet" href="/public/css/exercise.css">
     <link rel="stylesheet" href="/public/css/question.css">
     <link rel="stylesheet" href="/public/css/merchandise.css">
+    <link rel="stylesheet" href="/public/css/transaction.css">
   </head>
   <body>

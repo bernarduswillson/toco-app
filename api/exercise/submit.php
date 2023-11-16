@@ -1,5 +1,5 @@
 <?php
-function submitQuiz($exerciseId, $selectedOptions, $userId, $isDone)
+function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDone)
 {
     // rest submit exercise
     $pairs = array();
@@ -87,6 +87,7 @@ function submitQuiz($exerciseId, $selectedOptions, $userId, $isDone)
                             <ser:addGems>
                                 <user_id>' . $userId . '</user_id>
                                 <gem>' . $score . '</gem>
+                                <type> Gems Recieved from ' . $exerciseName . ' Exercise</type>
                             </ser:addGems>
                         </x:Body>
                     </x:Envelope>';
@@ -119,12 +120,13 @@ function submitQuiz($exerciseId, $selectedOptions, $userId, $isDone)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitQuiz'])) {
     $exerciseId = $_POST['exerciseId'];
+    $exerciseName = $_POST['exerciseName'];
     $userId = $_POST['userId'];
     $isDone = $_POST['isDone'];
     $selectedOptions = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 
-    $score = submitQuiz($exerciseId, $selectedOptions, $userId, $isDone);
+    $score = submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDone);
 
-    header('Location: ../../exercise/result/' . $exerciseId . '?score=' . $score . '&isDone=' . $isDone);
+    header('Location: ../../exercise/result/' . $exerciseId . '?name=' . $exerciseName . '&score=' . $score . '&isDone=' . $isDone);
 }
 ?>

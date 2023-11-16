@@ -39,18 +39,17 @@ class Merchandise extends Controller
         );
 
         $response = curl_exec($ch);
+        $data['gems'] = $response;
 
         if (curl_errno($ch)) {
-            echo 'Curl error: ' . curl_error($ch);
+            $data['gems'] = "-1";
         }
 
         curl_close($ch);
-        $data['gems'] = $response;
 
         if (preg_match('/<return>(\d+)<\/return>/', $response, $matches)) {
             $data['gems'] = (int) $matches[1];
         } else {
-            echo 'Error extracting numeric value from XML response.';
         }
 
         // merch
@@ -61,7 +60,7 @@ class Merchandise extends Controller
         $response = curl_exec($ch);
         $merch = json_decode($response, true);
 
-        $data["merch"] = $merch['result'];
+        $data["merch"] = $merch['result'] ?? [];
 
         $this->view('header/index', $data);
         $this->view('navbar/index');
