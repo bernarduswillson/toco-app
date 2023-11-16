@@ -29,6 +29,16 @@ $selectedLanguageId = isset($_GET['language']) ? (int) $_GET['language'] : -1;
               <div class="exercise-head">
                 <div class="content">
                   <h2 class="font-bold text-md">
+                    <?php
+                    $imageUrl = null;
+                    foreach ($data["languages"] as $language) {
+                      if ($language["language_id"] == $exercise["language_id"]) {
+                        $imageUrl = $language["language_flag"];
+                        break;
+                      }
+                    }
+                    ?>
+                    <img src="<?= $imageUrl ?>" alt="language" width="20px" height="20px" class="language-icon">
                     <?= $exercise['exe_name'] ?>
                   </h2>
                   <?php

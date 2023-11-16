@@ -22,7 +22,16 @@ function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDo
     curl_setopt($ch, CURLOPT_URL, "http://192.168.0.11:5000/exercise/result/" . $exerciseId);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($submitData));
+    curl_setopt(
+        $ch, 
+        CURLOPT_POSTFIELDS, 
+        json_encode(
+            array(
+                "selectedOptions" => $submitData,
+                "userId" => (int)$userId,
+            )
+        )
+    );
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
     $response = curl_exec($ch);
@@ -74,45 +83,6 @@ function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDo
         $data = json_decode($response, true);
         // echo 'Progress added successfully. Progress id: ' . $data['result']['progress_id'];
     }
-
-
-    // soap add gems
-    $baseUrl = 'http://soap:8080/service/gems';
-
-    $soapRequest = '<x:Envelope
-                        xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
-                        xmlns:ser="http://service.toco.org/">
-                        <x:Header/>
-                        <x:Body>
-                            <ser:addGems>
-                                <user_id>' . $userId . '</user_id>
-                                <gem>' . $score . '</gem>
-                                <type> Gems Recieved from ' . $exerciseName . ' Exercise</type>
-                            </ser:addGems>
-                        </x:Body>
-                    </x:Envelope>';
-
-    $ch = curl_init($baseUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $soapRequest);
-    curl_setopt(
-        $ch,
-        CURLOPT_HTTPHEADER,
-        array(
-            'Content-Type: text/xml',
-            'SOAPAction: addGems',
-            'X-api-key: toco_php'
-        )
-    );
-
-    $response = curl_exec($ch);
-
-    if (curl_errno($ch)) {
-        echo 'Curl error: ' . curl_error($ch);
-    }
-
-    curl_close($ch);
 
     return $score;
 }

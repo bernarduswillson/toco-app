@@ -21,6 +21,15 @@
 .gems  {
     color: var(--orange);
     font-size: 28px;
+    min-width: 300px;
+    border-radius: 20px;
+    background: #FFFF9E;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    padding: 20px 0;
+    text-align: center;
 }
 
 .merchandise-items {
