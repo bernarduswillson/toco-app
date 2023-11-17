@@ -12,7 +12,7 @@ class Exercise extends Controller
 
     // get exercises
     // $baseUrl = 'http://express:5000/exercise';
-    $baseUrl = 'http://192.168.0.11:5000/exercise';
+    $baseUrl = 'http://172.20.10.2:5000/exercise';
     $ch = curl_init($baseUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
@@ -22,7 +22,7 @@ class Exercise extends Controller
 
     // progress
     // $baseUrl = 'http://express:5000/progress/user/' . $data["user_id"];
-    $baseUrl = 'http://192.168.0.11:5000/progress/user/' . $data["user_id"];
+    $baseUrl = 'http://172.20.10.2:5000/progress/user/' . $data["user_id"];
     $ch = curl_init($baseUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
@@ -49,7 +49,7 @@ class Exercise extends Controller
 
       // selected exercise
       // $baseUrl = 'http://express:5000/exercise';
-      $baseUrl = 'http://192.168.0.11:5000/exercise';
+      $baseUrl = 'http://172.20.10.2:5000/exercise';
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
@@ -66,7 +66,7 @@ class Exercise extends Controller
 
       // progress
       // $baseUrl = 'http://express:5000/progress/user/' . $data["user_id"];
-      $baseUrl = 'http://192.168.0.11:5000/progress/user/' . $data["user_id"];
+      $baseUrl = 'http://172.20.10.2:5000/progress/user/' . $data["user_id"];
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
@@ -83,7 +83,7 @@ class Exercise extends Controller
 
       // questions
       // $baseUrl = 'http://express:5000/question/' . $data["exercise_id"];
-      $baseUrl = 'http://192.168.0.11:5000/question/' . $data["exercise_id"];
+      $baseUrl = 'http://172.20.10.2:5000/question/' . $data["exercise_id"];
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
@@ -94,7 +94,7 @@ class Exercise extends Controller
       // options
       foreach ($data["questions"] as &$question) {
         // $baseUrl = 'http://express:5000/option/' . $question["question_id"];
-        $baseUrl = 'http://192.168.0.11:5000/option/' . $question["question_id"];
+        $baseUrl = 'http://172.20.10.2:5000/option/' . $question["question_id"];
         $ch = curl_init($baseUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
@@ -187,7 +187,7 @@ class Exercise extends Controller
   {
     if (isset($exerciseId) && !empty($exerciseId)) {
       // $baseUrl = 'http://express:5000/exercise/validate/' . $exerciseId;
-      $baseUrl = 'http://192.168.0.11:5000/exercise/validate/' . $exerciseId;
+      $baseUrl = 'http://172.20.10.2:5000/exercise/validate/' . $exerciseId;
       $ch = curl_init($baseUrl);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);

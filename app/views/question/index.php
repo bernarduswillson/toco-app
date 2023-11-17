@@ -4,6 +4,24 @@
             <?= $data['currentExercise']['exe_name'] ?>
         </h1>
         <form method="post" action="../../../api/exercise/submit.php">
+            <!-- Modal -->
+            <div class="confirm-container close-modal-trigger">
+                <div class="confirm-card">
+                    <div class="confirm-content">
+                        <h2 class="text-md text-red font-reg">Are you sure?</h2>
+                        <p class="text-sm text-black font-reg">Please re-check your answers before submitting</p>
+                    </div>
+                    <div class="modal-button-container">
+                        <button type="button" class="secondary-btn font-reg text-sm close-modal-trigger">
+                            Cancel
+                        </button>   
+                        <button class="primary-btn font-reg text-sm" id="logout-btn" name="submitQuiz" type="submit">
+                            Submit
+                        </button>   
+                    </div>
+                </div>  
+            </div>
+
             <div class="question-content">
                 <?php $questionNumber = 1; ?>
                 <?php foreach ($data["questions"] as $question): ?>
@@ -38,7 +56,7 @@
                 <input type="hidden" name="userId" value="<?= $data["user_id"] ?>">
                 <input type="hidden" name="isDone" value="<?= $data["isDone"] ?>">
                 <div class="button-container">
-        <button class="primary-button submit-button" type="submit" name="submitQuiz" onclick="submitFormAndRedirect()">Submit</button>
+        <button class="primary-button submit-button modal-trigger" type="button" name="submitQuiz">Submit</button>
     </div>
             </div>
         </form>
@@ -66,3 +84,4 @@
         `;
     }
 </script>
+<script src="../../../public/js/modal.js"></script>

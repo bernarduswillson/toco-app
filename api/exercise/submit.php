@@ -19,7 +19,7 @@ function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDo
 
     $ch = curl_init();
     // curl_setopt($ch, CURLOPT_URL, "http://express:5000/exercise/result/" . $exerciseId);
-    curl_setopt($ch, CURLOPT_URL, "http://192.168.0.11:5000/exercise/result/" . $exerciseId);
+    curl_setopt($ch, CURLOPT_URL, "http://172.20.10.2:5000/exercise/result/" . $exerciseId);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt(
@@ -61,7 +61,7 @@ function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDo
     // rest add progress
     $ch = curl_init();
     // curl_setopt($ch, CURLOPT_URL, "http://express:5000/progress/create");
-    curl_setopt($ch, CURLOPT_URL, "http://192.168.0.11:5000/progress/create");
+    curl_setopt($ch, CURLOPT_URL, "http://172.20.10.2:5000/progress/create");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt(

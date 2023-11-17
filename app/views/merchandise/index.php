@@ -31,7 +31,7 @@
         <div class="merchandise-items">
             <? foreach ($data['merch'] as $merch): ?>
                 <div class="merch-item"
-                    style="background-image: url('http://192.168.0.11:5000/image/?filename=<?= $merch['image'] ?>');">
+                    style="background-image: url('http://172.20.10.2:5000/image/?filename=<?= $merch['image'] ?>');">
                     <div class="merch-image"></div>
                     <div class="merch-details">
                         <div class="merch-name">
@@ -45,10 +45,30 @@
                         </div>
                         <div>
                             <form action="../../../api/merch/buy.php" method="post">
+                                <!-- Modal -->
+                                <div class="confirm-container close-modal-trigger">
+                                    <div class="confirm-card">
+                                        <div class="confirm-content">
+                                            <h2 class="text-md text-red font-reg">Are you sure?</h2>
+                                            <p class="text-sm text-black font-reg">Please re-check your purchase before buying</p>
+                                        </div>
+                                        <div class="modal-button-container">
+                                            <button type="button"
+                                                class="secondary-btn font-reg text-sm close-modal-trigger" data-index="0">
+                                                Cancel
+                                            </button>
+                                            <button class="primary-btn font-reg text-sm" id="logout-btn" name="buyMerch"
+                                                type="submit">
+                                                Buy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <input type="hidden" name="merchId" value="<?= $merch['merchandise_id'] ?>">
                                 <input type="hidden" name="userId" value="<?= $data['user_id'] ?>">
                                 <input type="hidden" name="email" value="<?= $data['email'] ?>">
-                                <button class="buy-button" type="submit" name="buyMerch">Buy</button>
+                                <button class="buy-button modal-trigger" type="button" name="buyMerch">Buy</button>
                             </form>
                         </div>
                     </div>
@@ -57,3 +77,4 @@
         </div>
     </div>
 </div>
+<script src="../../../public/js/modalIter.js"></script>

@@ -11,7 +11,7 @@
         <? endif; ?>
         <div class="conf-items">
             <div class="merch-item"
-                style="background-image: url('http://192.168.0.11:5000/image/?filename=<?= $data['merch']['image'] ?>');">
+                style="background-image: url('http://172.20.10.2:5000/image/?filename=<?= $data['merch']['image'] ?>');">
                 <div class="merch-image"></div>
                 <div class="merch-details">
                     <div class="merch-name">

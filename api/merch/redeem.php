@@ -35,9 +35,13 @@ function redeem($voucher, $userId)
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['redeemVoucher'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['redeemVoucher']) && isset($_POST['voucher'])) {
     $userId = $_POST['userId'];
     $voucher = $_POST['voucher'];
+
+    if (empty($voucher)) {
+        header('Location: ../../merchandise');
+    }
 
     $isSuccess = redeem($voucher, $userId);
 
