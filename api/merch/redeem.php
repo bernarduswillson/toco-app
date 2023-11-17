@@ -1,9 +1,9 @@
 <?php
 function redeem($voucher, $userId)
 {
-    // rest buy merchandise
+    // rest redeem
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "http://express:5000/voucher/use/" . $voucher . "?apiKey=" . getenv('REST_API_KEY'));
+    curl_setopt($ch, CURLOPT_URL, "http://express:5000/voucher/use/" . $voucher);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt(
