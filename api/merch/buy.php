@@ -3,8 +3,7 @@ function buyItem($merchId, $userId, $email)
 {
     // rest buy merchandise
     $ch = curl_init();
-    // curl_setopt($ch, CURLOPT_URL, "http://express:5000/merch/buy/" . $merchId);
-    curl_setopt($ch, CURLOPT_URL, "http://172.20.10.2:5000/merch/buy/" . $merchId);
+    curl_setopt($ch, CURLOPT_URL, "http://express:5000/merch/buy/" . $merchId . "?apiKey=" . getenv('REST_API_KEY'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt(

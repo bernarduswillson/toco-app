@@ -53,8 +53,7 @@ class Merchandise extends Controller
         }
 
         // merch
-        // $baseUrl = 'http://express:5000/merch';
-        $baseUrl = 'http://172.20.10.2:5000/merch';
+        $baseUrl = 'http://express:5000/merch?apiKey=' . getenv('REST_API_KEY');
         $ch = curl_init($baseUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
@@ -130,9 +129,7 @@ class Merchandise extends Controller
             }
 
             // merch
-            // $baseUrl = 'http://express:5000/merch/' . $merchId;
-            $baseUrl = 'http://172.20.10.2:5000/merch/' . $merchId;
-
+            $baseUrl = 'http://express:5000/merch/' . $merchId . "?apiKey=" . getenv('REST_API_KEY');
             $ch = curl_init($baseUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
@@ -150,8 +147,7 @@ class Merchandise extends Controller
     public function validateParamMerch($merchId)
     {
         if (isset($merchId) && !empty($merchId)) {
-            // $baseUrl = 'http://express:5000/merch/validate/' . $merchId;
-            $baseUrl = 'http://172.20.10.2:5000/merch/validate/' . $merchId;
+            $baseUrl = 'http://express:5000/merch/validate/' . $merchId . "?apiKey=" . getenv('REST_API_KEY');
             $ch = curl_init($baseUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
