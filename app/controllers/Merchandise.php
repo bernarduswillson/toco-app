@@ -11,7 +11,7 @@ class Merchandise extends Controller
         $data["email"] = $_SESSION['email'];
 
         // user's gems
-        $baseUrl = 'http://soap:8080/service/gems';
+        $baseUrl = 'http://soap:8080/service';
 
         $soapRequest = '<x:Envelope
                             xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
@@ -54,7 +54,7 @@ class Merchandise extends Controller
 
         // merch
         // $baseUrl = 'http://express:5000/merch';
-        $baseUrl = 'http://192.168.0.11:5000/merch';
+        $baseUrl = 'http://172.20.10.2:5000/merch';
         $ch = curl_init($baseUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
@@ -87,7 +87,7 @@ class Merchandise extends Controller
             }
 
             // user's gems
-            $baseUrl = 'http://soap:8080/service/gems';
+            $baseUrl = 'http://soap:8080/service';
 
             $soapRequest = '<x:Envelope
                           xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
@@ -131,7 +131,7 @@ class Merchandise extends Controller
 
             // merch
             // $baseUrl = 'http://express:5000/merch/' . $merchId;
-            $baseUrl = 'http://192.168.0.11:5000/merch/' . $merchId;
+            $baseUrl = 'http://172.20.10.2:5000/merch/' . $merchId;
 
             $ch = curl_init($baseUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -151,7 +151,7 @@ class Merchandise extends Controller
     {
         if (isset($merchId) && !empty($merchId)) {
             // $baseUrl = 'http://express:5000/merch/validate/' . $merchId;
-            $baseUrl = 'http://192.168.0.11:5000/merch/validate/' . $merchId;
+            $baseUrl = 'http://172.20.10.2:5000/merch/validate/' . $merchId;
             $ch = curl_init($baseUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);

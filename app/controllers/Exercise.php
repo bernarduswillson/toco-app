@@ -134,7 +134,7 @@ class Exercise extends Controller
       }
 
       // user's gems
-      $baseUrl = 'http://soap:8080/service/gems';
+      $baseUrl = 'http://soap:8080/service';
 
       $soapRequest = '<x:Envelope
                           xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"

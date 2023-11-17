@@ -22,10 +22,16 @@
                 <?= $transaction['action'] ?>
               </h2>
               <? if (explode(' ', $transaction['action'])[0] == 'Buy'): ?>
-                <h3 class="font-bold amount-text-buy">
-                  -
-                  <?= $transaction['amount'] ?> Gems
-                </h3>
+                <? if ($transaction['status'] == 'ACCEPTED'): ?>
+                  <h3 class="font-bold amount-text-buy">
+                    -
+                    <?= $transaction['amount'] ?> Gems
+                  </h3>
+                <? else: ?>
+                  <h3 class="font-bold amount-text-buy">
+                    Insufficient Gems
+                  </h3>
+                <? endif; ?>
               <? else: ?>
                 <h3 class="font-bold amount-text-get">
                   +

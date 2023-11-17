@@ -10,7 +10,7 @@ class Transaction extends Controller
     $data["user_id"] = $_SESSION['user_id'];
 
     // user's transaction
-    $baseUrl = 'http://soap:8080/service/transaction';
+    $baseUrl = 'http://soap:8080/service';
 
     $soapRequest = '<x:Envelope
                         xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"

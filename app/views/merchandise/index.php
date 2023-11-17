@@ -3,17 +3,31 @@
         <h1 class="font-bold text-xl text-blue-purple-gradient">
             Merchandise
         </h1>
-        <h2 class="gems">
-            <img src="/public/icons/gems.svg" alt="gem" width="50px" class="gem-icon">
-            <div>
-                <div class="font-reg">
-                    Your Balance:
-                </div>
-                <div class="font-bold">
-                    <?= $data['gems'] ?> gems
+        <div class="merch-header">
+            <div class="gems">
+                <img src="/public/icons/gems.svg" alt="gem" width="50px" class="gem-icon">
+                <div>
+                    <div class="font-reg">
+                        Your Balance:
+                    </div>
+                    <div class="font-bold">
+                        <?= $data['gems'] ?> gems
+                    </div>
                 </div>
             </div>
-        </h2>
+            <div class="redeem">
+                <div class="font-bold">
+                    Reedem Voucher
+                </div>
+                <form action="../../../api/merch/redeem.php" method="post">
+                    <div>
+                        <input type="hidden" name="userId" value="<?= $data['user_id'] ?>">
+                        <input type="text" name="voucher" placeholder="Enter Voucher Code" class="redeem-input">
+                        <button class="redeem-button distinct-button" type="submit" name="redeemVoucher">Redeem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="merchandise-items">
             <? foreach ($data['merch'] as $merch): ?>
                 <div class="merch-item"
