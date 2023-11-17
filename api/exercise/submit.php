@@ -29,6 +29,7 @@ function submitQuiz($exerciseId, $exerciseName, $selectedOptions, $userId, $isDo
             array(
                 "selectedOptions" => $submitData,
                 "userId" => (int)$userId,
+                "isDone" => $isDone
             )
         )
     );
