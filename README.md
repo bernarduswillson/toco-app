@@ -129,4 +129,29 @@ TOCO is a web application designed to help users learn a new language . With TOC
 - [x] transaction overview
 ![transaction](img/trans.jpg)
 
+### _Server Side_
 
+| Fitur                    | NIM      |
+| ------------------------ | -------- |
+| Buy                    |  13521021|
+| Submit                |  13521021        |
+| Voucher                   | 13521021 |
+| Exercise        |  13521021 |
+| Transaction            | 13521021  |
+| Merch           | 13521021  |
+
+### _Client Side_
+
+| Fitur                    | NIM      |
+| ------------------------ | -------- |
+| Exercise                    |  13521021|
+| Merchandise                |  13521021        |
+| Transaction                   | 13521021 |
+
+## Bonus
+- [x] Responsive Design
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+- [x] Docker

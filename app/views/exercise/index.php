@@ -8,20 +8,6 @@ $selectedLanguageId = isset($_GET['language']) ? (int) $_GET['language'] : -1;
       Exercise
     </h1>
 
-    <form id="search-filter-sort-form" action="" method="GET">
-      <div class="input-container">
-        <div class="filter-sort">
-          <select name="language" id="language-input" class="text-sm font-reg text-black">
-            <option value="-1" <?php echo ($selectedLanguageId === -1) ? "selected" : ""; ?>>All languages</option>
-            <?php foreach ($data["languages"] as $language): ?>
-              <option value="<?= $language["language_id"] ?>" <?php echo ($selectedLanguageId == $language["language_id"]) ? "selected" : ""; ?>>
-                <?= $language["language_name"] ?>
-              </option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-      </div>
-
       <div class="card-container" id="exercise-container">
         <?php foreach ($data['exercise'] as $exercise): ?>
           <div class="exercise-card">
